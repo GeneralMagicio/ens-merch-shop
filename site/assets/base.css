@@ -6,6 +6,7 @@
   --selection: var(--cyan);
   --text-base: #000000;
   --text-primary: #000000;
+  --text-blue-light: #d1e4ff;
   --text-secondary: white;
   --hover: rgba(0, 0, 0, 0.075);
   --hover-1: rgba(0, 0, 0, 0.15);
@@ -14,6 +15,7 @@
   --green: #37b679;
   --red: #da3c3c;
   --purple: #f81ce5;
+  --blue-light: #d1e4ff;
   --blue: #0070f3;
   --pink: #ff0080;
   --pink-light: #ff379c;

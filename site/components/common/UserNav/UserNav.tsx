@@ -2,6 +2,7 @@ import cn from 'clsx'
 import Link from 'next/link'
 import s from './UserNav.module.css'
 import { Avatar } from '@components/common'
+import SwitchCurrency from '@components/common/SwitchCurrency'
 import useCart from '@framework/cart/use-cart'
 import { useUI } from '@components/ui/context'
 import { Heart, Bag, Menu } from '@components/icons'
@@ -61,6 +62,9 @@ const UserNav: React.FC<{
             </Link>
           </li>
         )}
+        <li className={s.item}>
+          <SwitchCurrency />
+        </li>
         {process.env.COMMERCE_CUSTOMERAUTH_ENABLED && (
           <li className={s.item}>
             <Dropdown>

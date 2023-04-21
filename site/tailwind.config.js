@@ -33,6 +33,7 @@ module.exports = {
         pink: 'var(--pink)',
         'pink-light': 'var(--pink-light)',
         cyan: 'var(--cyan)',
+        'blue-light': 'var(--blue-light)',
         blue: 'var(--blue)',
         green: 'var(--green)',
         red: 'var(--red)',
@@ -41,6 +42,7 @@ module.exports = {
         base: 'var(--text-base)',
         primary: 'var(--text-primary)',
         secondary: 'var(--text-secondary)',
+        'blue-light': 'var(--text-blue-light)',
       },
       boxShadow: {
         'outline-normal': '0 0 0 2px var(--accent-2)',

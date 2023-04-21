@@ -6,6 +6,7 @@ import { FC, ReactNode, useEffect } from 'react'
 import type { AppProps } from 'next/app'
 import { Head } from '@components/common'
 import { ManagedUIContext } from '@components/ui/context'
+import { Web3Provider } from '@components/providers/Web3'
 
 const Noop: FC<{ children?: ReactNode }> = ({ children }) => <>{children}</>
 
@@ -21,7 +22,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       <Head />
       <ManagedUIContext>
         <Layout pageProps={pageProps}>
-          <Component {...pageProps} />
+          <Web3Provider>
+            <Component {...pageProps} />
+          </Web3Provider>
         </Layout>
       </ManagedUIContext>
     </>
