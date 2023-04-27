@@ -1,96 +1,137 @@
 import { FC } from 'react'
-import cn from 'clsx'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import type { Page } from '@commerce/types/page'
 import getSlug from '@lib/get-slug'
-import { Github, Vercel } from '@components/icons'
-import { Logo, Container } from '@components/ui'
-import { I18nWidget } from '@components/common'
-import ThemeSwitcher from '@components/ui/ThemeSwitcher'
-import s from './Footer.module.css'
+import { Discord, Twitter, Medium, GM } from '@components/icons'
+import { Logo } from '@components/ui'
 
-interface Props {
-  className?: string
-  children?: any
-  pages?: Page[]
-}
-
-const links = [
+const primaryLinks = [
   {
-    name: 'Home',
-    url: '/',
+    name: 'Shipping',
+    url: '/shipping',
+  },
+  {
+    name: 'Refund and Returns',
+    url: '/refund',
+  },
+  {
+    name: 'Report an Issue',
+    url: 'https://github.com/GeneralMagicio/ens-merch-shop/issues/new?assignees=&labels=template%3A+story&template=3.feature_request.yml',
+  },
+  {
+    name: 'FAQ',
+    url: '/faq',
+  },
+  {
+    name: 'Contact',
+    url: '/contact',
   },
 ]
 
-const Footer: FC<Props> = ({ className, pages }) => {
-  const { sitePages } = usePages(pages)
-  const rootClassName = cn(s.root, className)
+const secondaryLinks = [
+  {
+    name: 'About',
+    url: '/about',
+  },
+  {
+    name: 'Terms of use',
+    url: '/terms-of-use',
+  },
+  {
+    name: 'Privacy policy',
+    url: '/privacy-policy',
+  },
+  {
+    name: 'Cookies',
+    url: '/cookies',
+  },
+]
 
+const socialLinks = [
+  {
+    name: 'Twitter',
+    url: 'https://twitter.com/ensdomains',
+    icon: <Twitter />,
+  },
+  {
+    name: 'Discord',
+    url: 'https://chat.ens.domains/',
+    icon: <Discord />,
+  },
+  {
+    name: 'Medium',
+    url: 'https://medium.com/the-ethereum-name-service',
+    icon: <Medium />,
+  },
+]
+
+const Footer: FC = () => {
   return (
-    <footer className={rootClassName}>
-      <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 border-b border-accent-2 py-12 text-primary bg-primary transition-colors duration-150">
-          <div className="col-span-1 lg:col-span-2">
+    <footer className="bg-light-blue flex items-center lg:h-[348px]">
+      <div className="px-12 grid grid-cols-1 lg:grid-cols-12">
+        <div className="flex my-12 lg:mt-0 h-24 flex-col lg:h-44 justify-between col-span-1 lg:col-span-2">
+          <Link href="/">
+            <Logo />
+          </Link>
+          <div className="flex gap-x-5">
+            {socialLinks.map(({ icon, name, url }) => (
+              <Link
+                className="transition duration-200 hover:scale-110 hover:opacity-60"
+                href={url}
+                key={name}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {icon}
+              </Link>
+            ))}
+          </div>
+        </div>
+        <div className="col-span-1 flex flex-col gap-y-6 lg:col-start-5">
+          {primaryLinks.map(({ name, url }) => (
             <Link
-              href="/"
-              className="flex flex-initial items-center font-bold md:mr-24"
+              href={url}
+              key={name}
+              className={
+                'font-medium font-lg text-white transition duration-200 hover:opacity-60'
+              }
+              target={url.includes('http') ? '_blank' : '_self'}
+              rel={'noopener noreferrer'}
             >
-              <span className="rounded-full border border-accent-6 mr-2">
-                <Logo />
-              </span>
-              <span>ACME</span>
+              {name}
+            </Link>
+          ))}
+        </div>
+        <div className="col-span-1 mt-10 lg:mt-0 flex flex-col gap-y-6 lg:col-start-8">
+          {secondaryLinks.map(({ name, url }) => (
+            <Link
+              href={url}
+              key={name}
+              className={
+                'font-medium font-lg text-white transition duration-200 hover:opacity-60'
+              }
+              target={url.includes('http') ? '_blank' : '_self'}
+              rel="noopener noreferrer"
+            >
+              {name}
+            </Link>
+          ))}
+        </div>
+        <div className="col-span-1 flex flex-col lg:col-start-12">
+          <div className="flex gap-x-2 my-10 lg:mt-32 lg:mb-0 items-center">
+            <p className="text-white font-medium text-base text-xs">Built by</p>
+            <Link
+              href={'https://www.generalmagic.io/'}
+              className="transition duration-200 hover:scale-110 hover:opacity-60"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GM />
             </Link>
           </div>
-          <div className="col-span-1 lg:col-span-7">
-            <div className="grid md:grid-rows-4 md:grid-cols-3 md:grid-flow-col">
-              {[...links, ...sitePages].map((page) => (
-                <span key={page.url} className="py-3 md:py-0 md:pb-4">
-                  <Link
-                    href={page.url!}
-                    className="text-accent-9 hover:text-accent-6 transition ease-in-out duration-150"
-                  >
-                    {page.name}
-                  </Link>
-                </span>
-              ))}
-            </div>
-          </div>
-          <div className="col-span-1 lg:col-span-3 flex items-start lg:justify-end text-primary">
-            <div className="flex space-x-4 items-center h-10">
-              <ThemeSwitcher />
-              <I18nWidget />
-              <a
-                className={s.link}
-                aria-label="Github Repository"
-                href="https://github.com/vercel/commerce"
-              >
-                <Github />
-              </a>
-            </div>
-          </div>
         </div>
-        <div className="pt-6 pb-10 flex flex-col md:flex-row justify-between items-center space-y-4 text-accent-6 text-sm">
-          <div>
-            <span>&copy; 2020 ACME, Inc. All rights reserved.</span>
-          </div>
-          <div className="flex items-center text-primary text-sm">
-            <span className="text-primary">Created by</span>
-            <a
-              rel="noopener noreferrer"
-              href="https://vercel.com"
-              aria-label="Vercel.com Link"
-              target="_blank"
-              className="text-primary"
-            >
-              <Vercel
-                className="inline-block h-6 ml-3 text-primary"
-                alt="Vercel.com Logo"
-              />
-            </a>
-          </div>
-        </div>
-      </Container>
+      </div>
     </footer>
   )
 }
