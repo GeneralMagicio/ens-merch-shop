@@ -119,7 +119,7 @@ const Layout: React.FC<Props> = ({
       <div className={cn(s.root)}>
         <Navbar links={navBarlinks} />
         <main className="fit">{children}</main>
-        <Footer pages={pageProps.pages} />
+        <Footer />
         <ModalUI />
         <CheckoutProvider>
           <SidebarUI links={navBarlinks} />
