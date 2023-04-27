@@ -34,6 +34,7 @@ module.exports = {
         'pink-light': 'var(--pink-light)',
         cyan: 'var(--cyan)',
         blue: 'var(--blue)',
+        'light-blue': 'var(--light-blue)',
         green: 'var(--green)',
         red: 'var(--red)',
       },
