@@ -39,6 +39,11 @@ module.exports = {
         green: 'var(--green)',
         red: 'var(--red)',
       },
+      backgroundImage: {
+        'ens-linear':
+          'linear-gradient(to bottom right, #8699fc 0%,#66a1f7 50%,#45bdef 100%)',
+      },
+
       textColor: {
         base: 'var(--text-base)',
         primary: 'var(--text-primary)',
