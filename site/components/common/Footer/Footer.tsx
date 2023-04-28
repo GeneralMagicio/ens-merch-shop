@@ -68,7 +68,7 @@ const socialLinks = [
 
 const Footer: FC = () => {
   return (
-    <footer className="bg-light-blue flex items-center lg:h-[348px]">
+    <footer className="bg-blue-primary flex items-center lg:h-[348px]">
       <div className="px-12 grid grid-cols-1 lg:grid-cols-12">
         <div className="flex my-12 lg:mt-0 h-24 flex-col lg:h-44 justify-between col-span-1 lg:col-span-2">
           <Link href="/">
