@@ -1,5 +1,4 @@
 import cn from 'clsx'
-import s from './Input.module.css'
 import React, { InputHTMLAttributes } from 'react'
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -9,8 +8,6 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 const Input: React.FC<InputProps> = (props) => {
   const { className, children, onChange, ...rest } = props
-
-  const rootClassName = cn(s.root, {}, className)
 
   const handleOnChange = (e: any) => {
     if (onChange) {
@@ -22,7 +19,7 @@ const Input: React.FC<InputProps> = (props) => {
   return (
     <label>
       <input
-        className={rootClassName}
+        className="border rounded-lg p-4 placeholder:text-zinc-400 text-zinc-500 font-medium text-base w-full"
         onChange={handleOnChange}
         autoComplete="off"
         autoCorrect="off"
