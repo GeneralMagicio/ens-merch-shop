@@ -15,8 +15,6 @@ export async function getStaticProps({
     variables: { first: 6 },
     config,
     preview,
-    // Saleor provider only
-    ...({ featured: true } as any),
   })
   const pagesPromise = commerce.getAllPages({ config, preview })
   const siteInfoPromise = commerce.getSiteInfo({ config, preview })
@@ -44,44 +42,31 @@ export default function Home({
         headline="Get your official ENS Merch!"
         description="Show your love for decentralized naming"
       />
-      <Grid variant="filled">
-        {products.slice(0, 3).map((product: any, i: number) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-            imgProps={{
-              alt: product.name,
-              width: i === 0 ? 1080 : 540,
-              height: i === 0 ? 1080 : 540,
-              priority: true,
-            }}
-          />
-        ))}
-      </Grid>
-      <Marquee variant="secondary">
-        {products.slice(0, 3).map((product: any, i: number) => (
-          <ProductCard key={product.id} product={product} variant="slim" />
-        ))}
-      </Marquee>
-
-      <Grid layout="B" variant="filled">
-        {products.slice(0, 3).map((product: any, i: number) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-            imgProps={{
-              alt: product.name,
-              width: i === 1 ? 1080 : 540,
-              height: i === 1 ? 1080 : 540,
-            }}
-          />
-        ))}
-      </Grid>
-      <Marquee>
-        {products.slice(3).map((product: any, i: number) => (
-          <ProductCard key={product.id} product={product} variant="slim" />
-        ))}
-      </Marquee>
+      <section className="w-full py-24 bg-blue-surface">
+        <div className="text-center px-4">
+          <h3 className="font-bold text-5xl">
+            Discover the latest high quality ENS merch
+          </h3>
+          <h5 className="mt-3 font-medium text-xl">
+            Look good and feel good knowing you support decentralized naming
+          </h5>
+        </div>
+        <div className="flex mt-24 items-center gap-x-44 justify-center">
+          {products.slice(2).map((product) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+              className="max-w-fit"
+              variant="floating"
+              imgProps={{
+                alt: product.name,
+                width: 400,
+                height: 400,
+              }}
+            />
+          ))}
+        </div>
+      </section>
       <Newsletter />
     </>
   )

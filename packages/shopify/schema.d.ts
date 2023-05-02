@@ -5131,6 +5131,8 @@ export type Product = HasMetafields &
     id: Scalars['ID']
     /** List of images associated with the product. */
     images: ImageConnection
+    /** A categorization that a product can be tagged with, commonly used for filtering and searching. */
+    productType: Scalars['String']
     /** The media associated with the product. */
     media: MediaConnection
     /** Returns a metafield found by namespace and key. */
@@ -7121,6 +7123,7 @@ export type GetAllProductsQuery = {
         __typename?: 'Product'
         id: string
         title: string
+        productType: string
         vendor: string
         handle: string
         priceRange: {
