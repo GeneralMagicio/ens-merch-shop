@@ -15,6 +15,7 @@
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^1.0.0",
     "@react-spring/web": "^9.4.1",
+    "@tailwindcss/line-clamp": "^0.4.4",
     "@vercel/commerce": "workspace:*",
     "@vercel/commerce-bigcommerce": "workspace:*",
     "@vercel/commerce-commercejs": "workspace:*",

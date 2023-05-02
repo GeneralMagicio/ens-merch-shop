@@ -5,7 +5,7 @@ import { Input } from '@components/ui'
 
 const Newsletter: FC = () => {
   return (
-    <section className="bg-blue-surface mt-8 overflow-hidden min-h-[500px] flex items-center justify-between lg:h-[512px]">
+    <section className="bg-blue-surface overflow-hidden min-h-[500px] flex items-center justify-between lg:h-[512px]">
       <div className="relative mx-auto text-center xl:text-left xl:ml-20 2xl:ml-60 z-10">
         <h3 className="font-semibold text-4xl sm:text-6xl">Stay in the loop</h3>
         <p className="font-medium text-zinc-700 text-xl mt-3">

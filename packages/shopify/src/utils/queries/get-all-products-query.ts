@@ -8,6 +8,7 @@ export const productConnectionFragment = /* GraphQL */ `
       node {
         id
         title
+        description
         productType
         vendor
         handle
