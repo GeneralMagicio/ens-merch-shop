@@ -37,7 +37,6 @@ const UserNav: React.FC<{
         {process.env.COMMERCE_CART_ENABLED && (
           <li className={s.item}>
             <Button
-              className={s.item}
               variant="naked"
               onClick={() => {
                 setSidebarView('CART_VIEW')
@@ -47,7 +46,9 @@ const UserNav: React.FC<{
             >
               <Bag />
               {itemsCount > 0 && (
-                <span className={s.bagCount}>{itemsCount}</span>
+                <span className="absolute -top-[10px] -right-[10px] bg-red w-5 h-5 text-xs font-bold text-white rounded-full flex items-center justify-center">
+                  {itemsCount}
+                </span>
               )}
             </Button>
           </li>
