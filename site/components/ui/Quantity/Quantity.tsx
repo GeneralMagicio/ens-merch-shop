@@ -16,15 +16,11 @@ const Quantity: FC<QuantityProps> = ({
   increase,
   decrease,
   handleChange,
-  handleRemove,
   max = 6,
 }) => {
   return (
     <div className="flex flex-row h-9">
-      <button className={s.actions} onClick={handleRemove}>
-        <Cross width={20} height={20} />
-      </button>
-      <label className="w-full border-accent-2 border ml-2">
+      <label className="w-ful max-w-4 border-accent-2 border ml-2">
         <input
           className={s.input}
           onChange={(e) =>

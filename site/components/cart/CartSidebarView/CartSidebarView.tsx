@@ -34,9 +34,12 @@ const CartSidebarView: FC = () => {
 
   return (
     <SidebarLayout
-      className={cn({
-        [s.empty]: error || success || isLoading || isEmpty,
-      })}
+      className={cn(
+        {
+          [s.empty]: error || success || isLoading || isEmpty,
+        },
+        'px-2'
+      )}
       handleClose={handleClose}
     >
       {isLoading || isEmpty ? (
@@ -78,7 +81,12 @@ const CartSidebarView: FC = () => {
                 My Cart
               </Text>
             </Link>
-            <ul className={s.lineItemsList}>
+            <div className="flex mb-2 items-center text-xs font-medium text-zinc-400 justify-between">
+              <p className="w-64">Products</p>
+              <p className="w-20">Qty</p>
+              <p className="w-24">Unit Price</p>
+            </div>
+            <ul className="flex flex-col space-y-2">
               {data!.lineItems.map((item: any) => (
                 <CartItem
                   key={item.id}
@@ -88,35 +96,36 @@ const CartSidebarView: FC = () => {
               ))}
             </ul>
           </div>
-
-          <div className="flex-shrink-0 px-6 py-6 sm:px-6 sticky z-20 bottom-0 w-full right-0 left-0 bg-accent-0 border-t text-sm">
-            <ul className="pb-2">
-              <li className="flex justify-between py-1">
+          <div className="flex-shrink-0 px-6 py-6 sm:px-6 sticky z-20 bottom-0 w-full right-0 left-0 text-lg">
+            <ul>
+              <li className="flex justify-between py-2">
                 <span>Subtotal</span>
                 <span>{subTotal}</span>
               </li>
-              <li className="flex justify-between py-1">
+              <li className="flex justify-between py-2">
                 <span>Taxes</span>
                 <span>Calculated at checkout</span>
               </li>
-              <li className="flex justify-between py-1">
+              <li className="flex justify-between py-2">
                 <span>Shipping</span>
-                <span className="font-bold tracking-wide">FREE</span>
+                <span>Calculated at checkout</span>
               </li>
             </ul>
-            <div className="flex justify-between border-t border-accent-2 py-3 font-bold mb-2">
+            <div className="flex justify-between py-2 font-bold mb-2">
               <span>Total</span>
               <span>{total}</span>
             </div>
-            <div>
+            <div className="mt-6 mb-8">
               {process.env.COMMERCE_CUSTOMCHECKOUT_ENABLED ? (
                 <Button Component="a" width="100%" onClick={goToCheckout}>
                   Proceed to Checkout ({total})
                 </Button>
               ) : (
-                <Button href="/checkout" Component="a" width="100%">
-                  Proceed to Checkout
-                </Button>
+                <Link href="/checkout">
+                  <button className="block w-full font-bold py-4 rounded-lg text-white bg-blue-primary">
+                    Proceed to Checkout
+                  </button>
+                </Link>
               )}
             </div>
           </div>
