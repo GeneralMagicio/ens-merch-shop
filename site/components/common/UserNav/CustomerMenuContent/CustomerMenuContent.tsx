@@ -1,5 +1,4 @@
 import cn from 'clsx'
-import { useTheme } from 'next-themes'
 import { useRouter } from 'next/router'
 import { Moon, Sun } from '@components/icons'
 import s from './CustomerMenuContent.module.css'
@@ -28,7 +27,6 @@ export default function CustomerMenuContent() {
   const router = useRouter()
   const logout = useLogout()
   const { pathname } = useRouter()
-  const { theme, setTheme } = useTheme()
 
   function handleClick(_: React.MouseEvent<HTMLAnchorElement>, href: string) {
     router.push(href)
@@ -48,25 +46,6 @@ export default function CustomerMenuContent() {
           </a>
         </DropdownMenuItem>
       ))}
-      <DropdownMenuItem>
-        <a
-          className={cn(s.link, 'justify-between')}
-          onClick={() => {
-            setTheme(theme === 'dark' ? 'light' : 'dark')
-          }}
-        >
-          <div>
-            Theme: <strong>{theme}</strong>{' '}
-          </div>
-          <div className="ml-3">
-            {theme == 'dark' ? (
-              <Moon width={20} height={20} />
-            ) : (
-              <Sun width={20} height={20} />
-            )}
-          </div>
-        </a>
-      </DropdownMenuItem>
       <DropdownMenuItem>
         <a
           className={cn(s.link, 'border-t border-accent-2 mt-4')}

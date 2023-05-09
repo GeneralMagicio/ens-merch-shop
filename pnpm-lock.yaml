@@ -656,7 +656,6 @@ importers:
       lodash.random: ^3.2.0
       lodash.throttle: ^4.1.1
       next: ^13.0.4
-      next-themes: ^0.2.0
       postcss: ^8.3.5
       postcss-flexbugs-fixes: ^5.0.2
       postcss-nesting: ^10.1.10
@@ -695,7 +694,6 @@ importers:
       lodash.random: 3.2.0
       lodash.throttle: 4.1.1
       next: 13.0.4_biqbaboplfbrettd7655fr4n2y
-      next-themes: 0.2.1_dcors23iqtgxrhrwosgnnc4xji
       postcss: 8.4.16
       postcss-nesting: 10.1.10_postcss@8.4.16
       react: 18.2.0
@@ -14043,18 +14041,6 @@ packages:
   /neo-async/2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
     dev: true
-
-  /next-themes/0.2.1_dcors23iqtgxrhrwosgnnc4xji:
-    resolution: {integrity: sha512-B+AKNfYNIzh0vqQQKqQItTS8evEouKD7H5Hj3kmuPERwddR2TxvDSFZuTj6T7Jfn1oyeUyJMydPl1Bkxkh0W7A==}
-    peerDependencies:
-      next: '*'
-      react: '*'
-      react-dom: '*'
-    dependencies:
-      next: 13.0.4_biqbaboplfbrettd7655fr4n2y
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-    dev: false
 
   /next/12.3.0_672uxklweod7ene3nqtsh262ca:
     resolution: {integrity: sha512-GpzI6me9V1+XYtfK0Ae9WD0mKqHyzQlGq1xH1rzNIYMASo4Tkl4rTe9jSqtBpXFhOS33KohXs9ZY38Akkhdciw==}
