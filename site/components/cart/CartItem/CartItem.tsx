@@ -9,6 +9,7 @@ import usePrice from '@framework/product/use-price'
 import useUpdateItem from '@framework/cart/use-update-item'
 import useRemoveItem from '@framework/cart/use-remove-item'
 import Quantity from '@components/ui/Quantity'
+import { CrossCircle } from '@components/icons'
 
 type ItemOption = {
   name: string
@@ -78,13 +79,13 @@ const CartItem = ({
 
   return (
     <li
-      className={cn(s.root, {
+      className={cn({
         'opacity-50 pointer-events-none': removing,
       })}
       {...rest}
     >
-      <div className="flex flex-row space-x-4 py-4">
-        <div className="w-16 h-16 bg-violet relative overflow-hidden cursor-pointer">
+      <div className="flex flex-row items-center space-x-4 py-4">
+        <div className="w-16 h-16 border bg-violet relative overflow-hidden cursor-pointer">
           <Link href={`/product/${item.path}`}>
             <Image
               onClick={() => closeSidebarIfPresent()}
@@ -96,7 +97,7 @@ const CartItem = ({
             />
           </Link>
         </div>
-        <div className="flex-1 flex flex-col text-base">
+        <div>
           <Link href={`/product/${item.path}`}>
             <span
               className={s.productName}
@@ -130,15 +131,8 @@ const CartItem = ({
               ))}
             </div>
           )}
-          {variant === 'display' && (
-            <div className="text-sm tracking-wider">{quantity}x</div>
-          )}
         </div>
-        <div className="flex flex-col justify-between space-y-2 text-sm">
-          <span>{price}</span>
-        </div>
-      </div>
-      {variant === 'default' && (
+
         <Quantity
           value={quantity}
           handleRemove={handleRemove}
@@ -146,7 +140,13 @@ const CartItem = ({
           increase={() => increaseQuantity(1)}
           decrease={() => increaseQuantity(-1)}
         />
-      )}
+        <div className="flex w-28 items-center space-x-2 justify-center text-lg font-bold">
+          <span>{price}</span>{' '}
+          <button onClick={handleRemove}>
+            <CrossCircle />
+          </button>
+        </div>
+      </div>
     </li>
   )
 }
