@@ -25,7 +25,7 @@ const primaryLinks = [
   },
   {
     name: 'Contact',
-    url: '/contact',
+    url: '/contact-us',
   },
 ]
 
