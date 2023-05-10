@@ -48,6 +48,7 @@ module.exports = {
         base: 'var(--text-base)',
         primary: 'var(--text-primary)',
         secondary: 'var(--text-secondary)',
+        'gray-light': 'var(--text-gray-light)',
       },
       boxShadow: {
         'outline-normal': '0 0 0 2px var(--accent-2)',
