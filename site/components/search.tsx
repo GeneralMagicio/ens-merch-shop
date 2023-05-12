@@ -70,7 +70,7 @@ export default function Search({ categories, brands }: SearchPropsType) {
 
   return (
     <>
-      <Container>
+      <Container className="mt-28">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mt-16 mb-32">
           <div className="col-span-8 lg:col-span-2 order-1 lg:order-none">
             {/* Categories */}

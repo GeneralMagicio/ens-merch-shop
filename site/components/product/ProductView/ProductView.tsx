@@ -22,7 +22,7 @@ const ProductView: FC<ProductViewProps> = ({ product, relatedProducts }) => {
 
   return (
     <>
-      <Container className="max-w-none w-full" clean>
+      <Container className="max-w-none w-full mt-28" clean>
         <div className={cn(s.root, 'fit')}>
           <div className={cn(s.main, 'fit')}>
             <ProductSlider key={product.id}>
