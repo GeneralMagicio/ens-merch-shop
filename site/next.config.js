@@ -40,6 +40,10 @@ module.exports = withCommerceConfig({
   experimental: {
     esmExternals: 'loose',
   },
+  webpack: (config) => {
+    config.resolve.fallback = { fs: false, net: false, tls: false }
+    return config
+  },
 })
 
 // Don't delete this console log, useful to see the commerce config in Vercel deployments

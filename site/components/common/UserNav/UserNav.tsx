@@ -7,6 +7,7 @@ import { useUI } from '@components/ui/context'
 import { Heart, Bag, Menu } from '@components/icons'
 import CustomerMenuContent from './CustomerMenuContent'
 import useCustomer from '@framework/customer/use-customer'
+import { ConnectButton } from '@rainbow-me/rainbowkit'
 import React from 'react'
 import {
   Dropdown,
@@ -90,6 +91,13 @@ const UserNav: React.FC<{
           >
             <Menu />
           </Button>
+        </li>
+        <li className={s.item}>
+          <ConnectButton
+            chainStatus={'icon'}
+            accountStatus={'address'}
+            showBalance={false}
+          />
         </li>
       </ul>
     </nav>
