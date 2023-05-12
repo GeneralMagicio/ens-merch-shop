@@ -1,9 +1,9 @@
 .swatch {
   box-sizing: border-box;
   composes: root from '@components/ui/Button/Button.module.css';
-  @apply h-10 w-10 bg-primary text-primary rounded-full mr-3 inline-flex
+  @apply h-10 w-10 bg-primary font-bold text-blue-primary rounded-full mr-3 inline-flex
   items-center justify-center cursor-pointer transition duration-150 ease-in-out
-  p-0 shadow-none border-accent-3 border box-border select-none;
+  p-0 shadow-none border-blue-primary border box-border select-none;
   margin-right: calc(0.75rem - 1px);
   overflow: hidden;
   width: 48px;
@@ -16,7 +16,7 @@
 }
 
 .swatch:hover {
-  @apply transform scale-110 bg-hover;
+  @apply transform scale-110 bg-blue-surface border-blue-primary;
 }
 
 .swatch > span {
@@ -24,11 +24,7 @@
 }
 
 .color {
-  @apply text-black transition duration-150 ease-in-out;
-}
-
-.color :hover {
-  @apply text-black;
+  @apply transition duration-150 ease-in-out;
 }
 
 .color.dark,
@@ -37,7 +33,7 @@
 }
 
 .active {
-  @apply border-accent-9 border-2;
+  @apply border-blue-primary border-2 bg-blue-surface;
   padding-right: 1px;
   padding-left: 1px;
 }
@@ -48,7 +44,7 @@
 }
 
 .active.textLabel {
-  @apply border-accent-9 border-2;
+  @apply border-blue-primary border-2;
   padding-right: calc(1rem - 1px);
   padding-left: calc(1rem - 1px);
 }
