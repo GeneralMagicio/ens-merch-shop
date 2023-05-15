@@ -14,7 +14,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="max-w-2xl px-4 mt-20 mb-44 mx-auto">
+      <div className="max-w-2xl px-4 my-auto mx-auto">
         <h2 className="text-5xl text-center font-bold">Contact</h2>
         {sentEmail ? (
           <div className="px-2">
