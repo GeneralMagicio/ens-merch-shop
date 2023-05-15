@@ -1,4 +1,6 @@
-interface LogoProps {
+import { SVGProps } from 'react'
+
+interface LogoProps extends SVGProps<SVGSVGElement> {
   className?: string
   variant?: 'default' | 'light'
 }
