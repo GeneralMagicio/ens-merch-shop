@@ -1,7 +1,6 @@
 import commerce from '@lib/api/commerce'
 import { Layout } from '@components/common'
 import { ProductCard } from '@components/product'
-import { Grid, Marquee, Hero } from '@components/ui'
 import Newsletter from '@components/common/Newsletter'
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 import Link from 'next/link'
@@ -34,7 +33,7 @@ export async function getStaticProps({
   }
 }
 
-export default function Home({
+export default function About({
   products,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
@@ -121,4 +120,4 @@ export default function Home({
   )
 }
 
-Home.Layout = Layout
+About.Layout = Layout
