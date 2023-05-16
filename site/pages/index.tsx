@@ -21,10 +21,11 @@ export async function getStaticProps({
   const { products } = await productsPromise
   const { pages } = await pagesPromise
   const { categories, brands } = await siteInfoPromise
+  const selectedProducts = products.sort(() => 0.5 - Math.random()).slice(0, 2)
 
   return {
     props: {
-      products,
+      products: selectedProducts,
       categories,
       brands,
       pages,
@@ -52,7 +53,7 @@ export default function Home({
           </h5>
         </div>
         <div className="flex mt-24 items-center gap-x-44 justify-center">
-          {products.slice(2).map((product) => (
+          {products.map((product) => (
             <ProductCard
               key={product.id}
               product={product}
