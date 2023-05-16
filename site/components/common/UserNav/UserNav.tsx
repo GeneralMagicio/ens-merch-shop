@@ -1,13 +1,11 @@
 import cn from 'clsx'
-import Link from 'next/link'
 import s from './UserNav.module.css'
 import { Avatar } from '@components/common'
 import useCart from '@framework/cart/use-cart'
 import { useUI } from '@components/ui/context'
-import { Heart, Bag, Menu } from '@components/icons'
+import { Bag, Menu } from '@components/icons'
 import CustomerMenuContent from './CustomerMenuContent'
 import useCustomer from '@framework/customer/use-customer'
-import { ConnectButton } from '@rainbow-me/rainbowkit'
 import React from 'react'
 import {
   Dropdown,
@@ -17,6 +15,7 @@ import {
 
 import type { LineItem } from '@commerce/types/cart'
 import SwitchCurrency from '../SwitchCurrency/SwitchCurrency'
+import SignInButton from '../SignInButton/SignInButton'
 
 const countItem = (count: number, item: LineItem) => count + item.quantity
 
@@ -87,12 +86,7 @@ const UserNav: React.FC<{
           <SwitchCurrency />
         </li>
         <li>
-          <button
-            className="bg-blue-primary w-24 py-3  rounded-lg"
-            type="submit"
-          >
-            <span className="text-white text-base font-bold">Sign in</span>
-          </button>
+          <SignInButton />
         </li>
       </ul>
     </nav>
