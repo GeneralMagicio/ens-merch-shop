@@ -32,10 +32,12 @@ const ProductCard: FC<Props> = ({
 
   if (variant === 'floating')
     return (
-      <div className="relative bg-blue-primary w-[560px] rounded-3xl p-9">
+      <div className="relative bg-blue-primary w-[560px] h-[400px] rounded-3xl p-9">
         <EnsLogo />
         <div className="mt-12 text-white max-w-[270px]">
-          <h3 className="font-black text-4xl leading-[48px]">{product.name}</h3>
+          <h3 className="font-black text-4xl leading-[48px] line-clamp-2">
+            {product.name}
+          </h3>
           <p className="mt-4 font-medium text-lg line-clamp-3">
             {product.description}
           </p>
