@@ -5,10 +5,6 @@ import { Logo } from '@components/ui'
 
 const primaryLinks = [
   {
-    name: 'Shipping',
-    url: '/shipping',
-  },
-  {
     name: 'Refund and Returns',
     url: '/refund',
   },
