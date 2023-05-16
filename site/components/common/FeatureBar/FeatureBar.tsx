@@ -1,17 +1,16 @@
+import { ReactNode } from 'react'
 import cn from 'clsx'
 import s from './FeatureBar.module.css'
 
 interface FeatureBarProps {
   className?: string
-  title: string
-  description?: string
+  children?: ReactNode
   hide?: boolean
   action?: React.ReactNode
 }
 
 const FeatureBar: React.FC<FeatureBarProps> = ({
-  title,
-  description,
+  children,
   className,
   action,
   hide,
@@ -27,10 +26,7 @@ const FeatureBar: React.FC<FeatureBarProps> = ({
   )
   return (
     <div className={rootClassName}>
-      <span className="block md:inline">{title}</span>
-      <span className="block mb-6 md:inline md:mb-0 md:ml-2">
-        {description}
-      </span>
+      <span className="block md:inline">{children}</span>
       {action && action}
     </div>
   )
