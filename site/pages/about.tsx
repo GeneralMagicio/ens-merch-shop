@@ -1,7 +1,6 @@
 import commerce from '@lib/api/commerce'
 import { Layout } from '@components/common'
 import { ProductCard } from '@components/product'
-import { Grid, Marquee, Hero } from '@components/ui'
 import Newsletter from '@components/common/Newsletter'
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 import Link from 'next/link'
@@ -34,12 +33,12 @@ export async function getStaticProps({
   }
 }
 
-export default function Home({
+export default function About({
   products,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
-      <div className="max-w-3xl mt-20 mb-44 mx-auto">
+      <div className="max-w-3xl px-4 my-44 mx-auto">
         <h2 className="text-5xl text-center font-bold">About</h2>
         <p className="mt-14 text-2xl font-bold leading-8">
           ENS Merch Shop sells official merchandise of{' '}
@@ -121,4 +120,4 @@ export default function Home({
   )
 }
 
-Home.Layout = Layout
+About.Layout = Layout

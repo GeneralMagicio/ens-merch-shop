@@ -1,12 +1,11 @@
 import { Layout } from '@components/common'
 import Newsletter from '@components/common/Newsletter'
-import { ChevronDown, ChevronUp } from '@components/icons'
 import { Accordion } from '@components/ui/Accordion/Accordion'
 
 export default function Home() {
   return (
     <>
-      <div className="max-w-3xl mt-20 mb-44 mx-auto">
+      <div className="max-w-3xl px-4 my-44 mx-auto">
         <h2 className="text-5xl text-center font-bold">
           Frequently asked questions
         </h2>

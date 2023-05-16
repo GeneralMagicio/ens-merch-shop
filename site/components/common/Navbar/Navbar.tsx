@@ -16,7 +16,7 @@ const Navbar: FC<NavbarProps> = ({ links }) => {
   return (
     <Container
       clean
-      className="w-full inset-0 fixed z-20 max-h-fit backdrop-blur-sm mx-auto max-w-8xl px-12"
+      className="w-full inset-0 fixed z-20 max-h-fit backdrop-blur-xl border-gray-200 mx-auto max-w-8xl px-12"
     >
       <div className="flex items-center justify-between h-28">
         <Link href="/" aria-label="Logo">

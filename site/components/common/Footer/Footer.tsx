@@ -1,16 +1,9 @@
 import { FC } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
-import type { Page } from '@commerce/types/page'
-import getSlug from '@lib/get-slug'
 import { Discord, Twitter, Medium, GM } from '@components/icons'
 import { Logo } from '@components/ui'
 
 const primaryLinks = [
-  {
-    name: 'Shipping',
-    url: '/shipping',
-  },
   {
     name: 'Refund and Returns',
     url: '/refund',
@@ -72,7 +65,7 @@ const Footer: FC = () => {
       <div className="px-12 grid grid-cols-1 lg:grid-cols-12">
         <div className="flex my-12 lg:mt-0 h-24 flex-col lg:h-44 justify-between col-span-1 lg:col-span-2">
           <Link href="/">
-            <Logo />
+            <Logo variant="light" />
           </Link>
           <div className="flex gap-x-5">
             {socialLinks.map(({ icon, name, url }) => (
@@ -134,29 +127,6 @@ const Footer: FC = () => {
       </div>
     </footer>
   )
-}
-
-function usePages(pages?: Page[]) {
-  const { locale } = useRouter()
-  const sitePages: Page[] = []
-
-  if (pages) {
-    pages.forEach((page) => {
-      const slug = page.url && getSlug(page.url)
-      if (!slug) return
-      if (locale && !slug.startsWith(`${locale}/`)) return
-      sitePages.push(page)
-    })
-  }
-
-  return {
-    sitePages: sitePages.sort(bySortOrder),
-  }
-}
-
-// Sort pages by the sort order assigned in the BC dashboard
-function bySortOrder(a: Page, b: Page) {
-  return (a.sort_order ?? 0) - (b.sort_order ?? 0)
 }
 
 export default Footer
