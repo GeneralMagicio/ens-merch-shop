@@ -34,7 +34,7 @@ const SignInButton = ({ variant = 'default' }: SignInButtonProps) => {
         }
         return (
           <button
-            className="bg-blue-surface w-28 py-3 rounded-lg"
+            className="bg-blue-surface min-w-[120px] px-2 py-3 rounded-lg"
             onClick={openAccountModal}
           >
             <span className="text-blue-primary-dark text-base font-bold">
