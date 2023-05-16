@@ -1,6 +1,7 @@
 import cn from 'clsx'
 import s from './Layout.module.css'
 import dynamic from 'next/dynamic'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { CommerceProvider } from '@framework'
 import LoginView from '@components/auth/LoginView'
@@ -125,14 +126,24 @@ const Layout: React.FC<Props> = ({
           <SidebarUI links={navBarlinks} />
         </CheckoutProvider>
         <FeatureBar
-          title="This site uses cookies to improve your experience. By clicking, you agree to our Privacy Policy."
           hide={acceptedCookies}
           action={
-            <Button className="mx-5" onClick={() => onAcceptCookies()}>
-              Accept cookies
-            </Button>
+            <button
+              className="mx-5 bg-blue-primary px-8 py-5 rounded-lg"
+              onClick={() => onAcceptCookies()}
+            >
+              <span className="text-white text-lg font-bold">
+                Accept cookies
+              </span>
+            </button>
           }
-        />
+        >
+          This site uses cookies to improve your experience. By clicking, you
+          agree to our{' '}
+          <Link className="font-bold text-blue-primary" href="/cookies">
+            Privacy Policy.
+          </Link>
+        </FeatureBar>
       </div>
     </CommerceProvider>
   )
