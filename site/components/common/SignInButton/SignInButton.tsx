@@ -1,6 +1,11 @@
+import cn from 'clsx'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 
-const SignInButton = () => {
+interface SignInButtonProps {
+  variant?: 'default' | 'light'
+}
+
+const SignInButton = ({ variant = 'default' }: SignInButtonProps) => {
   return (
     <ConnectButton.Custom>
       {({ account, chain, openAccountModal, openConnectModal, mounted }) => {
@@ -8,10 +13,22 @@ const SignInButton = () => {
         if (!connected) {
           return (
             <button
-              className="bg-blue-primary w-24 py-3 rounded-lg"
+              className={cn(
+                'w-24 py-3 rounded-lg',
+                variant === 'default' ? 'bg-blue-primary' : 'bg-blue-surface'
+              )}
               onClick={openConnectModal}
             >
-              <span className="text-white text-base font-bold">Sign in</span>
+              <span
+                className={cn(
+                  'text-base font-bold',
+                  variant === 'default'
+                    ? 'text-white'
+                    : 'text-blue-primary-dark'
+                )}
+              >
+                Sign in
+              </span>
             </button>
           )
         }

@@ -1,13 +1,19 @@
 import { FC, memo, useEffect } from 'react'
 import { MagnifyingGlass } from '@components/icons'
 import { useRouter } from 'next/router'
+import cn from 'clsx'
 
 interface Props {
   className?: string
   id?: string
+  variant?: 'default' | 'light'
 }
 
-const Searchbar: FC<Props> = ({ className, id = 'search' }) => {
+const Searchbar: FC<Props> = ({
+  className,
+  id = 'search',
+  variant = 'default',
+}) => {
   const router = useRouter()
 
   useEffect(() => {
@@ -38,13 +44,18 @@ const Searchbar: FC<Props> = ({ className, id = 'search' }) => {
       </label>
       <input
         id={id}
-        className="font-medium text-base pl-10 w-[400px] rounded-lg border border-blue-primary p-3 text-blue-primary placeholder:text-blue-primary focus:outline-none bg-transparent"
+        className={cn(
+          'font-medium text-base pl-10 w-[400px] rounded-lg border p-3 focus:outline-none bg-transparent',
+          variant === 'default'
+            ? 'border-blue-primary text-blue-primary placeholder:text-blue-primary'
+            : 'border-blue-surface text-blue-surface placeholder:text-blue-surface'
+        )}
         placeholder="Search for products..."
         defaultValue={router.query.q}
         onKeyUp={handleKeyUp}
       />
       <div className="absolute left-4">
-        <MagnifyingGlass />
+        <MagnifyingGlass variant={variant} />
       </div>
     </div>
   )

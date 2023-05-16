@@ -21,7 +21,8 @@ const countItem = (count: number, item: LineItem) => count + item.quantity
 
 const UserNav: React.FC<{
   className?: string
-}> = ({ className }) => {
+  variant?: 'default' | 'light'
+}> = ({ className, variant = 'default' }) => {
   const { data } = useCart()
   const { data: isCustomerLoggedIn } = useCustomer()
   const { openModal, setSidebarView, openSidebar } = useUI()
@@ -44,7 +45,7 @@ const UserNav: React.FC<{
               }}
               aria-label={`Cart items: ${itemsCount}`}
             >
-              <Bag />
+              <Bag variant={variant} />
               {itemsCount > 0 && (
                 <span className="absolute -top-[10px] -right-[10px] bg-red w-5 h-5 text-xs font-bold text-white rounded-full flex items-center justify-center">
                   {itemsCount}
@@ -86,7 +87,7 @@ const UserNav: React.FC<{
           <SwitchCurrency />
         </li>
         <li>
-          <SignInButton />
+          <SignInButton variant={variant} />
         </li>
       </ul>
     </nav>
