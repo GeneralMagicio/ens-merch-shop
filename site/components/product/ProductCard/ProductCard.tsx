@@ -5,8 +5,8 @@ import Image, { ImageProps } from 'next/image'
 import WishlistButton from '@components/wishlist/WishlistButton'
 import usePrice from '@framework/product/use-price'
 import ProductTag from '../ProductTag'
-
 import { EnsLogo } from '@components/icons'
+import ProductTypePill from '@components/ui/ProductTypePill'
 
 interface Props {
   className?: string
@@ -82,11 +82,7 @@ const ProductCard: FC<Props> = ({
           {!noNameTag && (
             <div className="flex flex-col mt-5 items-center gap-y-2">
               <h3 className="font-semibold text-xl">{product.name}</h3>
-              {product?.productType && (
-                <div className="bg-blue-surface text-blue-primary font-bold text-sm py-1 px-2 rounded-full">
-                  {product.productType}
-                </div>
-              )}
+              <ProductTypePill productType={product.productType} />
               <div className="font-semibold text-xl">{`${price} ${product.price?.currencyCode}`}</div>
             </div>
           )}

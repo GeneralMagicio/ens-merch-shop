@@ -1,5 +1,7 @@
 import { useAddItem } from '@framework/cart'
 import { FC, useEffect, useState } from 'react'
+import { Suspense } from 'react'
+import dynamic from 'next/dynamic'
 import CopyToClipboard from 'react-copy-to-clipboard'
 import toast, { Toaster } from 'react-hot-toast'
 import type { Product } from '@commerce/types/product'
@@ -14,6 +16,11 @@ import {
 import ErrorMessage from '@components/ui/ErrorMessage'
 import Link from '@components/ui/Link/Link'
 import { ArrowLeftBold, Share } from '@components/icons'
+import ProductTypePill from '@components/ui/ProductTypePill'
+
+const DynamicSelectEnsName = dynamic(
+  () => import('@components/ui/SelectEnsName')
+)
 
 interface ProductSidebarProps {
   product: Product
@@ -28,6 +35,8 @@ const ProductSidebar: FC<ProductSidebarProps> = ({ product, className }) => {
   const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>({})
 
   const url = typeof window !== 'undefined' ? window.location.href : ''
+
+  const isCustomizable = product.productType === 'Customizable'
 
   useEffect(() => {
     selectDefaultOptionFromProduct(product, setSelectedOptions)
@@ -86,11 +95,7 @@ const ProductSidebar: FC<ProductSidebarProps> = ({ product, className }) => {
         </CopyToClipboard>
       </div>
       <h2 className="mt-6 mb-2 font-black text-4xl">{product.name}</h2>
-      {product?.productType && (
-        <div className="bg-blue-surface max-w-fit text-blue-primary font-bold text-sm py-1 px-2 rounded-full">
-          {product.productType}
-        </div>
-      )}
+      <ProductTypePill productType={product.productType} />
       <Text
         className="pb-4 mt-6 break-words w-full max-w-xl"
         html={product.descriptionHtml || product.description}
@@ -100,25 +105,34 @@ const ProductSidebar: FC<ProductSidebarProps> = ({ product, className }) => {
         selectedOptions={selectedOptions}
         setSelectedOptions={setSelectedOptions}
       />
-      <div>
-        {error && <ErrorMessage error={error} className="my-5" />}
-        <button
-          aria-label="Add to Cart"
-          type="button"
-          className="w-full flex items-center justify-center font-bold py-4 rounded-lg text-white bg-blue-primary"
-          onClick={addToCart}
-          disabled={variant?.availableForSale === false || loading}
-        >
-          {variant?.availableForSale === false
-            ? 'Not Available'
-            : 'Add To Cart'}
-          {loading && (
-            <i className="pl-2 m-0 flex">
-              <LoadingDots />
-            </i>
-          )}
-        </button>
-      </div>
+      {isCustomizable ? (
+        <DynamicSelectEnsName
+          error={error}
+          onSuccess={addToCart}
+          variant={variant}
+          loading={loading}
+        />
+      ) : (
+        <div>
+          {error && <ErrorMessage error={error} className="my-5" />}
+          <button
+            aria-label="Add to Cart"
+            type="button"
+            className="w-full flex items-center justify-center font-bold py-4 rounded-lg text-white bg-blue-primary"
+            onClick={addToCart}
+            disabled={variant?.availableForSale === false || loading}
+          >
+            {variant?.availableForSale === false
+              ? 'Not Available'
+              : 'Add To Cart'}
+            {loading && (
+              <i className="pl-2 m-0 flex">
+                <LoadingDots />
+              </i>
+            )}
+          </button>
+        </div>
+      )}
     </div>
   )
 }
