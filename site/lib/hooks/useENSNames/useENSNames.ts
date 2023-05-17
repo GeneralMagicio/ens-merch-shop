@@ -8,7 +8,7 @@ interface UseENSNamesProps {
 }
 
 export const useENSNames = ({ address }: UseENSNamesProps) => {
-  const { data } = useQuery<ENSDomainsQueryResponse>(
+  const queryResponse = useQuery<ENSDomainsQueryResponse>(
     ['queryDomains', address],
     {
       queryFn: async () =>
@@ -21,7 +21,7 @@ export const useENSNames = ({ address }: UseENSNamesProps) => {
     }
   )
 
-  return data
+  return queryResponse
 }
 
 export default useENSNames

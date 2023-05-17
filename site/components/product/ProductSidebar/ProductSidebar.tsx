@@ -1,5 +1,7 @@
 import { useAddItem } from '@framework/cart'
 import { FC, useEffect, useState } from 'react'
+import { Suspense } from 'react'
+import dynamic from 'next/dynamic'
 import CopyToClipboard from 'react-copy-to-clipboard'
 import toast, { Toaster } from 'react-hot-toast'
 import type { Product } from '@commerce/types/product'
@@ -15,16 +17,10 @@ import ErrorMessage from '@components/ui/ErrorMessage'
 import Link from '@components/ui/Link/Link'
 import { ArrowLeftBold, Share } from '@components/icons'
 import ProductTypePill from '@components/ui/ProductTypePill'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@components/ui/Select'
-import useENSNames from '@lib/hooks/useENSNames/useENSNames'
-import { useAccount } from 'wagmi'
-import SignInButton from '@components/common/SignInButton/SignInButton'
+
+const DynamicSelectEnsName = dynamic(
+  () => import('@components/ui/SelectEnsName')
+)
 
 interface ProductSidebarProps {
   product: Product
@@ -37,10 +33,6 @@ const ProductSidebar: FC<ProductSidebarProps> = ({ product, className }) => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<null | Error>(null)
   const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>({})
-  const [selectedEnsName, setSelectedEnsName] = useState<string>()
-
-  const { address, isConnected } = useAccount()
-  const { data: ensNames } = useENSNames({ address })
 
   const url = typeof window !== 'undefined' ? window.location.href : ''
 
@@ -114,62 +106,12 @@ const ProductSidebar: FC<ProductSidebarProps> = ({ product, className }) => {
         setSelectedOptions={setSelectedOptions}
       />
       {isCustomizable ? (
-        <>
-          <div className="w-full mt-2 mb-8 border">
-            {isConnected ? (
-              ensNames && ensNames?.domains.length > 0 ? (
-                <Select
-                  value={selectedEnsName}
-                  onValueChange={setSelectedEnsName}
-                >
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select your ENS name" />
-                  </SelectTrigger>
-                  <SelectContent className="bg-blue-surface overflow-y-scroll max-h-[300px]">
-                    {ensNames?.domains.map(({ id, name }) => (
-                      <SelectItem
-                        className="hover:bg-black m-0 hover:bg-opacity-10"
-                        key={id}
-                        value={name.toLowerCase()}
-                      >
-                        {name}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              ) : (
-                <span className="w-full p-3 rounded-lg bg-blue-surface">
-                  The connected address doesn't own any ENS name
-                </span>
-              )
-            ) : (
-              <SignInButton />
-            )}
-          </div>
-          <div>
-            {error && <ErrorMessage error={error} className="my-5" />}
-            <button
-              aria-label="Add to Cart"
-              type="button"
-              className="w-full flex items-center justify-center font-bold py-4 rounded-lg text-white bg-blue-primary disabled:opacity-70"
-              onClick={addToCart}
-              disabled={
-                variant?.availableForSale === false ||
-                loading ||
-                !selectedEnsName
-              }
-            >
-              {variant?.availableForSale === false
-                ? 'Not Available'
-                : 'Add To Cart (custom)'}
-              {loading && (
-                <i className="pl-2 m-0 flex">
-                  <LoadingDots />
-                </i>
-              )}
-            </button>
-          </div>
-        </>
+        <DynamicSelectEnsName
+          error={error}
+          onSuccess={addToCart}
+          variant={variant}
+          loading={loading}
+        />
       ) : (
         <div>
           {error && <ErrorMessage error={error} className="my-5" />}
