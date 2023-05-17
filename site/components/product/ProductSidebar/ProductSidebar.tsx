@@ -14,6 +14,7 @@ import {
 import ErrorMessage from '@components/ui/ErrorMessage'
 import Link from '@components/ui/Link/Link'
 import { ArrowLeftBold, Share } from '@components/icons'
+import ProductTypePill from '@components/ui/ProductTypePill'
 
 interface ProductSidebarProps {
   product: Product
@@ -86,11 +87,8 @@ const ProductSidebar: FC<ProductSidebarProps> = ({ product, className }) => {
         </CopyToClipboard>
       </div>
       <h2 className="mt-6 mb-2 font-black text-4xl">{product.name}</h2>
-      {product?.productType && (
-        <div className="bg-blue-surface max-w-fit text-blue-primary font-bold text-sm py-1 px-2 rounded-full">
-          {product.productType}
-        </div>
-      )}
+      <ProductTypePill productType={product.productType} />
+
       <Text
         className="pb-4 mt-6 break-words w-full max-w-xl"
         html={product.descriptionHtml || product.description}
