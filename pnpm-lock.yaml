@@ -654,6 +654,7 @@ importers:
       eslint: ^8.6.0
       eslint-config-next: ^12.0.8
       eslint-config-prettier: ^8.3.0
+      graphql-request: ^6.0.0
       iron-session: ^6.3.1
       js-cookie: ^3.0.1
       keen-slider: ^6.7.0
@@ -705,6 +706,7 @@ importers:
       body-scroll-lock: 4.0.0-beta.0
       clsx: 1.2.1
       email-validator: 2.0.4
+      graphql-request: 6.0.0
       iron-session: 6.3.1_next@13.0.4
       js-cookie: 3.0.1
       keen-slider: 6.8.0
@@ -5783,6 +5785,12 @@ packages:
     dependencies:
       graphql: 16.6.0
     dev: true
+
+  /@graphql-typed-document-node/core/3.2.0:
+    resolution: {integrity: sha512-mB9oAsNCm9aM3/SOv4YtBMqZbYj10R7dkq8byBqxGY/ncFwhf2oQzMV+LCRlWoDSEBJ3COiR1yeDvMtsoOsuFQ==}
+    peerDependencies:
+      graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+    dev: false
 
   /@humanwhocodes/config-array/0.10.4:
     resolution: {integrity: sha512-mXAIHxZT3Vcpg83opl1wGlVZ9xydbfZO3r5YfRSH6Gpp2J/PfdBP0wbDa2sO6/qRbcalpoevVyW6A/fI6LfeMw==}
@@ -13787,6 +13795,17 @@ packages:
     transitivePeerDependencies:
       - encoding
     dev: true
+
+  /graphql-request/6.0.0:
+    resolution: {integrity: sha512-2BmHTuglonjZvmNVw6ZzCfFlW/qkIPds0f+Qdi/Lvjsl3whJg2uvHmSvHnLWhUTEw6zcxPYAHiZoPvSVKOZ7Jw==}
+    peerDependencies:
+      graphql: 14 - 16
+    dependencies:
+      '@graphql-typed-document-node/core': 3.2.0
+      cross-fetch: 3.1.5
+    transitivePeerDependencies:
+      - encoding
+    dev: false
 
   /graphql-tag/2.12.6_graphql@16.6.0:
     resolution: {integrity: sha512-FdSNcu2QQcWnM2VNvSCCDCVS5PpPqpzgFT8+GXzqJuoDd0CBncxCY278u4mhRO7tMgo2JjgJA5aZ+nWSQ/Z+xg==}
