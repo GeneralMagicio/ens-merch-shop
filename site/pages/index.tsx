@@ -5,6 +5,8 @@ import { Hero } from '@components/ui'
 import Newsletter from '@components/common/Newsletter'
 import ProductSection from '@components/product/ProductSection'
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
+import { useEthPrice } from '@lib/hooks/useEthPrice'
+import { useCurrencyContext } from '@lib/hooks/useCurrencyContext'
 
 export async function getStaticProps({
   preview,
@@ -52,6 +54,8 @@ export default function Home({
   products,
   featuredProducts,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const { priceCurrency } = useCurrencyContext()
+
   return (
     <>
       <Hero

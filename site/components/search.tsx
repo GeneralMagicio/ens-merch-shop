@@ -21,12 +21,7 @@ const SORT = {
   'price-desc': 'Price: High to low',
 }
 
-import {
-  filterQuery,
-  getCategoryPath,
-  getDesignerPath,
-  useSearchMeta,
-} from '@lib/search'
+import { filterQuery, getCategoryPath, useSearchMeta } from '@lib/search'
 import ErrorMessage from './ui/ErrorMessage'
 import Newsletter from './common/Newsletter/Newsletter'
 

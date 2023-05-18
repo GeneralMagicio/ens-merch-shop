@@ -1,16 +1,23 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import * as Switch from '@radix-ui/react-switch'
 import cn from 'clsx'
+import { useCurrencyContext } from '@lib/hooks/useCurrencyContext'
 
 const SwitchCurrency: FC = () => {
-  const [checked, setChecked] = useState(false)
+  const { priceCurrency, setPriceCurrency } = useCurrencyContext()
+
+  const isEthPrice = priceCurrency === 'ETH'
+
+  const handleToggle = () => {
+    setPriceCurrency(isEthPrice ? 'USD' : 'ETH')
+  }
 
   return (
     <form>
       <div className="flex items-center">
         <Switch.Root
-          checked={checked}
-          onCheckedChange={setChecked}
+          checked={isEthPrice}
+          onCheckedChange={handleToggle}
           className="relative w-28 h-10 rounded-lg bg-neutral-100"
         >
           <div className="flex justify-between px-4 font-bold text-sm text-zinc-400">
@@ -20,10 +27,10 @@ const SwitchCurrency: FC = () => {
           <Switch.Thumb
             className={cn(
               'flex items-center justify-center absolute left-1 top-1 bg-blue-primary rounded-md w-12 h-8 transition-transform duration-200 text-white font-bold text-sm',
-              !checked && 'translate-x-14'
+              !isEthPrice && 'translate-x-14'
             )}
           >
-            {checked ? 'ETH' : 'USD'}
+            {isEthPrice ? 'ETH' : 'USD'}
           </Switch.Thumb>
         </Switch.Root>
       </div>

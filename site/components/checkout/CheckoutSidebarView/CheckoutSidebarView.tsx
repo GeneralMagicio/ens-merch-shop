@@ -11,6 +11,7 @@ import ShippingWidget from '../ShippingWidget'
 import PaymentWidget from '../PaymentWidget'
 import s from './CheckoutSidebarView.module.css'
 import { useCheckoutContext } from '../context'
+import { useCurrencyContext } from '@lib/hooks/useCurrencyContext'
 
 const CheckoutSidebarView: FC = () => {
   const [loadingSubmit, setLoadingSubmit] = useState(false)
@@ -18,6 +19,7 @@ const CheckoutSidebarView: FC = () => {
   const { data: cartData, mutate: refreshCart } = useCart()
   const { data: checkoutData, submit: onCheckout } = useCheckout()
   const { clearCheckoutFields } = useCheckoutContext()
+  const { priceCurrency } = useCurrencyContext()
 
   async function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
     try {
@@ -37,12 +39,14 @@ const CheckoutSidebarView: FC = () => {
 
   const { price: subTotal } = usePrice(
     cartData && {
+      selectedCurrency: priceCurrency,
       amount: Number(cartData.subtotalPrice),
       currencyCode: cartData.currency.code,
     }
   )
   const { price: total } = usePrice(
     cartData && {
+      selectedCurrency: priceCurrency,
       amount: Number(cartData.totalPrice),
       currencyCode: cartData.currency.code,
     }

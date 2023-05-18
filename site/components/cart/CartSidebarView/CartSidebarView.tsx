@@ -9,19 +9,23 @@ import { Bag, Cross, Check } from '@components/icons'
 import useCart from '@framework/cart/use-cart'
 import usePrice from '@framework/product/use-price'
 import SidebarLayout from '@components/common/SidebarLayout'
+import { useCurrencyContext } from '@lib/hooks/useCurrencyContext'
 
 const CartSidebarView: FC = () => {
   const { closeSidebar, setSidebarView } = useUI()
   const { data, isLoading, isEmpty } = useCart()
+  const { priceCurrency } = useCurrencyContext()
 
   const { price: subTotal } = usePrice(
     data && {
+      selectedCurrency: priceCurrency,
       amount: Number(data.subtotalPrice),
       currencyCode: data.currency.code,
     }
   )
   const { price: total } = usePrice(
     data && {
+      selectedCurrency: priceCurrency,
       amount: Number(data.totalPrice),
       currencyCode: data.currency.code,
     }

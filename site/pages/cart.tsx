@@ -7,6 +7,7 @@ import { Button, Text, Container } from '@components/ui'
 import { Bag, Cross, Check, MapPin, CreditCard } from '@components/icons'
 import { CartItem } from '@components/cart'
 import { useUI } from '@components/ui/context'
+import { useCurrencyContext } from '@lib/hooks/useCurrencyContext'
 
 export async function getStaticProps({
   preview,
@@ -28,15 +29,18 @@ export default function Cart() {
   const success = null
   const { data, isLoading, isEmpty } = useCart()
   const { openSidebar, setSidebarView } = useUI()
+  const { priceCurrency } = useCurrencyContext()
 
   const { price: subTotal } = usePrice(
     data && {
+      selectedCurrency: priceCurrency,
       amount: Number(data.subtotalPrice),
       currencyCode: data.currency.code,
     }
   )
   const { price: total } = usePrice(
     data && {
+      selectedCurrency: priceCurrency,
       amount: Number(data.totalPrice),
       currencyCode: data.currency.code,
     }
