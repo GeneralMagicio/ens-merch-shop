@@ -8,6 +8,7 @@ import type { AppProps } from 'next/app'
 import { Head } from '@components/common'
 import { ManagedUIContext } from '@components/ui/context'
 import { Web3Provider } from '@components/providers/Web3Provider'
+import { CurrencyProvider } from '@components/ui/CurrencyContext'
 
 const Noop: FC<{ children?: ReactNode }> = ({ children }) => <>{children}</>
 
@@ -23,9 +24,11 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       <Head />
       <Web3Provider>
         <ManagedUIContext>
-          <Layout pageProps={pageProps}>
-            <Component {...pageProps} />
-          </Layout>
+          <CurrencyProvider>
+            <Layout pageProps={pageProps}>
+              <Component {...pageProps} />
+            </Layout>
+          </CurrencyProvider>
         </ManagedUIContext>
       </Web3Provider>
     </>
