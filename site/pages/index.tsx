@@ -1,8 +1,9 @@
 import commerce from '@lib/api/commerce'
 import { Layout } from '@components/common'
 import { ProductCard } from '@components/product'
-import { Grid, Marquee, Hero } from '@components/ui'
+import { Hero } from '@components/ui'
 import Newsletter from '@components/common/Newsletter'
+import ProductSection from '@components/product/ProductSection'
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 
 export async function getStaticProps({
@@ -21,11 +22,24 @@ export async function getStaticProps({
   const { products } = await productsPromise
   const { pages } = await pagesPromise
   const { categories, brands } = await siteInfoPromise
-  const selectedProducts = products.sort(() => 0.5 - Math.random()).slice(0, 2)
+  const selectedProducts = products.sort(() => 0.5 - Math.random()).slice(0, 4)
+
+  const featuredProductsPromise = selectedProducts.slice(0, 2).map(({ slug }) =>
+    commerce.getProduct({
+      variables: { slug: slug || '' },
+      config,
+      preview,
+    })
+  )
+
+  const featuredProducts = (await Promise.all(featuredProductsPromise)).map(
+    ({ product }) => product
+  )
 
   return {
     props: {
       products: selectedProducts,
+      featuredProducts,
       categories,
       brands,
       pages,
@@ -36,6 +50,7 @@ export async function getStaticProps({
 
 export default function Home({
   products,
+  featuredProducts,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
@@ -43,6 +58,9 @@ export default function Home({
         headline="Get your official ENS Merch!"
         description="Show your love for decentralized naming"
       />
+      <div>
+        <ProductSection product={featuredProducts[0]} />
+      </div>
       <section className="w-full py-24 bg-blue-surface">
         <div className="text-center px-4">
           <h3 className="font-bold text-5xl">
@@ -53,7 +71,7 @@ export default function Home({
           </h5>
         </div>
         <div className="flex mt-24 items-center gap-x-44 justify-center">
-          {products.map((product) => (
+          {products.slice(2, 4).map((product) => (
             <ProductCard
               key={product.id}
               product={product}
@@ -68,6 +86,7 @@ export default function Home({
           ))}
         </div>
       </section>
+      <ProductSection product={featuredProducts[1]} />
       <Newsletter />
     </>
   )
