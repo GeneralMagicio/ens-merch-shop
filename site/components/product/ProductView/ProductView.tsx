@@ -3,23 +3,17 @@ import Image from 'next/image'
 import s from './ProductView.module.css'
 import { FC } from 'react'
 import type { Product } from '@commerce/types/product'
-import usePrice from '@framework/product/use-price'
 import { ProductSlider, ProductCard } from '@components/product'
 import { Container, Text } from '@components/ui'
 import { SEO } from '@components/common'
 import ProductSidebar from '../ProductSidebar'
+import Newsletter from '@components/common/Newsletter/Newsletter'
 interface ProductViewProps {
   product: Product
   relatedProducts: Product[]
 }
 
 const ProductView: FC<ProductViewProps> = ({ product, relatedProducts }) => {
-  const { price } = usePrice({
-    amount: product.price.value,
-    baseAmount: product.price.retailPrice,
-    currencyCode: product.price.currencyCode!,
-  })
-
   return (
     <>
       <Container className="max-w-none w-full mt-28" clean>
@@ -47,14 +41,12 @@ const ProductView: FC<ProductViewProps> = ({ product, relatedProducts }) => {
             className={s.sidebar}
           />
         </div>
-        <hr className="mt-7 border-accent-2" />
-        <section className="py-12 px-6 mb-10">
+        <section className="py-12 px-6 mt-20 mb-10">
           <Text variant="sectionHeading">Related Products</Text>
           <div className={s.relatedProductsGrid}>
             {relatedProducts.map((p) => (
-              <div key={p.path} className="bg-accent-0 border border-accent-2">
+              <div key={p.path} className="bg-accent-0">
                 <ProductCard
-                  noNameTag
                   product={p}
                   key={p.path}
                   variant="simple"
@@ -69,6 +61,7 @@ const ProductView: FC<ProductViewProps> = ({ product, relatedProducts }) => {
           </div>
         </section>
       </Container>
+      <Newsletter />
       <SEO
         title={product.name}
         description={product.description}
