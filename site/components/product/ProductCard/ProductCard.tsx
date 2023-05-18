@@ -7,6 +7,7 @@ import usePrice from '@framework/product/use-price'
 import ProductTag from '../ProductTag'
 import { EnsLogo } from '@components/icons'
 import ProductTypePill from '@components/ui/ProductTypePill'
+import { useCurrencyContext } from '@lib/hooks/useCurrencyContext'
 
 interface Props {
   className?: string
@@ -24,7 +25,10 @@ const ProductCard: FC<Props> = ({
   noNameTag = false,
   variant = 'default',
 }) => {
+  const { priceCurrency } = useCurrencyContext()
+
   const { price } = usePrice({
+    selectedCurrency: priceCurrency,
     amount: product.price.value,
     baseAmount: product.price.retailPrice,
     currencyCode: product.price.currencyCode!,
@@ -83,7 +87,7 @@ const ProductCard: FC<Props> = ({
             <div className="flex flex-col mt-5 items-center gap-y-2">
               <h3 className="font-semibold text-xl">{product.name}</h3>
               <ProductTypePill productType={product.productType} />
-              <div className="font-semibold text-xl">{`${price} ${product.price?.currencyCode}`}</div>
+              <div className="font-semibold text-xl">{`${price}`}</div>
             </div>
           )}
         </>
@@ -114,10 +118,7 @@ const ProductCard: FC<Props> = ({
               variant={product.variants[0] as any}
             />
           )}
-          <ProductTag
-            name={product.name}
-            price={`${price} ${product.price?.currencyCode}`}
-          />
+          <ProductTag name={product.name} price={`${price}`} />
           <div>
             {product?.images && (
               <Image

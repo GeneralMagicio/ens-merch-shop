@@ -8,6 +8,7 @@ import type { LineItem } from '@commerce/types/cart'
 import usePrice from '@framework/product/use-price'
 import useUpdateItem from '@framework/cart/use-update-item'
 import useRemoveItem from '@framework/cart/use-remove-item'
+import { useCurrencyContext } from '@lib/hooks/useCurrencyContext'
 import Quantity from '@components/ui/Quantity'
 import { CrossCircle } from '@components/icons'
 
@@ -35,8 +36,10 @@ const CartItem = ({
   const [quantity, setQuantity] = useState<number>(item.quantity)
   const removeItem = useRemoveItem()
   const updateItem = useUpdateItem({ item })
+  const { priceCurrency } = useCurrencyContext()
 
   const { price } = usePrice({
+    selectedCurrency: priceCurrency,
     amount: item.variant.price * item.quantity,
     baseAmount: item.variant.listPrice * item.quantity,
     currencyCode,

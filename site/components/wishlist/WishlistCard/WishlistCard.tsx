@@ -12,6 +12,7 @@ import usePrice from '@framework/product/use-price'
 import useAddItem from '@framework/cart/use-add-item'
 import useRemoveItem from '@framework/wishlist/use-remove-item'
 import type { WishlistItem } from '@commerce/types/wishlist'
+import { useCurrencyContext } from '@lib/hooks/useCurrencyContext'
 
 const placeholderImg = '/product-img-placeholder.svg'
 
@@ -19,8 +20,10 @@ const WishlistCard: React.FC<{
   item: WishlistItem
 }> = ({ item }) => {
   const product: Product = item.product
+  const { priceCurrency } = useCurrencyContext()
 
   const { price } = usePrice({
+    selectedCurrency: priceCurrency,
     amount: product.price?.value,
     baseAmount: product.price?.retailPrice,
     currencyCode: product.price?.currencyCode!,
