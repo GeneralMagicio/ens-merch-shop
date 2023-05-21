@@ -1,6 +1,5 @@
 import cn from 'clsx'
 import { useRouter } from 'next/router'
-import { Moon, Sun } from '@components/icons'
 import s from './CustomerMenuContent.module.css'
 import useLogout from '@framework/auth/use-logout'
 import {
@@ -33,7 +32,11 @@ export default function CustomerMenuContent() {
   }
 
   return (
-    <DropdownContent sideOffset={10} id="CustomerMenuContent">
+    <DropdownContent
+      className="rounded-lg overflow-hidden"
+      sideOffset={10}
+      id="CustomerMenuContent"
+    >
       {LINKS.map(({ name, href }) => (
         <DropdownMenuItem key={href}>
           <a
@@ -49,7 +52,10 @@ export default function CustomerMenuContent() {
       <DropdownMenuItem>
         <a
           className={cn(s.link, 'border-t border-accent-2 mt-4')}
-          onClick={() => logout()}
+          onClick={() => {
+            router.push('/')
+            logout()
+          }}
         >
           Logout
         </a>
