@@ -23,7 +23,7 @@ export async function getStaticProps({
 export default function Profile() {
   const { data } = useCustomer()
   return (
-    <Container className="pt-4">
+    <Container className="pt-4 mt-44">
       <Text variant="pageHeading">My Profile</Text>
       <div className="grid grid-cols-4">
         {data && (
