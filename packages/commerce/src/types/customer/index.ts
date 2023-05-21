@@ -34,7 +34,19 @@ export interface Customer {
   /**
    * Indicates wathever the customer accepts marketing, such as email newsletters.
    */
-  acceptsMarketing?: boolean
+  orders?: {
+    id: string
+    processedAt: string
+    totalPrice: string
+    orderNumber: number
+    statusUrl: string
+    financialStatus: string
+    fulfillmentStatus: string
+    lineItems?: {
+      title: string
+      quantity: number
+    }[]
+  }[]
 }
 
 export type CustomerHook = {

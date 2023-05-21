@@ -7447,6 +7447,33 @@ export type GetCustomerQuery = {
     tags: Array<string>
     acceptsMarketing: boolean
     createdAt: any
+    orders: {
+      __typename?: 'Order'
+      edges: Array<{
+        __typename?: 'OrderEdge'
+        node: {
+          __typename?: 'Order'
+          id: string
+          processedAt: string
+          totalPrice: Scalars['Money']
+          orderNumber: Scalars['Int']
+          financialStatus: OrderFinancialStatus
+          fulfillmentStatus: OrderFulfillmentStatus
+          statusUrl: Scalars['URL']
+          lineItems: {
+            __typename?: 'OrderLineItemConnection'
+            edges: Array<{
+              __typename?: 'OrderLineItemEdge'
+              node: {
+                __typename?: 'OrderLineItem'
+                title: string
+                quantity: number
+              }
+            }>
+          }
+        }
+      }>
+    }
   } | null
 }
 
