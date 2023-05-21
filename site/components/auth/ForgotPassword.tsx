@@ -40,31 +40,25 @@ const ForgotPassword: FC<Props> = () => {
       onSubmit={handleResetPassword}
       className="w-80 flex flex-col justify-between p-3"
     >
-      <div className="flex justify-center pb-12 ">
-        <Logo width="64px" height="64px" />
-      </div>
       <div className="flex flex-col space-y-4">
         {message && (
           <div className="text-red border border-red p-3">{message}</div>
         )}
-
         <Input placeholder="Email" onChange={setEmail} type="email" />
         <div className="pt-2 w-full flex flex-col">
-          <Button
-            variant="slim"
+          <button
             type="submit"
-            loading={loading}
             disabled={disabled}
+            className="block w-full font-bold py-3 rounded-lg text-white bg-blue-primary"
           >
             Recover Password
-          </Button>
+          </button>
         </div>
-
         <span className="pt-3 text-center text-sm">
           <span className="text-accent-7">Do you have an account?</span>
           {` `}
           <a
-            className="text-accent-9 font-bold hover:underline cursor-pointer"
+            className="text-blue-primary font-bold hover:underline cursor-pointer"
             onClick={() => setModalView('LOGIN_VIEW')}
           >
             Log In
