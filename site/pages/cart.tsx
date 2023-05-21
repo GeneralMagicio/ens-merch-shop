@@ -1,4 +1,5 @@
 import type { GetStaticPropsContext } from 'next'
+import Link from 'next/link'
 import useCart from '@framework/cart/use-cart'
 import usePrice from '@framework/product/use-price'
 import commerce from '@lib/api/commerce'
@@ -52,7 +53,7 @@ export default function Cart() {
   }
 
   return (
-    <Container className="grid lg:grid-cols-12 pt-4 gap-20">
+    <Container className="grid lg:grid-cols-12 mt-44 gap-20">
       <div className="lg:col-span-7">
         {isLoading || isEmpty ? (
           <div className="flex-1 px-12 py-24 flex flex-col justify-center items-center ">
@@ -98,20 +99,6 @@ export default function Cart() {
                 />
               ))}
             </ul>
-            <div className="my-6">
-              <Text>
-                Before you leave, take a look at these items. We picked them
-                just for you
-              </Text>
-              <div className="flex py-6 space-x-6">
-                {[1, 2, 3, 4, 5, 6].map((x) => (
-                  <div
-                    key={x}
-                    className="border border-accent-3 w-full h-24 bg-accent-2 bg-opacity-50 transform cursor-pointer hover:scale-110 duration-75"
-                  />
-                ))}
-              </div>
-            </div>
           </div>
         )}
       </div>
@@ -158,7 +145,7 @@ export default function Cart() {
               </li>
               <li className="flex justify-between py-1">
                 <span>Estimated Shipping</span>
-                <span className="font-bold tracking-wide">FREE</span>
+                <span className=" tracking-wide">Calculated at checkout</span>
               </li>
             </ul>
             <div className="flex justify-between border-t border-accent-2 py-3 font-bold mb-10">
@@ -179,9 +166,11 @@ export default function Cart() {
                       Proceed to Checkout ({total})
                     </Button>
                   ) : (
-                    <Button href="/checkout" Component="a" width="100%">
-                      Proceed to Checkout
-                    </Button>
+                    <Link href="/checkout">
+                      <button className="block w-full font-bold py-4 rounded-lg text-white bg-blue-primary">
+                        Proceed to Checkout
+                      </button>
+                    </Link>
                   )}
                 </>
               )}

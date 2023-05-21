@@ -71,9 +71,6 @@ const SignUpView: FC<Props> = () => {
       onSubmit={handleSignup}
       className="w-80 flex flex-col justify-between p-3"
     >
-      <div className="flex justify-center pb-12 ">
-        <Logo width="64px" height="64px" />
-      </div>
       <div className="flex flex-col space-y-4">
         {message && (
           <div
@@ -88,30 +85,29 @@ const SignUpView: FC<Props> = () => {
         <Input type="email" placeholder="Email" onChange={setEmail} />
         <Input type="password" placeholder="Password" onChange={setPassword} />
         <span className="text-accent-8">
-          <span className="inline-block align-middle ">
+          <span className="inline-block align-middle text-blue-primary">
             <Info width="15" height="15" />
           </span>{' '}
           <span className="leading-6 text-sm">
-            <strong>Info</strong>: Passwords must be longer than 7 chars and
-            include numbers.{' '}
+            <strong className="text-blue-primary">Info</strong>: Passwords must
+            be longer than 7 chars and include numbers.{' '}
           </span>
         </span>
         <div className="pt-2 w-full flex flex-col">
-          <Button
-            variant="slim"
+          <button
             type="submit"
-            loading={loading}
             disabled={disabled}
+            className="block w-full font-bold py-3 rounded-lg text-white bg-blue-primary"
           >
             Sign Up
-          </Button>
+          </button>
         </div>
 
         <span className="pt-1 text-center text-sm">
           <span className="text-accent-7">Do you have an account?</span>
           {` `}
           <a
-            className="text-accent-9 font-bold hover:underline cursor-pointer"
+            className="text-blue-primary font-bold hover:underline cursor-pointer"
             onClick={() => setModalView('LOGIN_VIEW')}
           >
             Log In

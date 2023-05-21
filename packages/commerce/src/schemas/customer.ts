@@ -13,6 +13,27 @@ export const customerSchema = z.object({
   company: z.string().optional(),
   notes: z.string().optional(),
   acceptsMarketing: z.boolean().optional(),
+  orders: z
+    .array(
+      z.object({
+        id: z.string(),
+        processedAt: z.date(),
+        totalPrice: z.string(),
+        financialStatus: z.string(),
+        fulfillmentStatus: z.string(),
+        statusUrl: z.string(),
+        orderNumber: z.number(),
+        lineItems: z
+          .array(
+            z.object({
+              title: z.string(),
+              quantity: z.number(),
+            })
+          )
+          .optional(),
+      })
+    )
+    .optional(),
 })
 
 export const addressSchema = z.object({
