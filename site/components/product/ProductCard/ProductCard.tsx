@@ -8,6 +8,7 @@ import ProductTag from '../ProductTag'
 import { EnsLogo } from '@components/icons'
 import ProductTypePill from '@components/ui/ProductTypePill'
 import { useCurrencyContext } from '@lib/hooks/useCurrencyContext'
+import cn from 'clsx'
 
 interface Props {
   className?: string
@@ -20,6 +21,7 @@ interface Props {
 const placeholderImg = '/product-img-placeholder.svg'
 
 const ProductCard: FC<Props> = ({
+  className,
   product,
   imgProps,
   noNameTag = false,
@@ -36,9 +38,14 @@ const ProductCard: FC<Props> = ({
 
   if (variant === 'floating')
     return (
-      <div className="relative bg-blue-primary w-[560px] h-[400px] rounded-3xl p-9">
+      <div
+        className={cn(
+          'relative bg-blue-primary w-[500px] lg:w-[560px] max-w-full h-[400px] rounded-3xl p-9',
+          className
+        )}
+      >
         <EnsLogo />
-        <div className="mt-12 text-white max-w-[270px]">
+        <div className="mt-12 text-white md:max-w-[270px]">
           <h3 className="font-black text-4xl leading-[48px] line-clamp-2">
             {product.name}
           </h3>
@@ -55,7 +62,7 @@ const ProductCard: FC<Props> = ({
         </Link>
         {product?.images && (
           <Image
-            className="absolute -top-6 right-0 translate-x-1/3"
+            className="absolute hidden md:block -top-6 right-0 translate-x-1/3"
             alt={product.name || 'Product Image'}
             src={product.images[0]?.url || placeholderImg}
             height={320}

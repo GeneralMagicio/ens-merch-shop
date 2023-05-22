@@ -54,8 +54,6 @@ export default function Home({
   products,
   featuredProducts,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const { priceCurrency } = useCurrencyContext()
-
   return (
     <>
       <Hero
@@ -74,12 +72,11 @@ export default function Home({
             Look good and feel good knowing you support decentralized naming
           </h5>
         </div>
-        <div className="flex mt-24 items-center gap-x-44 justify-center">
+        <div className="grid grid-cols-1 2xl:grid-cols-2 px-4 lg:px-10 mt-24 justify-items-center gap-y-14">
           {products.slice(2, 4).map((product) => (
             <ProductCard
               key={product.id}
               product={product}
-              className="max-w-fit"
               variant="floating"
               imgProps={{
                 alt: product.name,
