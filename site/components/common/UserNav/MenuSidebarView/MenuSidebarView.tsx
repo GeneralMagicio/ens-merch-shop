@@ -3,7 +3,6 @@ import s from './MenuSidebarView.module.css'
 import { useUI } from '@components/ui/context'
 import SidebarLayout from '@components/common/SidebarLayout'
 import type { Link as LinkProps } from './index'
-import UserNav from '../UserNav'
 
 export default function MenuSidebarView({
   links = [],
@@ -16,7 +15,7 @@ export default function MenuSidebarView({
     <SidebarLayout handleClose={() => closeSidebar()}>
       <div className={s.root}>
         <nav>
-          <ul>
+          <ul className="text-blue-primary">
             <li className={s.item} onClick={() => closeSidebar()}>
               <Link href="/search">All</Link>
             </li>

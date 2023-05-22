@@ -54,7 +54,7 @@ const ProductCard: FC<Props> = ({
           </p>
         </div>
         <Link
-          className="inline-block bg-white mt-4 py-3 px-8 rounded-lg text-blue-primary font-bold text-base"
+          className="inline-block bg-white mt-4 py-3 px-8 rounded-lg text-blue-primary font-bold"
           href={`/product/${product.slug}`}
           aria-label={product.name}
         >
