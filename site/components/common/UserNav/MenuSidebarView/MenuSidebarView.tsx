@@ -3,6 +3,7 @@ import s from './MenuSidebarView.module.css'
 import { useUI } from '@components/ui/context'
 import SidebarLayout from '@components/common/SidebarLayout'
 import type { Link as LinkProps } from './index'
+import UserNav from '../UserNav'
 
 export default function MenuSidebarView({
   links = [],

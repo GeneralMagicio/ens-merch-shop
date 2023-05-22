@@ -3,8 +3,8 @@
 }
 
 .header {
-  @apply sticky top-0 pl-4 py-4 pr-6
-  flex items-center justify-between 
+  @apply sticky top-0 pl-4 py-4 pr-4
+  flex flex-wrap gap-y-2 items-center justify-between 
   bg-accent-0 box-border w-full z-10;
   min-height: 66px;
 }

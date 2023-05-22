@@ -22,7 +22,8 @@ const countItem = (count: number, item: LineItem) => count + item.quantity
 const UserNav: React.FC<{
   className?: string
   variant?: 'default' | 'light'
-}> = ({ className, variant = 'default' }) => {
+  isMobile?: boolean
+}> = ({ className, variant = 'default', isMobile = false }) => {
   const { data } = useCart()
   const { data: isCustomerLoggedIn } = useCustomer()
   const { openModal, setSidebarView, openSidebar } = useUI()
@@ -34,9 +35,29 @@ const UserNav: React.FC<{
 
   return (
     <nav className={cn(s.root, className)}>
-      <ul className="flex items-center gap-x-4">
+      <ul className={cn('flex items-center gap-4', isMobile && 'flex-wrap')}>
+        {!isMobile && (
+          <li className={s.mobileMenu}>
+            <Button
+              className={s.item}
+              aria-label="Menu"
+              variant="naked"
+              onClick={() => {
+                setSidebarView('MOBILE_MENU_VIEW')
+                openSidebar()
+              }}
+            >
+              <Menu variant={variant} />
+            </Button>
+          </li>
+        )}
         {process.env.COMMERCE_CART_ENABLED && (
-          <li className={s.item}>
+          <li
+            className={cn(
+              'items-center relative',
+              isMobile ? 'flex' : 'hidden lg:flex'
+            )}
+          >
             <Button
               variant="naked"
               onClick={() => {
@@ -55,7 +76,7 @@ const UserNav: React.FC<{
           </li>
         )}
         {process.env.COMMERCE_CUSTOMERAUTH_ENABLED && (
-          <li>
+          <li className={cn(!isMobile && 'hidden lg:block')}>
             <Dropdown>
               <DropdownTrigger>
                 <button
@@ -70,23 +91,10 @@ const UserNav: React.FC<{
             </Dropdown>
           </li>
         )}
-        <li className={s.mobileMenu}>
-          <Button
-            className={s.item}
-            aria-label="Menu"
-            variant="naked"
-            onClick={() => {
-              setSidebarView('MOBILE_MENU_VIEW')
-              openSidebar()
-            }}
-          >
-            <Menu />
-          </Button>
-        </li>
-        <li>
+        <li className={cn(!isMobile && 'hidden lg:block')}>
           <SwitchCurrency />
         </li>
-        <li>
+        <li className={cn(!isMobile && 'hidden lg:block')}>
           <SignInButton variant={variant} />
         </li>
       </ul>

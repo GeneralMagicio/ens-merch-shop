@@ -24,18 +24,21 @@ const Navbar: FC<NavbarProps> = ({ links, isHomePage }) => {
       className="w-full inset-0 fixed z-20 max-h-fit backdrop-blur-xl border-gray-200 mx-auto max-w-8xl px-12"
     >
       <div className="flex items-center justify-between h-24">
-        <Link href="/" aria-label="Logo">
+        <Link className="hidden xl:block" href="/" aria-label="Logo">
           <Logo variant={variant} />
         </Link>
+        <Link className="block xl:hidden min-w-fit " href="/" aria-label="Logo">
+          <Logo variant={variant} size="small" />
+        </Link>
         {process.env.COMMERCE_SEARCH_ENABLED && (
-          <div className="justify-center flex-1 hidden lg:flex">
+          <div className="justify-center flex-1 hidden lg:flex max-w-[450px] px-4">
             <Searchbar variant={variant} />
           </div>
         )}
         <div className="flex items-center justify-between">
           <nav
             className={cn(
-              'flex justify-center font-bold mx-8 text-lg w-[300px] items-center gap-x-6 flex-1',
+              'justify-center font-bold text-lg hidden mr-6 lg:flex items-center gap-x-5 flex-1',
               variant === 'default' ? 'text-blue-primary' : 'text-blue-surface'
             )}
           >

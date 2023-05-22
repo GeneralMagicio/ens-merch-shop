@@ -38,14 +38,14 @@ const Searchbar: FC<Props> = ({
   }
 
   return (
-    <div className="relative flex items-center">
+    <div className="w-full relative flex items-center">
       <label className="hidden" htmlFor={id}>
         Search
       </label>
       <input
         id={id}
         className={cn(
-          'font-medium text-base pl-10 w-[400px] rounded-lg border p-3 focus:outline-none bg-transparent',
+          'font-medium text-base pl-10 w-full rounded-lg border p-3 focus:outline-none bg-transparent',
           variant === 'default'
             ? 'border-blue-primary text-blue-primary placeholder:text-blue-primary'
             : 'border-blue-surface text-blue-surface placeholder:text-blue-surface'
