@@ -26,7 +26,7 @@ const SignInButton = ({
             >
               <span
                 className={cn(
-                  'text-base font-bold',
+                  'text-white font-bold',
                   variant === 'default'
                     ? 'text-white'
                     : 'text-blue-primary-dark'
@@ -42,7 +42,7 @@ const SignInButton = ({
             className="bg-blue-surface min-w-[120px] px-2 py-3 rounded-lg"
             onClick={openAccountModal}
           >
-            <span className="text-blue-primary-dark text-base font-bold">
+            <span className="text-blue-primary-dark font-bold">
               {account.displayName}
             </span>
           </button>

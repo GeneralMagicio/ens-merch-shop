@@ -16,7 +16,7 @@ const ProductSection: FC<ProductSectionProps> = ({ product }) => {
 
   return (
     <Container
-      className="grid grid-cols-2 gap-x-8 w-full max-w-7xl my-10 mx-auto"
+      className="grid grid-cols-1 px-4 md:grid-cols-2 gap-x-8 w-full max-w-7xl my-10 mx-auto"
       clean
     >
       <div className="col-span-1 flex items-center justify-center">

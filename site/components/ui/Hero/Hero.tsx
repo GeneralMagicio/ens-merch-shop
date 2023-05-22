@@ -9,9 +9,9 @@ interface HeroProps {
 
 const Hero: FC<HeroProps> = ({ headline, description }) => {
   return (
-    <div className="bg-ens-linear h-[730px] border-b border-accent-2">
+    <div className="bg-ens-linear pb-14 sm:p-0 sm:h-[730px] border-b border-accent-2">
       <div className="max-w-6xl px-6 relative flex h-full mx-auto">
-        <div className="max-w-xl text-center lg:text-left mx-auto lg:mx-0 mt-44">
+        <div className="max-w-xl text-center lg:text-left mx-auto lg:mx-0 mt-36 sm:mt-44">
           <h2 className="font-bold text-5xl sm:text-8xl leading-[60px] sm:leading-[110px] text-white">
             {headline}
           </h2>

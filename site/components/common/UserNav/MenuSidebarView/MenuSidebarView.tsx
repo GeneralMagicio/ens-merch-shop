@@ -15,7 +15,7 @@ export default function MenuSidebarView({
     <SidebarLayout handleClose={() => closeSidebar()}>
       <div className={s.root}>
         <nav>
-          <ul>
+          <ul className="text-blue-primary">
             <li className={s.item} onClick={() => closeSidebar()}>
               <Link href="/search">All</Link>
             </li>

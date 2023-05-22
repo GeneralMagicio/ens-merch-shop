@@ -8,6 +8,7 @@ import ProductTag from '../ProductTag'
 import { EnsLogo } from '@components/icons'
 import ProductTypePill from '@components/ui/ProductTypePill'
 import { useCurrencyContext } from '@lib/hooks/useCurrencyContext'
+import cn from 'clsx'
 
 interface Props {
   className?: string
@@ -20,6 +21,7 @@ interface Props {
 const placeholderImg = '/product-img-placeholder.svg'
 
 const ProductCard: FC<Props> = ({
+  className,
   product,
   imgProps,
   noNameTag = false,
@@ -36,9 +38,14 @@ const ProductCard: FC<Props> = ({
 
   if (variant === 'floating')
     return (
-      <div className="relative bg-blue-primary w-[560px] h-[400px] rounded-3xl p-9">
+      <div
+        className={cn(
+          'relative bg-blue-primary w-[500px] lg:w-[560px] max-w-full h-[400px] rounded-3xl p-9',
+          className
+        )}
+      >
         <EnsLogo />
-        <div className="mt-12 text-white max-w-[270px]">
+        <div className="mt-12 text-white md:max-w-[270px]">
           <h3 className="font-black text-4xl leading-[48px] line-clamp-2">
             {product.name}
           </h3>
@@ -47,7 +54,7 @@ const ProductCard: FC<Props> = ({
           </p>
         </div>
         <Link
-          className="inline-block bg-white mt-4 py-3 px-8 rounded-lg text-blue-primary font-bold text-base"
+          className="inline-block bg-white mt-4 py-3 px-8 rounded-lg text-blue-primary font-bold"
           href={`/product/${product.slug}`}
           aria-label={product.name}
         >
@@ -55,7 +62,7 @@ const ProductCard: FC<Props> = ({
         </Link>
         {product?.images && (
           <Image
-            className="absolute -top-6 right-0 translate-x-1/3"
+            className="absolute hidden md:block -top-6 right-0 translate-x-1/3"
             alt={product.name || 'Product Image'}
             src={product.images[0]?.url || placeholderImg}
             height={320}
@@ -68,12 +75,17 @@ const ProductCard: FC<Props> = ({
     )
 
   return (
-    <Link href={`/product/${product.slug}`} aria-label={product.name}>
+    <Link
+      className={className}
+      href={`/product/${product.slug}`}
+      aria-label={product.name}
+    >
       {variant === 'simple' && (
         <>
-          <div className="p-2 hover:shadow-lg hover:bg-neutral-100 overflow-hidden transition duration-300 rounded-2xl ">
+          <div className="w-full p-2 hover:shadow-lg hover:bg-neutral-100 overflow-hidden transition duration-300 rounded-2xl ">
             {product?.images && (
               <Image
+                className="mx-auto"
                 alt={product.name || 'Product Image'}
                 src={product.images[0]?.url || placeholderImg}
                 height={540}
@@ -84,7 +96,7 @@ const ProductCard: FC<Props> = ({
             )}
           </div>
           {!noNameTag && (
-            <div className="flex flex-col mt-5 items-center gap-y-2">
+            <div className="flex flex-col max-w-fit mx-auto mt-5 items-center gap-y-2">
               <h3 className="font-semibold text-xl">{product.name}</h3>
               <ProductTypePill productType={product.productType} />
               <div className="font-semibold text-xl">{`${price}`}</div>

@@ -113,7 +113,7 @@ const Footer: FC = () => {
         </div>
         <div className="col-span-1 flex flex-col lg:col-start-12">
           <div className="flex gap-x-2 my-10 lg:mt-32 lg:mb-0 items-center">
-            <p className="text-white font-medium text-base text-xs">Built by</p>
+            <p className="text-white font-medium text-xs">Built by</p>
             <Link
               href={'https://www.generalmagic.io/'}
               className="transition duration-200 hover:scale-110 hover:opacity-60"
