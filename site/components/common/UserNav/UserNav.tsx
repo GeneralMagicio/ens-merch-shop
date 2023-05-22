@@ -23,7 +23,8 @@ const UserNav: React.FC<{
   className?: string
   variant?: 'default' | 'light'
   isMobile?: boolean
-}> = ({ className, variant = 'default', isMobile = false }) => {
+  onClose?: () => any
+}> = ({ className, variant = 'default', isMobile = false, onClose }) => {
   const { data } = useCart()
   const { data: isCustomerLoggedIn } = useCustomer()
   const { openModal, setSidebarView, openSidebar } = useUI()
@@ -87,7 +88,7 @@ const UserNav: React.FC<{
                   <Avatar variant={variant} />
                 </button>
               </DropdownTrigger>
-              <CustomerMenuContent />
+              <CustomerMenuContent onClose={onClose} />
             </Dropdown>
           </li>
         )}

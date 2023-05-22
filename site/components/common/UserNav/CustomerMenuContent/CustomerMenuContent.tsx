@@ -22,18 +22,23 @@ const LINKS = [
   },
 ]
 
-export default function CustomerMenuContent() {
+interface Props {
+  onClose?: () => any
+}
+
+export default function CustomerMenuContent({ onClose }: Props) {
   const router = useRouter()
   const logout = useLogout()
   const { pathname } = useRouter()
 
   function handleClick(_: React.MouseEvent<HTMLAnchorElement>, href: string) {
+    onClose?.()
     router.push(href)
   }
 
   return (
     <DropdownContent
-      className="rounded-lg overflow-hidden"
+      className="rounded-lg overflow-hidden drop-shadow-md"
       sideOffset={10}
       id="CustomerMenuContent"
     >

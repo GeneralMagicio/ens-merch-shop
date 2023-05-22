@@ -39,7 +39,7 @@ const SidebarLayout: FC<ComponentProps> = ({
           </button>
         )}
 
-        <UserNav isMobile />
+        <UserNav isMobile onClose={handleClose} />
       </header>
       <div className={s.container}>{children}</div>
     </div>
