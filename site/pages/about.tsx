@@ -90,31 +90,7 @@ export default function About({
           impact DAOs. We sell high-quality merch for ENS domains owners.
         </p>
       </div>
-      <section className="w-full py-24 bg-blue-surface">
-        <div className="text-center px-4">
-          <h3 className="font-bold text-5xl">
-            Discover the latest high quality ENS merch
-          </h3>
-          <h5 className="mt-3 font-medium text-xl">
-            Look good and feel good knowing you support decentralized naming
-          </h5>
-        </div>
-        <div className="flex mt-24 items-center gap-x-44 justify-center">
-          {products.slice(2).map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              className="max-w-fit"
-              variant="floating"
-              imgProps={{
-                alt: product.name,
-                width: 400,
-                height: 400,
-              }}
-            />
-          ))}
-        </div>
-      </section>
+
       <Newsletter />
     </>
   )
