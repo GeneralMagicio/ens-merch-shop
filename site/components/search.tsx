@@ -1,7 +1,7 @@
 import cn from 'clsx'
 import type { SearchPropsType } from '@lib/search-props'
 import Link from 'next/link'
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import { useRouter } from 'next/router'
 
 import type { Brand } from '@commerce/types/site'
@@ -66,16 +66,16 @@ export default function Search({ categories, brands }: SearchPropsType) {
   return (
     <>
       <Container className="mt-28">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mt-16 mb-32">
-          <div className="col-span-8 lg:col-span-2 order-1 lg:order-none">
+        <div className="grid grid-cols-8 w-full lg:grid-cols-12 gap-10 mt-16 mb-32">
+          <div className="min-w-full col-span-8 sm:col-span-10  lg:col-span-2 order-1 lg:order-none">
             {/* Categories */}
-            <div className="relative mt-10 inline-block w-full">
-              <div className="lg:hidden">
+            <div className="relative mt-10  inline-block w-full">
+              <div className="lg:hidden mb-3">
                 <span className="rounded-md shadow-sm">
                   <button
                     type="button"
                     onClick={(e) => handleClick(e, 'categories')}
-                    className="flex justify-between w-full rounded-sm border border-accent-3 px-4 py-3 bg-accent-0 text-sm leading-5 font-medium text-accent-4 hover:text-accent-5 focus:outline-none focus:border-blue-300 focus:shadow-outline-normal active:bg-accent-1 active:text-accent-8 transition ease-in-out duration-150"
+                    className="flex justify-between w-full rounded-lg border border-blue-primary px-4 py-3 bg-accent-0 text-sm leading-5 font-medium text-blue-primary hover:text-blue-primary-dark focus:outline-none focus:border-blue-300 focus:shadow-outline-normal transition ease-in-out duration-150"
                     id="options-menu"
                     aria-haspopup="true"
                     aria-expanded="true"
@@ -105,7 +105,7 @@ export default function Search({ categories, brands }: SearchPropsType) {
                     : ''
                 }`}
               >
-                <div className="rounded-sm bg-accent-0 shadow-xs lg:bg-none lg:shadow-none">
+                <div className="rounded-lg overflow-hidden bg-accent-0 shadow-xs lg:bg-none lg:shadow-none">
                   <div
                     role="menu"
                     aria-orientation="vertical"
@@ -114,7 +114,7 @@ export default function Search({ categories, brands }: SearchPropsType) {
                     <ul>
                       <li
                         className={cn(
-                          'block text-sm leading-5 text-accent-4 lg:text-base lg:no-underline lg:font-bold lg:tracking-wide hover:bg-accent-1 lg:hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8',
+                          'block text-sm leading-5 text-blue-primary lg:text-base lg:no-underline lg:font-bold lg:tracking-wide hover:bg-accent-1 lg:hover:bg-transparent hover:text-blue-primary-dark  focus:outline-none focus:bg-accent-1',
                           {
                             underline: !activeCategory?.name,
                           }
@@ -138,9 +138,8 @@ export default function Search({ categories, brands }: SearchPropsType) {
                         <li
                           key={cat.path}
                           className={cn(
-                            'block text-sm leading-5 text-accent-4 hover:bg-accent-1 lg:hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8',
-                            activeCategory?.id === cat.id &&
-                              'text-black font-medium'
+                            'block text-sm leading-5 text-blue-primary hover:bg-accent-1 lg:hover:bg-transparent hover:text-blue-primary-dark focus:outline-none focus:bg-accent-1',
+                            activeCategory?.id === cat.id && 'font-bold'
                           )}
                         >
                           <Link
@@ -173,7 +172,7 @@ export default function Search({ categories, brands }: SearchPropsType) {
                   <button
                     type="button"
                     onClick={(e) => handleClick(e, 'sort')}
-                    className="flex justify-between w-full rounded-sm border border-accent-3 px-4 py-3 bg-accent-0 text-sm leading-5 font-medium text-accent-4 hover:text-accent-5 focus:outline-none focus:border-blue-300 focus:shadow-outline-normal active:bg-accent-1 active:text-accent-8 transition ease-in-out duration-150"
+                    className="flex justify-between w-full rounded-lg border border-blue-primary px-4 py-3 bg-accent-0 text-sm leading-5 font-medium text-blue-primary hover:text-blue-primary-dark focus:outline-none focus:border-blue-300 focus:shadow-outline-normal transition ease-in-out duration-150"
                     id="options-menu"
                     aria-haspopup="true"
                     aria-expanded="true"
@@ -201,7 +200,7 @@ export default function Search({ categories, brands }: SearchPropsType) {
                     : ''
                 }`}
               >
-                <div className="rounded-sm bg-accent-0 shadow-xs lg:bg-none lg:shadow-none">
+                <div className="rounded-lg overflow-hidden bg-accent-0 shadow-xs lg:bg-none lg:shadow-none">
                   <div
                     role="menu"
                     aria-orientation="vertical"
@@ -210,7 +209,7 @@ export default function Search({ categories, brands }: SearchPropsType) {
                     <ul>
                       <li
                         className={cn(
-                          'block text-sm leading-5 text-accent-4 lg:text-base lg:no-underline lg:font-bold lg:tracking-wide hover:bg-accent-1 lg:hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8',
+                          'block text-sm leading-5 text-blue-primary lg:text-base lg:no-underline lg:font-bold lg:tracking-wide hover:bg-accent-1 lg:hover:bg-transparent hover:text-blue-primary-dark focus:outline-none focus:bg-accent-1 ',
                           {
                             underline: !sort,
                           }
@@ -234,8 +233,8 @@ export default function Search({ categories, brands }: SearchPropsType) {
                         <li
                           key={key}
                           className={cn(
-                            'block text-sm leading-5 text-accent-4 hover:bg-accent-1 lg:hover:bg-transparent hover:text-accent-8 focus:outline-none focus:bg-accent-1 focus:text-accent-8',
-                            sort === key && 'text-black font-medium'
+                            'block text-sm leading-5 text-blue-primary hover:bg-accent-1 lg:hover:bg-transparent hover:text-blue-primary-dark focus:outline-none focus:bg-accent-1',
+                            sort === key && 'font-bold'
                           )}
                         >
                           <Link
@@ -263,7 +262,7 @@ export default function Search({ categories, brands }: SearchPropsType) {
             </div>
           </div>
           {/* Products */}
-          <div className="col-span-10 order-3 lg:order-none">
+          <div className="col-span-8 sm:col-span-10 order-3 lg:order-none">
             {(q || activeCategory || activeBrand) && (
               <div className="mb-12 transition ease-in duration-75">
                 {data ? (
@@ -297,19 +296,31 @@ export default function Search({ categories, brands }: SearchPropsType) {
               </div>
             )}
             {data ? (
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid grid-cols-1 mx-auto gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {data.products.map((product: Product) => (
-                  <ProductCard
-                    variant="simple"
-                    key={product.path}
-                    className="animated fadeIn"
-                    product={product}
-                    imgProps={{
-                      width: 480,
-                      height: 480,
-                      alt: product.name,
-                    }}
-                  />
+                  <Fragment key={product.path}>
+                    <ProductCard
+                      variant="simple"
+                      className="hidden sm:block"
+                      product={product}
+                      imgProps={{
+                        width: 480,
+                        height: 480,
+                        alt: product.name,
+                      }}
+                    />
+
+                    <ProductCard
+                      variant="simple"
+                      className="block max-w-fit mx-auto sm:hidden"
+                      product={product}
+                      imgProps={{
+                        width: 250,
+                        height: 250,
+                        alt: product.name,
+                      }}
+                    />
+                  </Fragment>
                 ))}
               </div>
             ) : (

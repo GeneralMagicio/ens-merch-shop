@@ -75,12 +75,17 @@ const ProductCard: FC<Props> = ({
     )
 
   return (
-    <Link href={`/product/${product.slug}`} aria-label={product.name}>
+    <Link
+      className={className}
+      href={`/product/${product.slug}`}
+      aria-label={product.name}
+    >
       {variant === 'simple' && (
         <>
-          <div className="p-2 hover:shadow-lg hover:bg-neutral-100 overflow-hidden transition duration-300 rounded-2xl ">
+          <div className="w-full p-2 hover:shadow-lg hover:bg-neutral-100 overflow-hidden transition duration-300 rounded-2xl ">
             {product?.images && (
               <Image
+                className="mx-auto"
                 alt={product.name || 'Product Image'}
                 src={product.images[0]?.url || placeholderImg}
                 height={540}
@@ -91,7 +96,7 @@ const ProductCard: FC<Props> = ({
             )}
           </div>
           {!noNameTag && (
-            <div className="flex flex-col mt-5 items-center gap-y-2">
+            <div className="flex flex-col max-w-fit mx-auto mt-5 items-center gap-y-2">
               <h3 className="font-semibold text-xl">{product.name}</h3>
               <ProductTypePill productType={product.productType} />
               <div className="font-semibold text-xl">{`${price}`}</div>
