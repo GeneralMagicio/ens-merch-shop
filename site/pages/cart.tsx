@@ -53,7 +53,7 @@ export default function Cart() {
   }
 
   return (
-    <Container className="grid lg:grid-cols-12 mt-44 gap-20">
+    <Container className="grid lg:grid-cols-12 mt-44 lg:gap-20">
       <div className="lg:col-span-7">
         {isLoading || isEmpty ? (
           <div className="flex-1 px-12 py-24 flex flex-col justify-center items-center ">
@@ -136,15 +136,15 @@ export default function Cart() {
           <div className="border-t border-accent-2">
             <ul className="py-3">
               <li className="flex justify-between py-1">
-                <span>Subtotal</span>
+                <span className="font-medium">Subtotal</span>
                 <span>{subTotal}</span>
               </li>
-              <li className="flex justify-between py-1">
-                <span>Taxes</span>
+              <li className="flex flex-wrap justify-between py-1">
+                <span className="font-medium">Taxes</span>
                 <span>Calculated at checkout</span>
               </li>
-              <li className="flex justify-between py-1">
-                <span>Estimated Shipping</span>
+              <li className="flex flex-wrap justify-between py-1">
+                <span className="font-medium">Estimated Shipping</span>
                 <span className=" tracking-wide">Calculated at checkout</span>
               </li>
             </ul>
