@@ -39,7 +39,7 @@ const SelectEnsName = ({
 
   // Filter only ens names with less than 13 characters
   const filteredENSNames = useMemo(
-    () => ensNamesData?.domains.filter((ensName) => ensName.name.length <= 20),
+    () => ensNamesData?.domains.filter((ensName) => ensName.name.length <= 13),
     [ensNamesData]
   )
 
