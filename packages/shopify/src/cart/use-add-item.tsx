@@ -33,6 +33,7 @@ export const handler: MutationHook<AddItemHook> = {
       {
         variantId: item.variantId,
         quantity: item.quantity ?? 1,
+        customAttributes: item.customAttributes,
       },
     ]
 

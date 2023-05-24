@@ -715,6 +715,7 @@ export type CartLine = Node & {
   quantity: Scalars['Int']
   /** The selling plan associated with the cart line and the effect that each selling plan has on variants when they're purchased. */
   sellingPlanAllocation?: Maybe<SellingPlanAllocation>
+  customAttributes: Array<Attribute>
 }
 
 /** Represents information about the merchandise in the cart. */

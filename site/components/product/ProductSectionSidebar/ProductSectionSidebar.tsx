@@ -30,10 +30,9 @@ const ProductSectionSidebar: FC<ProductSectionSidebarProps> = ({
   const addItem = useAddItem()
   const { openSidebar, setSidebarView } = useUI()
   const [loading, setLoading] = useState(false)
+  const [selectedEnsName, setSelectedEnsName] = useState<string>()
   const [error, setError] = useState<null | Error>(null)
   const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>({})
-
-  const url = typeof window !== 'undefined' ? window.location.href : ''
 
   const isCustomizable = product.productType === 'Customizable'
 
@@ -49,6 +48,14 @@ const ProductSectionSidebar: FC<ProductSectionSidebarProps> = ({
       await addItem({
         productId: String(product.id),
         variantId: String(variant ? variant.id : product.variants[0]?.id),
+        customAttributes: selectedEnsName
+          ? [
+              {
+                key: 'custom_ens_name',
+                value: selectedEnsName,
+              },
+            ]
+          : undefined,
       })
       setSidebarView('CART_VIEW')
       openSidebar()
@@ -80,6 +87,8 @@ const ProductSectionSidebar: FC<ProductSectionSidebarProps> = ({
       />
       {isCustomizable ? (
         <DynamicSelectEnsName
+          selectedEnsName={selectedEnsName}
+          setSelectedEnsName={setSelectedEnsName}
           error={error}
           onSuccess={addToCart}
           variant={variant}
