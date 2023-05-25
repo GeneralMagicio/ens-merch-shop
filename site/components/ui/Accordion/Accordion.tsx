@@ -1,6 +1,7 @@
 import cn from 'clsx'
 import { useState } from 'react'
 import { ChevronDown, ChevronUp } from '@components/icons'
+import FormatMarkdown from '@components/common/FormatMarkdown/FormatMarkdown'
 
 interface AccordionProps {
   className?: string
@@ -17,10 +18,15 @@ interface AccordionItemProps {
 
 export const Accordion = ({ className, items }: AccordionProps) => {
   return (
-    <div className={cn('w-full flex flex-col space-y-4', className)}>
+    <div
+      className={cn(
+        'w-full flex flex-col space-y-4 prose-a:font-bold prose-a:text-blue-primary prose-a:no-underline hover:prose-a:underline',
+        className
+      )}
+    >
       {items.map((item) => (
         <AccordionItem key={item.title} title={item.title}>
-          {item.description}
+          <FormatMarkdown content={item.description} />
         </AccordionItem>
       ))}
     </div>
@@ -44,7 +50,7 @@ const AccordionItem = ({ title, children }: AccordionItemProps) => {
         </div>
       </button>
       {isOpen && (
-        <div className="pl-14 pt-2 pr-1 pb-6 opacity-70">{children}</div>
+        <div className="pl-14 pt-2 pr-4 pb-6 opacity-70">{children}</div>
       )}
     </div>
   )

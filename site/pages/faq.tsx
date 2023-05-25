@@ -24,21 +24,31 @@ const items = [
   {
     title: 'Why is my name not listed?',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper enim in risus suscipit egestas. Aliquam porttitor sit amet tellus vitae placerat.',
+      "When selecting customized merch, make sure the owner wallet is connected. If you've connected the manager wallet, or the token is not owned by the wallet, the name will not populate.",
   },
   {
     title: 'Why do I need to sign a message with my wallet?',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper enim in risus suscipit egestas. Aliquam porttitor sit amet tellus vitae placerat.',
+      'Signing with your wallet ensure that you have ownership and control the name. Message signing is always gasless and no transaction should occur.',
   },
   {
-    title: 'Why can’t names with non-ASCII letters be ordered?',
+    title: "Why can't names with non-ASCII letters be ordered?",
     description:
-      'Non-ASCII letters can’t be embroidered properly. Name is embroidered and we have to ensure it is done properly.',
+      'Due to constraints in the printing and embroidery process, non-ASCII names are currently unable to be included on customized merch.',
   },
   {
-    title: 'Why can’t name longer than 13 characters be ordered?',
+    title: "Why can't names longer than 13 characters be ordered?",
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper enim in risus suscipit egestas. Aliquam porttitor sit amet tellus vitae placerat.',
+      'Names longer than 13 characters, excluding the ".eth," are not able to be customized.This restriction helps prevent substandard reproduction of longer names that may not fit in the printable area.',
+  },
+  {
+    title: 'Who should I contact if I have a question, concern or complaint?',
+    description:
+      'The store is operated by General Magic and all questions, concerns and complaints (including quality issues) can be directed towards them from the [contact page.](/contact-us)',
+  },
+  {
+    title: 'Crypto Payments',
+    description:
+      'The store allows for payment in Fiat or in Crypto through Coinbase Commerce paying in BTC, Litecoin  and ETH, USDC, USDT, or DAI on Ethereum Mainnet and ETH, MATIC and USDC on Polygon. ',
   },
 ]
