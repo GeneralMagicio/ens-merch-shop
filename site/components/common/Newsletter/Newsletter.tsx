@@ -32,11 +32,11 @@ const Newsletter: FC = () => {
         <Eth className="absolute top-2 translate-y-1/2 -rotate-90 right-16 translate-x-1/2 " />
         <Image
           quality={100}
-          className="absolute -bottom-36 right-16"
+          className="absolute -bottom-20 right-24"
           alt="ENS shirts"
           height={445}
           width={574}
-          src="/assets/custom-t-shirt.png"
+          src="/assets/newsletter-image.png"
         />
       </div>
     </section>
