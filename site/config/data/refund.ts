@@ -1,62 +1,26 @@
-export const refundContent = `## Overview
-Our refund and returns policy lasts 30 days. If 30 days have passed since your purchase, we can’t offer you a full refund or exchange.
+export const refundContent = `
+Any claims for misprinted/damaged/defective items must be submitted within 30 days after the product has been received. For packages lost in transit, all claims must be submitted no later than 30 days after the estimated delivery date. Claims deemed an error on our part are covered at our expense.
 
-To be eligible for a return, your item must be unused and in the same condition that you received it. It must also be in the original packaging.
+If you notice an issue on the products or anything else on the order, [please reach out to us](/contact-us).
 
-Several types of goods are exempt from being returned. Perishable goods such as food, flowers, newspapers or magazines cannot be returned. We also do not accept products that are intimate or sanitary goods, hazardous materials, or flammable liquids or gases.
+**Wrong Address -** If you provide an address that is considered insufficient by the courier, the shipment will be returned to our facility. You will be liable for reshipment costs once we have confirmed an updated address with you (if and as applicable).
 
-Additional non-returnable items:
-- Gift cards
-- Downloadable software products
-- Some health and personal care items
+**Unclaimed -** Shipments that go unclaimed are returned to our facility and you will be liable for the cost of a reshipment to yourself (if and as applicable).
 
-To complete your return, we require a receipt or proof of purchase.
+In the event that we notice a wrong address or unclaimed item, we will attempt to contact you using the contact information you provided. If we do not hear back from you within 30 days of contacting you, we cannot guarantee that you will receive your items.
 
-Please do not send your purchase back to the manufacturer.
+**Lost Items -** If you have never received an item more than 30 days after the expected delivery date and have given a sufficient address, we will ship you a replacement item free of charge.
 
-There are certain situations where only partial refunds are granted:
-- Book with obvious signs of use
-- CD, DVD, VHS tape, software, video game, cassette tape, or vinyl record that has been opened.
-- Any item not in its original condition, is damaged or missing parts for reasons not due to our error.
-- Any item that is returned more than 30 days after delivery
+**Returning items -** We do not allow for returning of items, unless you are not satisfied with the quality of the item you received wherein the item you received differs from the specificaitons mentioned at the time of purchase. If you are not satisfied with your item, you may contact us within 7 days of receiving your item, and we will follow up on requests on a case by case basis. We reserve the right to not allow returning of items more than 7 days after their delivery date. 
 
-## Refunds
+If an item is successfully returned, we will issue store credit for the amount of the returned item. 
 
-Once your return is received and inspected, we will send you an email to notify you that we have received your returned item. We will also notify you of the approval or rejection of your refund.
+**Notification for EU consumers -** According to Article 16(c) and (e) of the Directive 2011/83/EU of the European Parliament and of the Council of 25 October 2011 on consumer rights, the right of withdrawal may not be provided for:
 
-If you are approved, then your refund will be processed, and a credit will automatically be applied to your credit card or original method of payment, within a certain amount of days.
+1. the supply of goods that are made to the consumer's specifications or are clearly personalized;
+2. sealed goods which were unsealed after delivery and thus aren't suitable for return due to health protection or hygiene reasons,
 
-**Late or missing refunds**
+Therefore we reserves rights to refuse returns at own sole discretion.
 
-If you haven’t received a refund yet, first check your bank account again.
-
-Then contact your credit card company, it may take some time before your refund is officially posted.
-
-Next contact your bank. There is often some processing time before a refund is posted.
-
-If you’ve done all of this and you still have not received your refund yet, please contact us at [support@ensmerchshop.xyz](mailto:support@ensmerchshop.xyz).
-
-**Sale items**
-
-Only regular priced items may be refunded. Sale items cannot be refunded.
-
-## Exchanges
-
-We only replace items if they are defective or damaged. If you need to exchange it for the same item, send us an email at support@ensmerchshop.xyz and send your item to the return address marked on your product packaging.
-
-## Gifts
-
-If the item was marked as a gift when purchased and shipped directly to you, you’ll receive a gift credit for the value of your return. Once the returned item is received, a gift certificate will be mailed to you.
-
-If the item wasn’t marked as a gift when purchased, or the gift giver had the order shipped to themselves to give to you later, we will send a refund to the gift giver and they will find out about your return.
-
-## Shipping Returns
-
-To return your product, you should mail your product to the return address marked on your product packaging.
-
-You will be responsible for paying for your own shipping costs for returning your item. Shipping costs are non-refundable. If you receive a refund, the cost of return shipping will be deducted from your refund.
-
-Depending on where you live, the time it may take for your exchanged product to reach you may vary.
-
-If you are returning more expensive items, you may consider using a trackable shipping service or purchasing shipping insurance. We don’t guarantee that we will receive your returned item.
+This Policy shall be governed and interpreted in accordance with the English language, regardless of any translations made for any purpose whatsoever.
 `
