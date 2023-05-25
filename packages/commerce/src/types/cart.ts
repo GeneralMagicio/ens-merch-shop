@@ -109,6 +109,10 @@ export interface LineItem {
    * List of selected options, to be used when displaying the line item, such as Color: Red, Size: XL.
    */
   options?: SelectedOption[]
+  customAttributes?: {
+    key: string
+    value: string
+  }[]
 }
 
 /**
@@ -186,6 +190,11 @@ export interface CartItemBody {
    * The product variant's selected options.
    */
   optionsSelected?: SelectedOption[]
+
+  customAttributes?: {
+    key: string
+    value: string
+  }[]
 }
 
 /**

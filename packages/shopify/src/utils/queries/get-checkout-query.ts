@@ -26,6 +26,10 @@ export const checkoutDetailsFragment = /* GraphQL */ `
         node {
           id
           title
+          customAttributes {
+            value
+            key
+          }
           variant {
             id
             sku

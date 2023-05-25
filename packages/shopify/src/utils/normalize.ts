@@ -149,14 +149,25 @@ export function normalizeCart(checkout: Checkout): Cart {
 }
 
 function normalizeLineItem({
-  node: { id, title, variant, quantity },
+  node: { id, title, variant, quantity, customAttributes },
 }: CheckoutLineItemEdge): LineItem {
+  let customAttributesList: { key: string; value: string }[] = []
+
+  if (customAttributes?.length > 0) {
+    customAttributes.forEach(({ key, value }) => {
+      if (typeof value === 'string') {
+        customAttributesList?.push({ key, value })
+      }
+    })
+  }
+
   return {
     id,
     variantId: String(variant?.id),
     productId: String(variant?.id),
     name: `${title}`,
     quantity,
+    customAttributes: customAttributesList,
     variant: {
       id: String(variant?.id),
       sku: variant?.sku ?? '',
