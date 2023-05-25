@@ -26,6 +26,14 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <ManagedUIContext>
           <CurrencyProvider>
             <Layout pageProps={pageProps}>
+              <noscript>
+                <iframe
+                  className="hidden invisible"
+                  src="https://www.googletagmanager.com/ns.html?id=GTM-KJL3XCM"
+                  height="0"
+                  width="0"
+                ></iframe>
+              </noscript>
               <Component {...pageProps} />
             </Layout>
           </CurrencyProvider>
