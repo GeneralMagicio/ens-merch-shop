@@ -42,7 +42,7 @@ const CartSidebarView: FC = () => {
         {
           [s.empty]: error || success || isLoading || isEmpty,
         },
-        'px-2 sm:overflow-y-hidden'
+        'px-2'
       )}
       handleClose={handleClose}
     >
@@ -78,7 +78,7 @@ const CartSidebarView: FC = () => {
           </h2>
         </div>
       ) : (
-        <div className="flex flex-col sm:max-h-[80%] justify-between">
+        <div className="flex flex-col justify-between">
           <div className="w-full mt-24 sm:mt-0 px-4 sm:px-6">
             <Link href="/cart">
               <Text variant="sectionHeading" onClick={handleClose}>
@@ -90,8 +90,6 @@ const CartSidebarView: FC = () => {
               <p className="w-20">Qty</p>
               <p className="w-24">Unit Price</p>
             </div>
-          </div>
-          <div className="px-4 sm:px-6 overflow-y-scroll ">
             <ul className="flex flex-col space-y-2">
               {data!.lineItems.map((item: any) => (
                 <CartItem
@@ -102,7 +100,7 @@ const CartSidebarView: FC = () => {
               ))}
             </ul>
           </div>
-          <div className="px-6 bg-white py-4 w-full  text-lg">
+          <div className="px-6 mt-4 bg-white w-full text-lg">
             <ul>
               <li className="flex justify-between py-2">
                 <span>Subtotal</span>
