@@ -70,7 +70,7 @@ const CartSidebarView: FC = () => {
         </div>
       ) : success ? (
         <div className="flex-1 px-4 flex flex-col justify-center items-center">
-          <span className="border border-white rounded-full flex items-center justify-center w-16 h-16">
+          <span className="border border-whi te rounded-full flex items-center justify-center w-16 h-16">
             <Check />
           </span>
           <h2 className="pt-6 text-xl font-light text-center">
@@ -78,8 +78,8 @@ const CartSidebarView: FC = () => {
           </h2>
         </div>
       ) : (
-        <>
-          <div className="px-4 sm:px-6 flex-1">
+        <div className="flex flex-col justify-between">
+          <div className="w-full mt-24 sm:mt-0 px-4 sm:px-6">
             <Link href="/cart">
               <Text variant="sectionHeading" onClick={handleClose}>
                 My Cart
@@ -100,7 +100,7 @@ const CartSidebarView: FC = () => {
               ))}
             </ul>
           </div>
-          <div className="flex-shrink-0 px-6 py-6 sm:px-6 sticky z-20 bottom-0 w-full right-0 left-0 text-lg">
+          <div className="px-6 mt-4 bg-white w-full text-lg">
             <ul>
               <li className="flex justify-between py-2">
                 <span>Subtotal</span>
@@ -133,7 +133,7 @@ const CartSidebarView: FC = () => {
               )}
             </div>
           </div>
-        </>
+        </div>
       )}
     </SidebarLayout>
   )
