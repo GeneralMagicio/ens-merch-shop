@@ -23,7 +23,7 @@ const Hero: FC<HeroProps> = ({ headline, description }) => {
           <Image
             priority
             alt="hero models"
-            src="/assets/shirt-models.png"
+            src="/assets/hero.webp"
             width={520}
             height={624}
           />
