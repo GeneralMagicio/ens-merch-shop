@@ -37,9 +37,9 @@ const items = [
       'Due to constraints in the printing and embroidery process, non-ASCII names are currently unable to be included on customized merch.',
   },
   {
-    title: "Why can't names longer than 13 characters be ordered?",
+    title: "Why can't names longer than 18 characters be ordered?",
     description:
-      'Names longer than 13 characters, excluding the ".eth," are not able to be customized.This restriction helps prevent substandard reproduction of longer names that may not fit in the printable area.',
+      'Names longer than 18 characters, including the ".eth," are not able to be customized.This restriction helps prevent substandard reproduction of longer names that may not fit in the printable area.',
   },
   {
     title: 'Who should I contact if I have a question, concern or complaint?',
