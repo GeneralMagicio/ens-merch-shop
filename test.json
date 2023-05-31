@@ -1,0 +1,63 @@
+{
+  "id": "did:3:kjzl6cwe1jw14a7u9sx3thx9gg9uh7u5tqjkzcnr5pi5zzkap7kiztgsfhzayzt#2fb0da51-7333-4383-82b7-3da2ab1c3f1d",
+  "type": ["VerifiableCredential", "OrganizationCredential"],
+  "genId": "428ad98e-1a70-40f4-a4d0-6e4e1bd26cb6",
+  "proof": {
+    "type": "EthereumEip712Signature2021",
+    "created": "2022-11-08T20:07:05.621Z",
+    "proofValue": "0xe58c6775f6aca9326471318f7538160252b32c0e23b56c29d3816e519bc5587f620f58ad5880936f5f324650c274fb350eec137261edb3c60563c02cde8f812e1c",
+    "eip712Domain": {
+      "domain": { "name": "", "chainId": 1, "version": "1" },
+      "primaryType": "VerifiableCredential",
+      "messageSchema": {
+        "Proof": [
+          { "name": "created", "type": "string" },
+          { "name": "proofPurpose", "type": "string" },
+          { "name": "type", "type": "string" },
+          { "name": "verificationMethod", "type": "string" }
+        ],
+        "Issuer": [{ "name": "id", "type": "string" }],
+        "EIP712Domain": [
+          { "name": "name", "type": "string" },
+          { "name": "version", "type": "string" },
+          { "name": "chainId", "type": "uint256" }
+        ],
+        "CredentialSchema": [
+          { "name": "id", "type": "string" },
+          { "name": "type", "type": "string" }
+        ],
+        "CredentialSubject": [
+          { "name": "id", "type": "string" },
+          { "name": "organizationName", "type": "string" }
+        ],
+        "VerifiableCredential": [
+          { "name": "@context", "type": "string[]" },
+          { "name": "credentialSchema", "type": "CredentialSchema" },
+          { "name": "credentialSubject", "type": "CredentialSubject" },
+          { "name": "id", "type": "string" },
+          { "name": "issuanceDate", "type": "string" },
+          { "name": "issuer", "type": "Issuer" },
+          { "name": "proof", "type": "Proof" },
+          { "name": "type", "type": "string[]" }
+        ]
+      }
+    },
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "did:3:kjzl6cwe1jw14a7u9sx3thx9gg9uh7u5tqjkzcnr5pi5zzkap7kiztgsfhzayzt#controller"
+  },
+  "issuer": {
+    "id": "did:3:kjzl6cwe1jw14a7u9sx3thx9gg9uh7u5tqjkzcnr5pi5zzkap7kiztgsfhzayzt"
+  },
+  "@context": ["https://www.w3.org/2018/credentials/v1"],
+  "isPublic": true,
+  "recipient": "did:3:kjzl6cwe1jw14a7u9sx3thx9gg9uh7u5tqjkzcnr5pi5zzkap7kiztgsfhzayzt",
+  "issuanceDate": "2022-11-08T20:07:04.699Z",
+  "credentialSchema": {
+    "id": "https://raw.githubusercontent.com/discoxyz/disco-schemas/main/json/OrganizationCredential/1-0-0.json",
+    "type": "JsonSchemaValidator2018"
+  },
+  "credentialSubject": {
+    "id": "did:3:kjzl6cwe1jw14a7u9sx3thx9gg9uh7u5tqjkzcnr5pi5zzkap7kiztgsfhzayzt",
+    "organizationName": "Disco"
+  }
+}
