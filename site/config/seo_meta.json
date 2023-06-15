@@ -1,25 +1,25 @@
 {
-  "title": "ENS Merch Shop | Powered by ENS DAO",
-  "titleTemplate": "%s - ENS Merch Shop",
-  "description": "ENS Merch Shop - https://ens-merch-shop.vercel.app/",
-  "openGraph": {
-    "title": "ENS Merch Shop | Powered by ENS DAO",
-    "description": "ENS Merch Shop - https://ens-merch-shop.vercel.app/",
-    "type": "website",
-    "url": "https://ens-merch-shop.vercel.app/",
-    "site_name": "ENS Merch Shop",
-    "images": [
-      {
-        "url": "/card.png",
-        "width": "1200",
-        "height": "630",
-        "alt": "ENS Merch Shop"
-      }
-    ]
-  },
-  "twitter": {
-    "handle": "@ensdomains",
-    "site": "@ensdomains",
-    "cardType": "summary_large_image"
-  }
+	"title": "ENS Merch Shop | Powered by ENS DAO",
+	"titleTemplate": "%s - ENS Merch Shop",
+	"description": "ENS Merch Shop - https://ens-merch-shop.vercel.app/",
+	"openGraph": {
+		"title": "ENS Merch Shop | Powered by ENS DAO",
+		"description": "ENS Merch Shop - https://ens-merch-shop.vercel.app/",
+		"type": "website",
+		"url": "https://ens-merch-shop.vercel.app/",
+		"site_name": "ENS Merch Shop",
+		"images": [
+			{
+				"url": "/card.png",
+				"width": "1200",
+				"height": "630",
+				"alt": "ENS Merch Shop"
+			}
+		]
+	},
+	"twitter": {
+		"handle": "@ensdomains",
+		"site": "@ensdomains",
+		"cardType": "summary_large_image"
+	}
 }

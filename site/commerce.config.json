@@ -1,8 +1,8 @@
 {
-  "features": {
-    "cart": true,
-    "search": true,
-    "wishlist": true,
-    "customerAuth": true
-  }
+	"features": {
+		"cart": true,
+		"search": true,
+		"wishlist": true,
+		"customerAuth": true
+	}
 }

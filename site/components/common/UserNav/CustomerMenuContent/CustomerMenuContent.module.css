@@ -1,29 +1,29 @@
 .root {
-  @apply inset-0 fixed;
-  left: 72px;
-  z-index: 10;
-  height: 100vh;
-  min-width: 100vw;
+	@apply inset-0 fixed;
+	left: 72px;
+	z-index: 10;
+	height: 100vh;
+	min-width: 100vw;
 }
 
 @media screen(lg) {
-  .root {
-    @apply static;
-    min-width: inherit;
-    height: inherit;
-  }
+	.root {
+		@apply static;
+		min-width: inherit;
+		height: inherit;
+	}
 }
 
 .link {
-  @apply text-blue-primary flex cursor-pointer px-6 py-3
+	@apply text-blue-primary flex cursor-pointer px-6 py-3
     transition ease-in-out duration-150 leading-6
     font-semibold items-center capitalize w-full box-border outline-0;
 }
 
 .link:hover {
-  @apply bg-accent-1 outline-none;
+	@apply bg-accent-1 outline-none;
 }
 
 .link.active {
-  @apply font-bold bg-accent-2;
+	@apply font-bold bg-accent-2;
 }

@@ -1,115 +1,118 @@
 {
-  "name": "next-commerce",
-  "version": "0.0.1",
-  "license": "MIT",
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "analyze": "BUNDLE_ANALYZE=both next build",
-    "lint": "next lint",
-    "prettier-fix": "prettier --write .",
-    "find:unused": "npx next-unused"
-  },
-  "sideEffects": false,
-  "dependencies": {
-    "@radix-ui/react-dropdown-menu": "^1.0.0",
-    "@radix-ui/react-select": "^1.2.1",
-    "@radix-ui/react-switch": "^1.0.2",
-    "@rainbow-me/rainbowkit": "^1.0.0",
-    "@react-spring/web": "^9.4.1",
-    "@tailwindcss/line-clamp": "^0.4.4",
-    "@vercel/commerce": "workspace:*",
-    "@vercel/commerce-shopify": "workspace:*",
-    "autoprefixer": "^10.4.2",
-    "body-scroll-lock": "^4.0.0-beta.0",
-    "clsx": "^1.1.1",
-    "email-validator": "^2.0.4",
-    "graphql-request": "^6.0.0",
-    "iron-session": "^6.3.1",
-    "js-cookie": "^3.0.1",
-    "keen-slider": "^6.7.0",
-    "lodash.random": "^3.2.0",
-    "lodash.throttle": "^4.1.1",
-    "lucide-react": "^0.218.0",
-    "next": "^13.0.4",
-    "node-gyp": "^9.3.1",
-    "postcss": "^8.3.5",
-    "postcss-nesting": "^10.1.10",
-    "react": "^18.2.0",
-    "react-copy-to-clipboard": "^5.1.0",
-    "react-dom": "^18.2.0",
-    "react-fast-marquee": "^1.3.1",
-    "react-hot-toast": "^2.4.1",
-    "react-markdown": "^8.0.7",
-    "react-merge-refs": "^2.0.1",
-    "react-use-measure": "^2.1.1",
-    "remark-breaks": "^3.0.3",
-    "sharp": "^0.32.1",
-    "siwe": "^2.1.4",
-    "tabbable": "^5.2.1",
-    "tailwindcss": "^3.0.13",
-    "viem": "^0.3.22",
-    "wagmi": "^1.0.0-next.9"
-  },
-  "devDependencies": {
-    "@next/bundle-analyzer": "^12.0.8",
-    "@tailwindcss/typography": "^0.5.9",
-    "@types/body-scroll-lock": "^3.1.0",
-    "@types/js-cookie": "^3.0.1",
-    "@types/lodash.random": "^3.2.6",
-    "@types/lodash.throttle": "^4.1.6",
-    "@types/node": "^18.0.3",
-    "@types/react": "^18.0.20",
-    "@types/react-copy-to-clipboard": "^5.0.4",
-    "@types/react-dom": "^18.0.6",
-    "eslint": "^8.6.0",
-    "eslint-config-next": "^12.0.8",
-    "eslint-config-prettier": "^8.3.0",
-    "lint-staged": "^13.0.3",
-    "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-preset-env": "^7.2.3",
-    "prettier": "^2.5.1",
-    "typescript": "4.7.4"
-  },
-  "lint-staged": {
-    "**/*.{js,jsx,ts,tsx}": [
-      "eslint",
-      "prettier --write",
-      "git add"
-    ],
-    "**/*.{md,mdx,json}": [
-      "prettier --write",
-      "git add"
-    ]
-  },
-  "next-unused": {
-    "alias": {
-      "@lib/*": [
-        "lib/*"
-      ],
-      "@assets/*": [
-        "assets/*"
-      ],
-      "@config/*": [
-        "config/*"
-      ],
-      "@components/*": [
-        "components/*"
-      ],
-      "@utils/*": [
-        "utils/*"
-      ]
-    },
-    "debug": true,
-    "include": [
-      "components",
-      "lib",
-      "pages"
-    ],
-    "exclude": [],
-    "entrypoints": [
-      "pages"
-    ]
-  }
+	"name": "next-commerce",
+	"version": "0.0.1",
+	"license": "MIT",
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"analyze": "BUNDLE_ANALYZE=both next build",
+		"lint": "eslint . --ext .ts --ext .tsx",
+		"lint:fix": "eslint . --ext .ts --ext .tsx --fix",
+		"prettier-fix": "prettier --write .",
+		"find:unused": "npx next-unused"
+	},
+	"sideEffects": false,
+	"dependencies": {
+		"@radix-ui/react-dropdown-menu": "^1.0.0",
+		"@radix-ui/react-select": "^1.2.1",
+		"@radix-ui/react-switch": "^1.0.2",
+		"@rainbow-me/rainbowkit": "^1.0.0",
+		"@react-spring/web": "^9.4.1",
+		"@tailwindcss/line-clamp": "^0.4.4",
+		"@vercel/commerce": "workspace:*",
+		"@vercel/commerce-shopify": "workspace:*",
+		"autoprefixer": "^10.4.2",
+		"body-scroll-lock": "^4.0.0-beta.0",
+		"clsx": "^1.1.1",
+		"email-validator": "^2.0.4",
+		"graphql-request": "^6.0.0",
+		"iron-session": "^6.3.1",
+		"js-cookie": "^3.0.1",
+		"keen-slider": "^6.7.0",
+		"lodash.random": "^3.2.0",
+		"lodash.throttle": "^4.1.1",
+		"lucide-react": "^0.218.0",
+		"next": "^13.0.4",
+		"node-gyp": "^9.3.1",
+		"postcss": "^8.3.5",
+		"postcss-nesting": "^10.1.10",
+		"react": "^18.2.0",
+		"react-copy-to-clipboard": "^5.1.0",
+		"react-dom": "^18.2.0",
+		"react-fast-marquee": "^1.3.1",
+		"react-hot-toast": "^2.4.1",
+		"react-markdown": "^8.0.7",
+		"react-merge-refs": "^2.0.1",
+		"react-use-measure": "^2.1.1",
+		"remark-breaks": "^3.0.3",
+		"sharp": "^0.32.1",
+		"siwe": "^2.1.4",
+		"tabbable": "^5.2.1",
+		"tailwindcss": "^3.0.13",
+		"viem": "^0.3.22",
+		"wagmi": "^1.0.0-next.9"
+	},
+	"devDependencies": {
+		"@next/bundle-analyzer": "^12.0.8",
+		"@tailwindcss/typography": "^0.5.9",
+		"@types/body-scroll-lock": "^3.1.0",
+		"@types/js-cookie": "^3.0.1",
+		"@types/lodash.random": "^3.2.6",
+		"@types/lodash.throttle": "^4.1.6",
+		"@types/node": "^18.0.3",
+		"@types/react": "^18.0.20",
+		"@types/react-copy-to-clipboard": "^5.0.4",
+		"@types/react-dom": "^18.0.6",
+		"eslint": "^8.6.0",
+		"eslint-config-next": "^12.0.8",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-prettier": "^4.2.1",
+		"eslint-plugin-unused-imports": "^2.0.0",
+		"lint-staged": "^13.0.3",
+		"postcss-flexbugs-fixes": "^5.0.2",
+		"postcss-preset-env": "^7.2.3",
+		"prettier": "^2.5.1",
+		"typescript": "4.7.4"
+	},
+	"lint-staged": {
+		"**/*.{js,jsx,ts,tsx}": [
+			"eslint",
+			"prettier --write",
+			"git add"
+		],
+		"**/*.{md,mdx,json}": [
+			"prettier --write",
+			"git add"
+		]
+	},
+	"next-unused": {
+		"alias": {
+			"@lib/*": [
+				"lib/*"
+			],
+			"@assets/*": [
+				"assets/*"
+			],
+			"@config/*": [
+				"config/*"
+			],
+			"@components/*": [
+				"components/*"
+			],
+			"@utils/*": [
+				"utils/*"
+			]
+		},
+		"debug": true,
+		"include": [
+			"components",
+			"lib",
+			"pages"
+		],
+		"exclude": [],
+		"entrypoints": [
+			"pages"
+		]
+	}
 }

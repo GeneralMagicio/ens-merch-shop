@@ -1,50 +1,50 @@
 .swatch {
-  box-sizing: border-box;
-  composes: root from '@components/ui/Button/Button.module.css';
-  @apply h-10 w-10 bg-primary font-bold text-blue-primary rounded-full mr-3 inline-flex
+	box-sizing: border-box;
+	composes: root from '@components/ui/Button/Button.module.css';
+	@apply h-10 w-10 bg-primary font-bold text-blue-primary rounded-full mr-3 inline-flex
   items-center justify-center cursor-pointer transition duration-150 ease-in-out
   p-0 shadow-none border-blue-primary border box-border select-none;
-  margin-right: calc(0.75rem - 1px);
-  overflow: hidden;
-  width: 48px;
-  height: 48px;
+	margin-right: calc(0.75rem - 1px);
+	overflow: hidden;
+	width: 48px;
+	height: 48px;
 }
 
 .swatch::before,
 .swatch::after {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .swatch:hover {
-  @apply transform scale-110 bg-blue-surface border-blue-primary;
+	@apply transform scale-110 bg-blue-surface border-blue-primary;
 }
 
 .swatch > span {
-  @apply absolute;
+	@apply absolute;
 }
 
 .color {
-  @apply transition duration-150 ease-in-out;
+	@apply transition duration-150 ease-in-out;
 }
 
 .color.dark,
 .color.dark:hover {
-  color: white !important;
+	color: white !important;
 }
 
 .active {
-  @apply border-blue-primary border-2 bg-blue-surface;
-  padding-right: 1px;
-  padding-left: 1px;
+	@apply border-blue-primary border-2 bg-blue-surface;
+	padding-right: 1px;
+	padding-left: 1px;
 }
 
 .textLabel {
-  @apply w-auto px-4;
-  min-width: 3rem;
+	@apply w-auto px-4;
+	min-width: 3rem;
 }
 
 .active.textLabel {
-  @apply border-blue-primary border-2;
-  padding-right: calc(1rem - 1px);
-  padding-left: calc(1rem - 1px);
+	@apply border-blue-primary border-2;
+	padding-right: calc(1rem - 1px);
+	padding-left: calc(1rem - 1px);
 }
