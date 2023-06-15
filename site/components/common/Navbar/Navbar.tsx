@@ -21,7 +21,9 @@ const Navbar: FC<NavbarProps> = ({ links, isHomePage }) => {
   return (
     <Container
       clean
-      className="w-full inset-0 fixed z-20 lg:max-h-24 max-h-32 backdrop-blur border-gray-200 mx-auto max-w-8xl px-6 lg:px-12"
+      className={`w-full inset-0 fixed z-20 lg:max-h-24 max-h-32 ${
+        variant === 'default' ? 'bg-white' : 'backdrop-blur'
+      } border-gray-200 mx-auto max-w-8xl px-6 lg:px-12`}
     >
       <div className="flex items-center justify-between h-16 lg:h-24">
         <Link className="hidden xl:block" href="/" aria-label="Logo">
