@@ -45,6 +45,8 @@ const CartItem = ({
     currencyCode,
   })
 
+  const hasCustomizableOptions = item?.customAttributes && item.customAttributes?.length > 0
+
   const handleChange = async ({
     target: { value },
   }: ChangeEvent<HTMLInputElement>) => {
@@ -134,8 +136,10 @@ const CartItem = ({
               ))}
             </div>
           )}
+          {hasCustomizableOptions && <div>{'Custom ENS name: ' + item.customAttributes![0].value}</div>}
         </div>
-
+      </div>
+      <div className='flex'>
         <Quantity
           value={quantity}
           handleRemove={handleRemove}
