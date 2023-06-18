@@ -52,11 +52,6 @@ const socialLinks = [
     url: 'https://chat.ens.domains/',
     icon: <Discord />,
   },
-  {
-    name: 'Medium',
-    url: 'https://medium.com/the-ethereum-name-service',
-    icon: <Medium />,
-  },
 ]
 
 const Footer: FC = () => {
