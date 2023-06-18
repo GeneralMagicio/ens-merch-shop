@@ -23,13 +23,6 @@ export const handler: MutationHook<SignupHook> = {
     options,
     fetch,
   }) {
-    if (!(firstName && lastName && email && password)) {
-      throw new CommerceError({
-        message:
-          'A first name, last name, email and password are required to signup',
-      })
-    }
-
     const { customerCreate } = await fetch<
       Mutation,
       MutationCustomerCreateArgs
