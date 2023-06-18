@@ -1,9 +1,9 @@
-import { FC, useEffect, useState, useCallback } from 'react'
-import { validate } from 'email-validator'
+import { FC, useState } from 'react'
 import { Info } from '@components/icons'
 import { useUI } from '@components/ui/context'
-import { Logo, Button, Input } from '@components/ui'
+import { Input } from '@components/ui'
 import useSignup from '@framework/auth/use-signup'
+import { validate } from 'email-validator'
 
 interface Props {}
 
@@ -15,8 +15,6 @@ const SignUpView: FC<Props> = () => {
   const [lastName, setLastName] = useState('')
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState('')
-  const [dirty, setDirty] = useState(false)
-  const [disabled, setDisabled] = useState(false)
 
   const signup = useSignup()
   const { setModalView, closeModal } = useUI()
@@ -24,9 +22,20 @@ const SignUpView: FC<Props> = () => {
   const handleSignup = async (e: React.SyntheticEvent<EventTarget>) => {
     e.preventDefault()
 
-    if (!dirty && !disabled) {
-      setDirty(true)
-      handleValidation()
+    const validPassword = /^(?=.*[a-zA-Z])(?=.*[0-9])/.test(password)
+
+    // Unable to send form unless fields are valid.
+    if (!(firstName && lastName && email && password)) {
+      return setMessage('Please fill out all fields.')
+    }
+    if (!validate(email)) {
+      return setMessage('Email address is invalid. Please enter a valid email address.')
+    }
+    if (password.length < 7) {
+      return setMessage('Password is invalid. Please enter a valid password with at least 7 characters.')
+    }
+    if (!validPassword) {
+      return setMessage('Password is invalid. Please enter a valid password with at least one letter and one number.')
     }
 
     try {
@@ -46,25 +55,10 @@ const SignUpView: FC<Props> = () => {
       } else {
         setMessage('Unexpected error')
       }
-      setDisabled(false)
     } finally {
       setLoading(false)
     }
   }
-
-  const handleValidation = useCallback(() => {
-    // Test for Alphanumeric password
-    const validPassword = /^(?=.*[a-zA-Z])(?=.*[0-9])/.test(password)
-
-    // Unable to send form unless fields are valid.
-    if (dirty) {
-      setDisabled(!validate(email) || password.length < 7 || !validPassword)
-    }
-  }, [email, password, dirty])
-
-  useEffect(() => {
-    handleValidation()
-  }, [handleValidation])
 
   return (
     <form
@@ -96,7 +90,6 @@ const SignUpView: FC<Props> = () => {
         <div className="pt-2 w-full flex flex-col">
           <button
             type="submit"
-            disabled={disabled}
             className="block w-full font-bold py-3 rounded-lg text-white bg-blue-primary"
           >
             Sign Up
