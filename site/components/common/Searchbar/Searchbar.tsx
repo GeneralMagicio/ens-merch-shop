@@ -1,4 +1,4 @@
-import { FC, memo, useEffect } from 'react'
+import { FC, memo, useEffect, useState } from 'react'
 import { MagnifyingGlass } from '@components/icons'
 import { useRouter } from 'next/router'
 import cn from 'clsx'
@@ -15,6 +15,7 @@ const Searchbar: FC<Props> = ({
   variant = 'default',
 }) => {
   const router = useRouter()
+  const [search, setSearch] = useState('')
 
   useEffect(() => {
     router.prefetch('/search')
@@ -22,10 +23,8 @@ const Searchbar: FC<Props> = ({
 
   const handleKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
     e.preventDefault()
-
     if (e.key === 'Enter') {
       const q = e.currentTarget.value
-
       router.push(
         {
           pathname: `/search`,
@@ -34,6 +33,7 @@ const Searchbar: FC<Props> = ({
         undefined,
         { shallow: true }
       )
+      setSearch('')
     }
   }
 
@@ -53,6 +53,8 @@ const Searchbar: FC<Props> = ({
         placeholder="Search for products..."
         defaultValue={router.query.q}
         onKeyUp={handleKeyUp}
+        value={search}
+        onChange={e => setSearch(e.target.value)}
       />
       <div className="absolute left-4">
         <MagnifyingGlass variant={variant} />
