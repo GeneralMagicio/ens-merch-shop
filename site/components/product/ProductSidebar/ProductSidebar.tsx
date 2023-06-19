@@ -17,6 +17,7 @@ import ErrorMessage from '@components/ui/ErrorMessage'
 import Link from '@components/ui/Link/Link'
 import { ArrowLeftBold, Share } from '@components/icons'
 import ProductTypePill from '@components/ui/ProductTypePill'
+import ProductPrice from '@components/product/ProductPrice'
 
 const DynamicSelectEnsName = dynamic(
   () => import('@components/ui/SelectEnsName')
@@ -109,6 +110,7 @@ const ProductSidebar: FC<ProductSidebarProps> = ({ product, className }) => {
         selectedOptions={selectedOptions}
         setSelectedOptions={setSelectedOptions}
       />
+      <ProductPrice price={product?.price?.value} />
       {isCustomizable ? (
         <DynamicSelectEnsName
           selectedEnsName={selectedEnsName}
