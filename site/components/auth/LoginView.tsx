@@ -74,6 +74,7 @@ const LoginView: React.FC = () => {
             </a>
           </div>
         )}
+        <div className="text-center text-accent-7 mb-3">Log In to the ENS Merch Shop to keep track of your orders</div>
         <Input type="email" placeholder="Email" onChange={setEmail} />
         <Input type="password" placeholder="Password" onChange={setPassword} />
 
