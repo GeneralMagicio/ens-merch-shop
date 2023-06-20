@@ -38,8 +38,16 @@ const SelectEnsName = ({
   })
 
   // Filter only ens names with less than 19 characters including .eth
-  const filteredENSNames = useMemo(
-    () => ensNamesData?.domains.filter((ensName) => ensName.name.length < 19),
+  const sortENSNames = useMemo(
+    () => ensNamesData?.domains.filter((ensName) => ensName.name.length < 19).sort((a, b) => {
+      if (a.name < b.name) {
+        return -1;
+      }
+      if (a.name > b.name) {
+        return 1;
+      }
+      return 0;
+    }),
     [ensNamesData]
   )
 
@@ -59,7 +67,7 @@ const SelectEnsName = ({
               >
                 rilxxlir.eth
               </SelectItem>
-              {filteredENSNames?.map(({ id, name }) => (
+              {sortENSNames?.map(({ id, name }) => (
                 <SelectItem
                   className="hover:bg-blue-primary hover:font-medium hover:text-white hover:text-opacity-100"
                   key={id}
