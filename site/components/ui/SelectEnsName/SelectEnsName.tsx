@@ -31,7 +31,7 @@ const SelectEnsName = ({
   variant,
 }: SelectEnsNameProps) => {
   const { address, isConnected } = useAccount()
-  const { data: ensNamesData } = useENSNames({ address })
+  const { data: ensNamesData } = useENSNames({ address: '0x839395e20bbb182fa440d08f850e6c7a8f6f0780' })
 
   const { signIn } = useSiwe({
     onSuccess,
