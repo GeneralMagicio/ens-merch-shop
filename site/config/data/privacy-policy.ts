@@ -15,7 +15,7 @@ We collect personal information that you voluntarily provide to us when you expr
 **Sensitive Information.** We do not process sensitive information.
 
 **Payment Data.** We may collect data necessary to process your payment if you make purchases, such as your payment instrument number (such as a credit card number), and the security code associated with your payment instrument. All payment data is stored by Stripe. You may find their privacy notice link(s) here: **https://stripe.com/privacy**.
- 
+
 All personal information that you provide to us must be true, complete, and accurate, and you must notify us of any changes to such personal information.
 
 ## Information automatically collected
@@ -23,7 +23,7 @@ All personal information that you provide to us must be true, complete, and accu
 
 We automatically collect certain information when you visit, use, or navigate the Services. This information does not reveal your specific identity (like your name or contact information) but may include device and usage information, such as your IP address, browser and device characteristics, operating system, language preferences, referring URLs, device name, country, location, information about how and when you use our Services, and other technical information. This information is primarily needed to maintain the security and operation of our Services, and for our internal analytics and reporting purposes.
 
-Like many businesses, we also collect information through cookies and similar technologies. You can find out more about this in our Cookie Notice: [ensmerchshop.xyz/cookies](https://ens-merch-shop.vercel.app/cookies).
+Like many businesses, we also collect information through cookies and similar technologies. You can find out more about this in our Cookie Notice: [ensmerchshop.xyz/cookies](https://ensmerchshop.xyz/cookies).
 
 The Information we collect includes:
 
@@ -99,7 +99,7 @@ We may need to share your personal information in the following situations:
     title: 'Do We Use Cookies And Other Tracking Technologies?',
     description: `**In Short:** We may use cookies and other tracking technologies to collect and store your information.
 
-We may use cookies and similar tracking technologies (like web beacons and pixels) to access or store information. Specific information about how we use such technologies and how you can refuse certain cookies is set out in is our Cookie Notice: [ensmerchshop.xyz/cookies](https://ens-merch-shop.vercel.app/cookies).`,
+We may use cookies and similar tracking technologies (like web beacons and pixels) to access or store information. Specific information about how we use such technologies and how you can refuse certain cookies is set out in is our Cookie Notice: [ensmerchshop.xyz/cookies](https://ensmerchshop.xyz/cookies).`,
   },
   {
     title: 'How Long Do We Keep Your Information?',
@@ -133,7 +133,7 @@ However, please note that this will not affect the lawfulness of the processing 
 
 **Opting out of marketing and promotional communications:** You can unsubscribe from our marketing and promotional communications at any time by clicking on the unsubscribe link in the emails that we send, or by contacting us using the details provided in the section “HOW CAN YOU CONTACT US ABOUT THIS NOTICE?” below. You will then be removed from the marketing lists. However, we may still communicate with you – for example, to send you service-related messages that are necessary for the administration and use of your account, to respond to service requests, or for other non-marketing purposes.
 
-**Cookies and similar technologies:** Most Web browsers are set to accept cookies by default. If you prefer, you can usually choose to set your browser to remove cookies and to reject cookies. If you choose to remove cookies or reject cookies, this could affect certain features or services of our Services. For further information, please see our Cookie Notice: [ensmerchshop.xyz/cookies](https://ens-merch-shop.vercel.app/cookies).
+**Cookies and similar technologies:** Most Web browsers are set to accept cookies by default. If you prefer, you can usually choose to set your browser to remove cookies and to reject cookies. If you choose to remove cookies or reject cookies, this could affect certain features or services of our Services. For further information, please see our Cookie Notice: [ensmerchshop.xyz/cookies](https://ensmerchshop.xyz/cookies).
 
 If you have questions or comments about your privacy rights, you may email us at [privacy@generalmagic.io](mailto:privacy@generalmagic.io).`,
   },
@@ -183,9 +183,9 @@ We may also collect other personal information outside of these categories insta
 
 **How do we use and share your personal information?**
 
-More information about our data collection and e sharing practices can be found in this privacy notice and our Cookie Notice: [ensmerchshop.xyz/cookies](https://ens-merch-shop.vercel.app/cookies).
+More information about our data collection and e sharing practices can be found in this privacy notice and our Cookie Notice: [ensmerchshop.xyz/cookies](https://ensmerchshop.xyz/cookies).
 
-You may contact us by email at [privacy@generalmagic.io](mailto:pricacy@generalmagic.io), or by referring to the contact details at the bottom of this document.
+You may contact us by email at [privacy@generalmagic.io](mailto:privacy@generalmagic.io), or by referring to the contact details at the bottom of this document.
 
 If you are using an authorized agent to exercise your right to opt out we may deny a request if the authorized agent does not submit proof that they have been validly authorized to act on your behalf.
 
