@@ -85,11 +85,6 @@ const CartSidebarView: FC = () => {
                 My Cart
               </Text>
             </Link>
-            <div className="flex mb-2 items-center text-xs font-medium text-zinc-400 justify-between">
-              <p className="w-64">Products</p>
-              <p className="w-20">Qty</p>
-              <p className="w-24">Unit Price</p>
-            </div>
             <ul className="flex flex-col space-y-2">
               {data!.lineItems.map((item: any) => (
                 <CartItem
