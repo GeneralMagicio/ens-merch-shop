@@ -1,12 +1,11 @@
 import { useAddItem } from '@framework/cart'
 import { FC, useEffect, useState } from 'react'
-import { Suspense } from 'react'
 import dynamic from 'next/dynamic'
 import CopyToClipboard from 'react-copy-to-clipboard'
 import toast, { Toaster } from 'react-hot-toast'
 import type { Product } from '@commerce/types/product'
 import { LoadingDots } from '@components/ui'
-import { Text, Rating, useUI } from '@components/ui'
+import { Text, useUI } from '@components/ui'
 import { ProductOptions } from '@components/product'
 import {
   getProductVariant,
@@ -110,7 +109,7 @@ const ProductSidebar: FC<ProductSidebarProps> = ({ product, className }) => {
         selectedOptions={selectedOptions}
         setSelectedOptions={setSelectedOptions}
       />
-      <ProductPrice price={product?.price?.value} />
+      <ProductPrice product={product} />
       {isCustomizable ? (
         <DynamicSelectEnsName
           selectedEnsName={selectedEnsName}

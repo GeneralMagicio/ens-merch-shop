@@ -1,13 +1,25 @@
+import { useCurrencyContext } from '@lib/hooks/useCurrencyContext'
+import { Product } from '@commerce/types/product'
+import usePrice from '@framework/product/use-price'
 
 interface ProductPriceProps {
-    price: number
+  product: Product
 }
 
-const ProductPrice = ({ price }: ProductPriceProps) => {
+const ProductPrice = ({ product }: ProductPriceProps) => {
+  const { priceCurrency } = useCurrencyContext()
+
+  const { price } = usePrice({
+    selectedCurrency: priceCurrency,
+    amount: product.price.value,
+    baseAmount: product.price.retailPrice,
+    currencyCode: product.price.currencyCode!,
+  })
+
   return (
     <div className='mb-8'>
       <h2 className="capitalize font-bold text-lg tracking-wide">Price</h2>
-      <div>${price}</div>
+      <div>{price}</div>
     </div>
     );
 }
