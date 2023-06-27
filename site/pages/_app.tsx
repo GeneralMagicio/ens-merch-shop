@@ -2,6 +2,7 @@ import '@rainbow-me/rainbowkit/styles.css'
 import '@assets/main.css'
 import '@assets/chrome-bug.css'
 import 'keen-slider/keen-slider.min.css'
+import '/assets/newsletter-form.css'
 
 import { FC, ReactNode, useEffect } from 'react'
 import type { AppProps } from 'next/app'
@@ -32,7 +33,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
                   src="https://www.googletagmanager.com/ns.html?id=GTM-KJL3XCM"
                   height="0"
                   width="0"
-                ></iframe>
+                />
               </noscript>
               <Component {...pageProps} />
             </Layout>
