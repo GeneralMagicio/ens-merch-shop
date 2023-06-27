@@ -10,7 +10,7 @@ import { Navbar, Footer } from '@components/common'
 import ShippingView from '@components/checkout/ShippingView'
 import CartSidebarView from '@components/cart/CartSidebarView'
 import { useAcceptCookies } from '@lib/hooks/useAcceptCookies'
-import { Sidebar, Button, LoadingDots } from '@components/ui'
+import { Sidebar, LoadingDots } from '@components/ui'
 import PaymentMethodView from '@components/checkout/PaymentMethodView'
 import CheckoutSidebarView from '@components/checkout/CheckoutSidebarView'
 import { CheckoutProvider } from '@components/checkout/context'
@@ -18,6 +18,7 @@ import { MenuSidebarView } from '@components/common/UserNav'
 import type { Page } from '@commerce/types/page'
 import type { Category } from '@commerce/types/site'
 import type { Link as LinkProps } from '../UserNav/MenuSidebarView'
+import ProductShareModal from '@components/product/ProductSidebar/ProductShareModal'
 
 const Loading = () => (
   <div className="w-80 h-80 flex items-center text-center justify-center p-3">
@@ -66,6 +67,7 @@ const ModalView: React.FC<{ modalView: string; closeModal(): any }> = ({
       {modalView === 'LOGIN_VIEW' && <LoginView />}
       {modalView === 'SIGNUP_VIEW' && <SignUpView />}
       {modalView === 'FORGOT_VIEW' && <ForgotPassword />}
+      {modalView === 'SHARE_PRODUCT_VIEW' && <ProductShareModal />}
     </Modal>
   )
 }

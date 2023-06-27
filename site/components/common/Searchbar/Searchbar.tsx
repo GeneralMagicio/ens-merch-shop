@@ -54,7 +54,7 @@ const Searchbar: FC<Props> = ({
         defaultValue={router.query.q}
         onKeyUp={handleKeyUp}
         value={search}
-        onChange={e => setSearch(e.target.value)}
+        onChange={(e) => setSearch(e.target.value)}
       />
       <div className="absolute left-4">
         <MagnifyingGlass variant={variant} />
