@@ -11,8 +11,7 @@ const SignInButton = ({
   className,
   variant = 'default',
 }: SignInButtonProps) => {
-    const { chains, switchNetworkAsync } =
-      useSwitchNetwork()
+  const { chains, switchNetworkAsync } = useSwitchNetwork()
 
   return (
     <ConnectButton.Custom>

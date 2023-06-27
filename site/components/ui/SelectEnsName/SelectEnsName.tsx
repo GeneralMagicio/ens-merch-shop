@@ -39,15 +39,18 @@ const SelectEnsName = ({
 
   // Filter only ens names with less than 19 characters including .eth
   const sortENSNames = useMemo(
-    () => ensNamesData?.domains.filter((ensName) => ensName.name.length < 19).sort((a, b) => {
-      if (a.name < b.name) {
-        return -1;
-      }
-      if (a.name > b.name) {
-        return 1;
-      }
-      return 0;
-    }),
+    () =>
+      ensNamesData?.domains
+        .filter((ensName) => ensName.name.length < 19)
+        .sort((a, b) => {
+          if (a.name < b.name) {
+            return -1
+          }
+          if (a.name > b.name) {
+            return 1
+          }
+          return 0
+        }),
     [ensNamesData]
   )
 

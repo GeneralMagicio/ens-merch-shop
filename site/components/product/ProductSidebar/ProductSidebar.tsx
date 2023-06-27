@@ -1,8 +1,6 @@
 import { useAddItem } from '@framework/cart'
 import { FC, useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
-import CopyToClipboard from 'react-copy-to-clipboard'
-import toast, { Toaster } from 'react-hot-toast'
 import type { Product } from '@commerce/types/product'
 import { LoadingDots } from '@components/ui'
 import { Text, useUI } from '@components/ui'
@@ -14,9 +12,10 @@ import {
 } from '../helpers'
 import ErrorMessage from '@components/ui/ErrorMessage'
 import Link from '@components/ui/Link/Link'
-import { ArrowLeftBold, Share } from '@components/icons'
+import { ArrowLeftBold } from '@components/icons'
 import ProductTypePill from '@components/ui/ProductTypePill'
 import ProductPrice from '@components/product/ProductPrice'
+import ProductShareButton from '@components/product/ProductSidebar/ProductShareButton'
 
 const DynamicSelectEnsName = dynamic(
   () => import('@components/ui/SelectEnsName')
@@ -34,8 +33,6 @@ const ProductSidebar: FC<ProductSidebarProps> = ({ product, className }) => {
   const [error, setError] = useState<null | Error>(null)
   const [selectedEnsName, setSelectedEnsName] = useState<string>()
   const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>({})
-
-  const url = typeof window !== 'undefined' ? window.location.href : ''
 
   const isCustomizable = product.productType === 'Customizable'
 
@@ -77,25 +74,12 @@ const ProductSidebar: FC<ProductSidebarProps> = ({ product, className }) => {
 
   return (
     <div className={className}>
-      <Toaster />
       <div className="flex mb-6 text-blue-primary text-sm font-medium items-center justify-between">
         <div className="flex items-center">
           <ArrowLeftBold className="mr-2" />
           <Link href="/search/products">All Products</Link>
         </div>
-        <div className="flex items-center justify-between">
-          <CopyToClipboard
-            text={url}
-            onCopy={() =>
-              toast('Product page copied to clipboard', { icon: '✂️' })
-            }
-          >
-            <div className="flex items-center cursor-pointer">
-              <span className="mr-1">Share this</span>
-              <Share />
-            </div>
-          </CopyToClipboard>
-        </div>
+        <ProductShareButton />
       </div>
 
       <h2 className="mt-6 mb-2 font-black text-4xl">{product.name}</h2>
