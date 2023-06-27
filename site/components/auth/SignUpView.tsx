@@ -29,13 +29,19 @@ const SignUpView: FC<Props> = () => {
       return setMessage('Please fill out all fields.')
     }
     if (!validate(email)) {
-      return setMessage('Email address is invalid. Please enter a valid email address.')
+      return setMessage(
+        'Email address is invalid. Please enter a valid email address.'
+      )
     }
     if (password.length < 7) {
-      return setMessage('Password is invalid. Please enter a valid password with at least 7 characters.')
+      return setMessage(
+        'Password is invalid. Please enter a valid password with at least 7 characters.'
+      )
     }
     if (!validPassword) {
-      return setMessage('Password is invalid. Please enter a valid password with at least one letter and one number.')
+      return setMessage(
+        'Password is invalid. Please enter a valid password with at least one letter and one number.'
+      )
     }
 
     try {
