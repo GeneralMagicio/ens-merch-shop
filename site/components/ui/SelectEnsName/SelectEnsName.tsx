@@ -12,6 +12,7 @@ import SignInButton from '@components/common/SignInButton/SignInButton'
 import useENSNames from '@lib/hooks/useENSNames/useENSNames'
 import useSiwe from '@lib/hooks/useSiwe'
 import { LoadingDots } from '@components/ui'
+import { ENSDomain } from '@lib/hooks/useENSNames/types'
 
 interface SelectEnsNameProps {
   error: Error | null
@@ -39,18 +40,7 @@ const SelectEnsName = ({
 
   // Filter only ens names with less than 19 characters including .eth
   const sortENSNames = useMemo(
-    () =>
-      ensNamesData?.domains
-        .filter((ensName) => ensName.name.length < 19)
-        .sort((a, b) => {
-          if (a.name < b.name) {
-            return -1
-          }
-          if (a.name > b.name) {
-            return 1
-          }
-          return 0
-        }),
+    () => ensNamesData?.domains.filter((ensName) => ensName.name.length < 19).sort(compareDomains),
     [ensNamesData]
   )
 
@@ -112,6 +102,27 @@ const SelectEnsName = ({
       )}
     </div>
   )
+}
+
+function compareDomains(a: ENSDomain, b: ENSDomain) {
+  const aParts = a.name.split('.');
+  const bParts = b.name.split('.');
+
+  // Reverse the arrays to compare from TLD (top-level domain)
+  const aPartsReversed = [...aParts].reverse();
+  const bPartsReversed = [...bParts].reverse();
+  const length = Math.max(aPartsReversed.length, bPartsReversed.length);
+
+  for(let i = 0; i < length; i++) {
+    if(aPartsReversed[i] !== bPartsReversed[i]) {
+      if (aPartsReversed[i] === undefined) return -1; // If a is missing parts, b is a subdomain of a
+      if (bPartsReversed[i] === undefined) return 1; // If b is missing parts, a is a subdomain of b
+      return aPartsReversed[i].localeCompare(bPartsReversed[i]);
+    }
+  }
+
+  // Prioritize less subdomain over more subdomain when domains are equal
+  return aParts.length - bParts.length;
 }
 
 export default SelectEnsName

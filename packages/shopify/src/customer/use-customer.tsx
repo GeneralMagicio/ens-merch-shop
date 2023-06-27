@@ -20,7 +20,7 @@ export const handler: SWRHook<CustomerHook> = {
       try {
         const data = await fetch<GetCustomerQuery, GetCustomerQueryVariables>({
           ...options,
-          variables: { customerAccessToken: getCustomerToken() },
+          variables: { customerAccessToken },
         })
         customer = data.customer
       } catch (error) {
