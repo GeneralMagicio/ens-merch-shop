@@ -10,7 +10,6 @@ import { Container, Text } from '@components/ui'
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,

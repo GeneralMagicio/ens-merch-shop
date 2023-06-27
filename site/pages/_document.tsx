@@ -15,6 +15,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-KJL3XCM');
         `}
           </Script>
+          <script src="https://f.convertkit.com/ckjs/ck.5.js" />
         </Head>
         <body className="loading">
           <Main />
