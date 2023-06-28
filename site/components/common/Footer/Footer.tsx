@@ -45,7 +45,7 @@ const socialLinks = [
   {
     name: 'Twitter',
     url: 'https://twitter.com/ensdomains',
-    icon: <Twitter />,
+    icon: <Twitter color='white' />,
   },
   {
     name: 'Discord',
@@ -62,7 +62,7 @@ const Footer: FC = () => {
           <Link href="/">
             <Logo variant="light" />
           </Link>
-          <div className="flex gap-x-5">
+          <div className="flex gap-x-5 items-center">
             {socialLinks.map(({ icon, name, url }) => (
               <Link
                 className="transition duration-200 hover:scale-110 hover:opacity-60"

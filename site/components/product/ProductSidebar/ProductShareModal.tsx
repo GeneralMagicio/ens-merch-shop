@@ -25,7 +25,7 @@ const ProductShareModal: FC = () => {
   };
 
   return (
-    <div className="p-6 text-center">
+    <div className="text-center md:p-6">
       <h3 className="text-2xl text-black mb-8 font-bold">
         Share this with your friends!
       </h3>
@@ -51,17 +51,17 @@ const ProductShareModal: FC = () => {
             <Facebook />
           </FacebookShareButton>
       </div>
-      <p className="mt-4 mb-4 text-black text-lg">
+      <p className="mt-4 mb-4 text-black text-md font-bold">
         Or copy the link
       </p>
-      <div className="flex py-2 justify-center items-center border border-dashed border-gray-400 rounded-lg mt-5 mx-auto shadow-lg">
-        <a href={url} className="text-sm flex items-center justify-center px-6 text-gray-500 break-words">
+      <div onClick={() => !isCopied && handleCopy()} className="flex flex-col md:flex-row py-2 justify-center items-center border border-dashed border-gray-400 rounded-lg mt-5 mx-auto shadow-lg cursor-pointer">
+        <div className="text-sm max-w-full px-6 text-gray-500 break-words">
           {url}
-        </a>
-        <div className="border-l border-gray-400 h-4" />
+        </div>
+        <div className="border-l border-gray-400 h-4 hidden md:block" />
+        <div className="border-b border-gray-400 w-full my-2 md:hidden" />
         <button
           className='text-sm uppercase font-bold m-auto w-28 flex-shrink-0 flex-grow-0 text-pink-light'
-          onClick={() => !isCopied && handleCopy()}
         >
           {
             isCopied
