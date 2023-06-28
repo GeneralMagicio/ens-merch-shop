@@ -221,7 +221,7 @@ importers:
         specifier: ^1.0.0
         version: 1.0.0(@types/react@18.0.20)(react-dom@18.2.0)(react@18.2.0)(viem@0.3.22)(wagmi@1.0.2)
       '@react-spring/web':
-        specifier: ^9.7.3
+        specifier: ^9.4.1
         version: 9.7.3(react-dom@18.2.0)(react@18.2.0)
       '@tailwindcss/line-clamp':
         specifier: ^0.4.4
