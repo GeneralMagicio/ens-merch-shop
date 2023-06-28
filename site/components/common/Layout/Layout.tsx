@@ -108,7 +108,7 @@ const SidebarUI: React.FC<{ links: LinkProps[] }> = ({ links }) => {
 
 const Layout: React.FC<Props> = ({
 	children,
-	pageProps: { categories = [], ...pageProps },
+	pageProps: { categories = [] },
 }) => {
 	const { acceptedCookies, onAcceptCookies } = useAcceptCookies();
 	const { locale = 'en-US', pathname } = useRouter();

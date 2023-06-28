@@ -67,13 +67,13 @@ const LoginView: React.FC = () => {
 			<div className='flex flex-col space-y-3'>
 				{message && (
 					<div className='text-red border border-red p-3'>
-						{message}. Did you {` `}
-						<a
-							className='inline font-bold hover:underline cursor-pointer'
-							onClick={() => setModalView('FORGOT_VIEW')}
-						>
-							forgot your password?
-						</a>
+						{message}. {` `}
+						{/*<a*/}
+						{/*	className='inline font-bold hover:underline cursor-pointer'*/}
+						{/*	onClick={() => setModalView('FORGOT_VIEW')}*/}
+						{/*>*/}
+						{/*  Did you forget your password?*/}
+						{/*</a>*/}
 					</div>
 				)}
 				<div className='text-center text-accent-7 mb-3'>

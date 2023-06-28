@@ -9,11 +9,7 @@ interface Props {
 	variant?: 'default' | 'light';
 }
 
-const Searchbar: FC<Props> = ({
-	className,
-	id = 'search',
-	variant = 'default',
-}) => {
+const Searchbar: FC<Props> = ({ id = 'search', variant = 'default' }) => {
 	const router = useRouter();
 	const [search, setSearch] = useState('');
 

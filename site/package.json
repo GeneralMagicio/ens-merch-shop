@@ -7,9 +7,7 @@
     "build": "next build",
     "start": "next start",
     "analyze": "BUNDLE_ANALYZE=both next build",
-    "lint": "next lint",
     "lint:fix": "eslint . --ext .ts --ext .tsx --ext .js --fix",
-    "prettier-fix": "prettier --write .",
     "find:unused": "npx next-unused"
   },
   "sideEffects": false,

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import commerce from '@lib/api/commerce';
 import { Layout } from '@components/common';
 import Newsletter from '@components/common/Newsletter';
-import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
+import type { GetStaticPropsContext } from 'next';
 
 export async function getStaticProps({
 	preview,
@@ -32,9 +32,7 @@ export async function getStaticProps({
 	};
 }
 
-export default function About({
-	products,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function About() {
 	return (
 		<>
 			<div className='max-w-3xl px-4 my-44 mx-auto'>
