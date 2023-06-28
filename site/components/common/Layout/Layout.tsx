@@ -67,7 +67,6 @@ const ModalView: React.FC<{ modalView: string; closeModal(): any }> = ({
       {modalView === 'LOGIN_VIEW' && <LoginView />}
       {modalView === 'SIGNUP_VIEW' && <SignUpView />}
       {modalView === 'FORGOT_VIEW' && <ForgotPassword />}
-      {modalView === 'SHARE_PRODUCT_VIEW' && <ProductShareModal />}
     </Modal>
   )
 }

@@ -5,7 +5,7 @@
 }
 
 .modal {
-  @apply bg-primary p-12 border border-accent-2 relative;
+  @apply bg-primary p-12 border border-accent-2 relative rounded-lg max-w-full;
 }
 
 .modal:focus {
