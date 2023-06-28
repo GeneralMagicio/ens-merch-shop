@@ -77,7 +77,6 @@ const CheckoutSidebarView: FC = () => {
 							key={item.id}
 							item={item}
 							currencyCode={cartData!.currency.code}
-							variant='display'
 						/>
 					))}
 				</ul>

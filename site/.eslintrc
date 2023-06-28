@@ -1,5 +1,6 @@
 {
   "plugins": [
+    "@typescript-eslint",
     "import",
     "unused-imports"
   ],
@@ -9,7 +10,7 @@
     "plugin:prettier/recommended"
   ],
   "rules": {
-    "react/no-unescaped-entities": "warn",
+    "react/no-unescaped-entities": 0,
     "import/order": ["error", {
       "groups": ["builtin", "external", ["internal", "parent", "sibling"], "index", "object", "type"]
     }],

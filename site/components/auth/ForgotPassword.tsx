@@ -1,4 +1,4 @@
-import { FC, useEffect, useState, useCallback } from 'react';
+import { FC, useEffect, useState, useCallback, SyntheticEvent } from 'react';
 import { validate } from 'email-validator';
 import { useUI } from '@components/ui/context';
 import { Input } from '@components/ui';
@@ -14,9 +14,7 @@ const ForgotPassword: FC<Props> = () => {
 
 	const { setModalView } = useUI();
 
-	const handleResetPassword = async (
-		e: React.SyntheticEvent<EventTarget>,
-	) => {
+	const handleResetPassword = async (e: SyntheticEvent<EventTarget>) => {
 		e.preventDefault();
 
 		if (!dirty && !disabled) {

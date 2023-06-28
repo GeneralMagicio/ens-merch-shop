@@ -19,18 +19,14 @@ type ItemOption = {
 	valueId: number;
 };
 
-const placeholderImg = '/product-img-placeholder.svg';
-
-const CartItem = ({
-	item,
-	variant = 'default',
-	currencyCode,
-	...rest
-}: {
-	variant?: 'default' | 'display';
+interface ICartItem {
 	item: LineItem;
 	currencyCode: string;
-}) => {
+}
+
+const placeholderImg = '/product-img-placeholder.svg';
+
+const CartItem = ({ item, currencyCode }: ICartItem) => {
 	const { closeSidebarIfPresent } = useUI();
 	const [removing, setRemoving] = useState(false);
 	const [quantity, setQuantity] = useState<number>(item.quantity);
@@ -88,7 +84,6 @@ const CartItem = ({
 			className={cn({
 				'opacity-50 pointer-events-none': removing,
 			})}
-			{...rest}
 		>
 			<div className='flex flex-row flex-wrap items-center gap-4 py-4'>
 				<div className='w-16 h-16 relative overflow-hidden cursor-pointer'>

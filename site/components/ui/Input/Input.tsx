@@ -6,7 +6,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const Input: React.FC<InputProps> = props => {
-	const { className, children, onChange, ...rest } = props;
+	const { className, onChange, ...rest } = props;
 
 	const handleOnChange = (e: any) => {
 		if (onChange) {
@@ -18,7 +18,7 @@ const Input: React.FC<InputProps> = props => {
 	return (
 		<label>
 			<input
-				className='border rounded-lg p-4 placeholder:text-zinc-400 text-zinc-500 font-medium text-base w-full'
+				className={`border rounded-lg p-4 placeholder:text-zinc-400 text-zinc-500 font-medium text-base w-full ${className}`}
 				onChange={handleOnChange}
 				autoComplete='off'
 				autoCorrect='off'
