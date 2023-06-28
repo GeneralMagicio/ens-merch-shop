@@ -1,1 +1,1 @@
-export { default } from './useENSNames'
+export { default } from './useENSNames';

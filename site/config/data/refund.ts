@@ -23,4 +23,4 @@ If an item is successfully returned, we will issue store credit for the amount o
 Therefore we reserves rights to refuse returns at own sole discretion.
 
 This Policy shall be governed and interpreted in accordance with the English language, regardless of any translations made for any purpose whatsoever.
-`
+`;
