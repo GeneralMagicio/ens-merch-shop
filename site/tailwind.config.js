@@ -51,7 +51,7 @@ module.exports = {
         secondary: 'var(--text-secondary)',
         'gray-light': 'var(--text-gray-light)',
         'pink-light': 'var(--pink-light)',
-        'pink': 'var(--pink)',
+        pink: 'var(--pink)',
       },
       boxShadow: {
         'outline-normal': '0 0 0 2px var(--accent-2)',

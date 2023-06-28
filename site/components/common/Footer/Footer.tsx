@@ -45,7 +45,7 @@ const socialLinks = [
   {
     name: 'Twitter',
     url: 'https://twitter.com/ensdomains',
-    icon: <Twitter color='white' />,
+    icon: <Twitter color="white" />,
   },
   {
     name: 'Discord',
