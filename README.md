@@ -7,16 +7,16 @@ Start right now at [nextjs.org/commerce](https://nextjs.org/commerce)
 
 Demo live at: [demo.vercel.store](https://demo.vercel.store/)
 
-- Shopify Demo: https://shopify.vercel.store/
-- Swell Demo: https://swell.vercel.store/
-- BigCommerce Demo: https://bigcommerce.vercel.store/
-- Vendure Demo: https://vendure.vercel.store
-- Saleor Demo: https://saleor.vercel.store/
-- Ordercloud Demo: https://ordercloud.vercel.store/
-- Spree Demo: https://spree.vercel.store/
-- Kibo Commerce Demo: https://kibocommerce.vercel.store/
-- Commerce.js Demo: https://commercejs.vercel.store/
-- SalesForce Cloud Commerce Demo: https://salesforce-cloud-commerce.vercel.store/
+-   Shopify Demo: https://shopify.vercel.store/
+-   Swell Demo: https://swell.vercel.store/
+-   BigCommerce Demo: https://bigcommerce.vercel.store/
+-   Vendure Demo: https://vendure.vercel.store
+-   Saleor Demo: https://saleor.vercel.store/
+-   Ordercloud Demo: https://ordercloud.vercel.store/
+-   Spree Demo: https://spree.vercel.store/
+-   Kibo Commerce Demo: https://kibocommerce.vercel.store/
+-   Commerce.js Demo: https://commercejs.vercel.store/
+-   SalesForce Cloud Commerce Demo: https://salesforce-cloud-commerce.vercel.store/
 
 ## Run minimal version locally
 
@@ -31,15 +31,15 @@ pnpm dev # run this command in the site folder
 
 ## Features
 
-- Performant by default
-- SEO Ready
-- Internationalization
-- Responsive
-- UI Components
-- Theming
-- Standardized Data Hooks
-- Integrations - Integrate seamlessly with the most common ecommerce platforms.
-- Dark Mode Support
+-   Performant by default
+-   SEO Ready
+-   Internationalization
+-   Responsive
+-   UI Components
+-   Theming
+-   Standardized Data Hooks
+-   Integrations - Integrate seamlessly with the most common ecommerce platforms.
+-   Dark Mode Support
 
 ## Integrations
 
@@ -47,10 +47,10 @@ Next.js Commerce integrates out-of-the-box with BigCommerce, Shopify, Swell, Sal
 
 ## Considerations
 
-- `packages/commerce` contains all types, helpers and functions to be used as a base to build a new **provider**.
-- **Providers** live under `packages`'s root folder and they will extend Next.js Commerce types and functionality (`packages/commerce`).
-- We have a **Features API** to ensure feature parity between the UI and the Provider. The UI should update accordingly and no extra code should be bundled. All extra configuration for features will live under `features` in `commerce.config.json` and if needed it can also be accessed programmatically.
-- Each **provider** should add its corresponding `next.config.js` and `commerce.config.json` adding specific data related to the provider. For example in the case of BigCommerce, the images CDN and additional API routes.
+-   `packages/commerce` contains all types, helpers and functions to be used as a base to build a new **provider**.
+-   **Providers** live under `packages`'s root folder and they will extend Next.js Commerce types and functionality (`packages/commerce`).
+-   We have a **Features API** to ensure feature parity between the UI and the Provider. The UI should update accordingly and no extra code should be bundled. All extra configuration for features will live under `features` in `commerce.config.json` and if needed it can also be accessed programmatically.
+-   Each **provider** should add its corresponding `next.config.js` and `commerce.config.json` adding specific data related to the provider. For example in the case of BigCommerce, the images CDN and additional API routes.
 
 ## Configuration
 
@@ -75,28 +75,28 @@ Every provider defines the features that it supports under `packages/{provider}/
 The following features can be enabled or disabled. This means that the UI will remove all code related to the feature.
 For example: turning `cart` off will disable Cart capabilities.
 
-- cart
-- search
-- wishlist
-- customerAuth
-- customCheckout
+-   cart
+-   search
+-   wishlist
+-   customerAuth
+-   customCheckout
 
 #### How to turn Features on and off
 
 > NOTE: The selected provider should support the feature that you are toggling. (This means that you can't turn wishlist on if the provider doesn't support this functionality out of the box)
 
-- Open `site/commerce.config.json`
-- You'll see a config file like this:
-  ```json
-  {
-    "features": {
-      "wishlist": false,
-      "customCheckout": true
+-   Open `site/commerce.config.json`
+-   You'll see a config file like this:
+    ```json
+    {
+    	"features": {
+    		"wishlist": false,
+    		"customCheckout": true
+    	}
     }
-  }
-  ```
-- Turn `wishlist` on by setting `wishlist` to `true`.
-- Run the app and the wishlist functionality should be back on.
+    ```
+-   Turn `wishlist` on by setting `wishlist` to `true`.
+-   Run the app and the wishlist functionality should be back on.
 
 ### How to create a new provider
 
