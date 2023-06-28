@@ -36,7 +36,7 @@ export const defaultOperations = OPERATIONS.reduce((ops, k) => {
   return ops
 }, {} as { [K in AllowedOperations]: typeof noop })
 
-export type AllowedOperations = typeof OPERATIONS[number]
+export type AllowedOperations = (typeof OPERATIONS)[number]
 
 export type Operations<P extends APIProvider> = {
   login: {
