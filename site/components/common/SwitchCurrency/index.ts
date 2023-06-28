@@ -1,1 +1,1 @@
-export { default } from './SwitchCurrency'
+export { default } from './SwitchCurrency';
