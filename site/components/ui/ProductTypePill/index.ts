@@ -1,1 +1,1 @@
-export { default } from './ProductTypePill'
+export { default } from './ProductTypePill';

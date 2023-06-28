@@ -1,1 +1,1 @@
-export { default } from './FormatMarkdown'
+export { default } from './FormatMarkdown';
