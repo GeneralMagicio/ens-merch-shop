@@ -8,7 +8,7 @@ const LoginView: React.FC = () => {
 	// Form State
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	const [loading, setLoading] = useState(false);
+	// const [loading, setLoading] = useState(false);
 	const [message, setMessage] = useState('');
 	const [dirty, setDirty] = useState(false);
 	const [disabled, setDisabled] = useState(false);
@@ -25,7 +25,7 @@ const LoginView: React.FC = () => {
 		}
 
 		try {
-			setLoading(true);
+			// setLoading(true);
 			setMessage('');
 			await login({
 				email,
@@ -40,7 +40,7 @@ const LoginView: React.FC = () => {
 			}
 			setDisabled(false);
 		} finally {
-			setLoading(false);
+			// setLoading(false);
 		}
 	};
 

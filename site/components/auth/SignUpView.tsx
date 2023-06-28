@@ -13,7 +13,7 @@ const SignUpView: FC<Props> = () => {
 	const [password, setPassword] = useState('');
 	const [firstName, setFirstName] = useState('');
 	const [lastName, setLastName] = useState('');
-	const [loading, setLoading] = useState(false);
+	// const [loading, setLoading] = useState(false);
 	const [message, setMessage] = useState('');
 
 	const signup = useSignup();
@@ -45,7 +45,7 @@ const SignUpView: FC<Props> = () => {
 		}
 
 		try {
-			setLoading(true);
+			// setLoading(true);
 			setMessage('');
 			await signup({
 				email,
@@ -62,7 +62,7 @@ const SignUpView: FC<Props> = () => {
 				setMessage('Unexpected error');
 			}
 		} finally {
-			setLoading(false);
+			// setLoading(false);
 		}
 	};
 

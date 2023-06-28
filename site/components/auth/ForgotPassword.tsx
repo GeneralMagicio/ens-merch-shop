@@ -8,7 +8,7 @@ interface Props {}
 const ForgotPassword: FC<Props> = () => {
 	// Form State
 	const [email, setEmail] = useState('');
-	const [message, setMessage] = useState('');
+	// const [message, setMessage] = useState('');
 	const [dirty, setDirty] = useState(false);
 	const [disabled, setDisabled] = useState(false);
 
@@ -42,11 +42,11 @@ const ForgotPassword: FC<Props> = () => {
 			className='w-80 flex flex-col justify-between p-3'
 		>
 			<div className='flex flex-col space-y-4'>
-				{message && (
-					<div className='text-red border border-red p-3'>
-						{message}
-					</div>
-				)}
+				{/*{message && (*/}
+				{/*	<div className='text-red border border-red p-3'>*/}
+				{/*		{message}*/}
+				{/*	</div>*/}
+				{/*)}*/}
 				<Input placeholder='Email' onChange={setEmail} type='email' />
 				<div className='pt-2 w-full flex flex-col'>
 					<button
