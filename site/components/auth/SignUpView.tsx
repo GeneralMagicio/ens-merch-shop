@@ -54,7 +54,8 @@ const SignUpView: FC<Props> = () => {
 				password,
 			});
 			closeModal();
-		} catch ({ errors }) {
+		} catch (e: any) {
+			const { errors } = e;
 			console.error(errors);
 			if (errors instanceof Array) {
 				setMessage(errors.map((e: any) => e.message).join('<br/>'));

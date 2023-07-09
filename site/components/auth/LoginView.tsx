@@ -32,7 +32,8 @@ const LoginView: React.FC = () => {
 				password,
 			});
 			closeModal();
-		} catch ({ errors }) {
+		} catch (e: any) {
+			const { errors } = e;
 			if (errors instanceof Array) {
 				setMessage(errors.map((e: any) => e.message).join('<br/>'));
 			} else {
