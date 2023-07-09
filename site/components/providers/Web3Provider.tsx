@@ -1,9 +1,10 @@
 import { ReactNode } from 'react';
-
 import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import { mainnet, goerli } from 'wagmi/chains';
 import { publicProvider } from 'wagmi/providers/public';
+
+const { NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID } = process.env;
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
 	[mainnet, goerli],
@@ -11,8 +12,8 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
 );
 
 const { connectors } = getDefaultWallets({
-	appName: 'My RainbowKit App',
-	projectId: 'YOUR_PROJECT_ID',
+	appName: 'ENS Merch Shop',
+	projectId: NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID!,
 	chains,
 });
 
