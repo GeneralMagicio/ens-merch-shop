@@ -3,13 +3,30 @@ import Link from 'next/link';
 import { Layout } from '@components/common';
 import Newsletter from '@components/common/Newsletter';
 import { InfoStyled } from '@components/icons';
+import useSendGridAPI from '@lib/hooks/useSendGridAPI';
+
+interface Form extends HTMLFormElement {
+	contactName: HTMLInputElement;
+	subject: HTMLInputElement;
+	from: HTMLInputElement;
+	message: HTMLTextAreaElement;
+}
 
 export default function Home() {
 	const [sentEmail, setSentEmail] = useState<boolean>(false);
+	const { sendEmail, isSending } = useSendGridAPI();
 
-	const handleSubmit = async (e: React.SyntheticEvent<EventTarget>) => {
+	const handleSubmit = async (e: React.ChangeEvent<Form>) => {
 		e.preventDefault();
-		setSentEmail(true);
+		const { contactName, subject, from, message } = e.target;
+		sendEmail({
+			name: contactName.value,
+			email: from.value,
+			subject: subject.value,
+			message: message.value,
+		}).then(() => {
+			setSentEmail(true);
+		});
 	};
 
 	return (
@@ -49,6 +66,7 @@ export default function Home() {
 								Name
 							</label>
 							<input
+								name='contactName'
 								required
 								id='name'
 								className='mt-1 p-4 border border-gray-300 rounded-md'
@@ -64,6 +82,7 @@ export default function Home() {
 								Email
 							</label>
 							<input
+								name='from'
 								required
 								id='email'
 								className='mt-1 p-4 border border-gray-300 rounded-md'
@@ -74,11 +93,27 @@ export default function Home() {
 						<div className='flex flex-col mt-6'>
 							<label
 								className='text-base font-bold text-gray-light'
+								htmlFor='subject'
+							>
+								Subject
+							</label>
+							<input
+								name='subject'
+								required
+								className='mt-1 p-4 border border-gray-300 rounded-md'
+								placeholder='Subject'
+								id='subject'
+							></input>
+						</div>
+						<div className='flex flex-col mt-6'>
+							<label
+								className='text-base font-bold text-gray-light'
 								htmlFor='message'
 							>
 								Message
 							</label>
 							<textarea
+								name='message'
 								required
 								className='mt-1 p-4 border border-gray-300 rounded-md'
 								placeholder='Message'
@@ -88,6 +123,7 @@ export default function Home() {
 							></textarea>
 						</div>
 						<button
+							disabled={isSending}
 							className='w-full mt-8 bg-blue-primary text-white font-bold py-3 px-4 rounded-md'
 							type='submit'
 						>
