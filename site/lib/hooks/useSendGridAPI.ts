@@ -10,6 +10,7 @@ interface SendEmailParams {
 
 export default function useSendGridAPI() {
 	const [isSending, setIsSending] = useState(false);
+	const [hasError, setHasError] = useState(false);
 	const [responseMessage, setResponseMessage] = useState('');
 
 	const sendEmail = async ({
@@ -18,6 +19,7 @@ export default function useSendGridAPI() {
 		email,
 		subject,
 	}: SendEmailParams) => {
+		setHasError(false);
 		setIsSending(true);
 		try {
 			const response = await fetch(
@@ -52,6 +54,7 @@ export default function useSendGridAPI() {
 			if (response.status === 202) {
 				setResponseMessage('Email sent successfully!');
 			} else {
+				setHasError(true);
 				setResponseMessage(
 					'Failed to send email. Please try again later.',
 				);
@@ -59,9 +62,15 @@ export default function useSendGridAPI() {
 		} catch (error) {
 			console.error('Error sending email:', error);
 			setResponseMessage('Error sending email. Please try again later.');
+			setHasError(true);
 		} finally {
 			setIsSending(false);
 		}
 	};
-	return { sendEmail, isSending, responseMessage };
+	const reset = () => {
+		setIsSending(false);
+		setHasError(false);
+		setResponseMessage('');
+	};
+	return { sendEmail, isSending, responseMessage, hasError, reset };
 }

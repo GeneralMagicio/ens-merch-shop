@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Link from 'next/link';
 import { Layout } from '@components/common';
 import Newsletter from '@components/common/Newsletter';
@@ -13,8 +12,8 @@ interface Form extends HTMLFormElement {
 }
 
 export default function Home() {
-	const [sentEmail, setSentEmail] = useState<boolean>(false);
-	const { sendEmail, isSending } = useSendGridAPI();
+	const { sendEmail, isSending, responseMessage, hasError, reset } =
+		useSendGridAPI();
 
 	const handleSubmit = async (e: React.ChangeEvent<Form>) => {
 		e.preventDefault();
@@ -24,8 +23,6 @@ export default function Home() {
 			email: from.value,
 			subject: subject.value,
 			message: message.value,
-		}).then(() => {
-			setSentEmail(true);
 		});
 	};
 
@@ -33,7 +30,23 @@ export default function Home() {
 		<>
 			<div className='max-w-2xl my-44 px-4 mx-auto'>
 				<h2 className='text-5xl text-center font-bold'>Contact</h2>
-				{sentEmail ? (
+				{hasError && (
+					<div className='px-2'>
+						<div className='flex flex-col mt-14 gap-y-2 py-4 px-6 rounded-lg items-center w-full text-red border border-solid border-red'>
+							<p className=' font-medium'>{responseMessage}</p>
+						</div>
+						<button
+							className='w-full rounded-lg border text-gray-light text-base font-bold mt-20 py-3'
+							onClick={reset}
+						>
+							Try again
+						</button>
+						<div className='text-center mt-4 text-blue-primary text-sm font-medium'>
+							<Link href='/'>Homepage</Link>
+						</div>
+					</div>
+				)}
+				{responseMessage && !hasError && (
 					<div className='px-2'>
 						<div className='flex flex-col mt-14 gap-y-2 py-4 px-6 rounded-lg items-center w-full bg-blue-surface border border-blue-primary'>
 							<InfoStyled />
@@ -48,7 +61,7 @@ export default function Home() {
 						</p>
 						<button
 							className='w-full rounded-lg border text-gray-light text-base font-bold mt-20 py-3'
-							onClick={() => setSentEmail(false)}
+							onClick={reset}
 						>
 							Send another message
 						</button>
@@ -56,7 +69,8 @@ export default function Home() {
 							<Link href='/'>Homepage</Link>
 						</div>
 					</div>
-				) : (
+				)}
+				{!responseMessage && (
 					<form className='mt-14 font-medium' onSubmit={handleSubmit}>
 						<div className='flex flex-col'>
 							<label
