@@ -1,29 +1,20 @@
 import Link from 'next/link';
+import { ENS_SENDER_EMAIL, WEB3_FORMS_API_KEY } from '@framework/const';
 import { Layout } from '@components/common';
 import Newsletter from '@components/common/Newsletter';
 import { InfoStyled } from '@components/icons';
-import useSendGridAPI from '@lib/hooks/useSendGridAPI';
-
-interface Form extends HTMLFormElement {
-	contactName: HTMLInputElement;
-	subject: HTMLInputElement;
-	from: HTMLInputElement;
-	message: HTMLTextAreaElement;
-}
+import { useWeb3FormsEmail } from '@lib/hooks/useWeb3FormsEmail';
 
 export default function Home() {
 	const { sendEmail, isSending, responseMessage, hasError, reset } =
-		useSendGridAPI();
+		useWeb3FormsEmail();
 
-	const handleSubmit = async (e: React.ChangeEvent<Form>) => {
+	const handleSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		const { contactName, subject, from, message } = e.target;
-		sendEmail({
-			name: contactName.value,
-			email: from.value,
-			subject: subject.value,
-			message: message.value,
-		});
+		const formData = new FormData(e.target);
+		const object = Object.fromEntries(formData);
+		const body = JSON.stringify(object);
+		sendEmail(body);
 	};
 
 	return (
@@ -72,6 +63,16 @@ export default function Home() {
 				)}
 				{!responseMessage && (
 					<form className='mt-14 font-medium' onSubmit={handleSubmit}>
+						<input
+							type='hidden'
+							name='access_key'
+							value={WEB3_FORMS_API_KEY}
+						/>
+						<input
+							type='hidden'
+							name='email'
+							value={ENS_SENDER_EMAIL}
+						/>
 						<div className='flex flex-col'>
 							<label
 								className='text-base font-bold text-gray-light'
@@ -80,7 +81,7 @@ export default function Home() {
 								Name
 							</label>
 							<input
-								name='contactName'
+								name='name'
 								required
 								id='name'
 								className='mt-1 p-4 border border-gray-300 rounded-md'
@@ -96,28 +97,13 @@ export default function Home() {
 								Email
 							</label>
 							<input
-								name='from'
+								name='replyto'
 								required
 								id='email'
 								className='mt-1 p-4 border border-gray-300 rounded-md'
 								placeholder='Your email address'
 								type='email'
 							/>
-						</div>
-						<div className='flex flex-col mt-6'>
-							<label
-								className='text-base font-bold text-gray-light'
-								htmlFor='subject'
-							>
-								Subject
-							</label>
-							<input
-								name='subject'
-								required
-								className='mt-1 p-4 border border-gray-300 rounded-md'
-								placeholder='Subject'
-								id='subject'
-							></input>
 						</div>
 						<div className='flex flex-col mt-6'>
 							<label
