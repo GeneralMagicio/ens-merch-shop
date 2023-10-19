@@ -22,7 +22,7 @@ export function useWeb3FormsEmail() {
 				setResponseMessage('Email sent successfully!');
 			}
 		} catch (error) {
-			console.error('Error sending email:', error);
+			console.error('Error sending email: ', error);
 			setResponseMessage('Error sending email. Please try again later.');
 			setHasError(true);
 		} finally {
