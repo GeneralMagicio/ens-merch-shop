@@ -64,6 +64,7 @@ const normalizeProductVariants = ({ edges }: ProductVariantConnection) => {
     ({
       node: {
         id,
+        image,
         selectedOptions,
         sku,
         title,
@@ -76,6 +77,7 @@ const normalizeProductVariants = ({ edges }: ProductVariantConnection) => {
       return {
         id,
         name: title,
+        imageId: image?.id,
         sku,
         price: +priceV2.amount,
         listPrice: +compareAtPriceV2?.amount,
