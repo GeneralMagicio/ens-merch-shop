@@ -33,7 +33,6 @@ const ProductOptions: React.FC<ProductOptionsProps> = ({
 									key={`${opt.id}-${i}`}
 									active={v.label.toLowerCase() === active}
 									variant={opt.displayName}
-									color={v.hexColors ? v.hexColors[0] : ''}
 									label={v.label}
 									onClick={() => {
 										setSelectedOptions(selectedOptions => {
