@@ -115,9 +115,18 @@ const CartItem = ({ item, currencyCode }: ICartItem) => {
 									className='text-sm font-semibold text-accent-7 inline-flex items-center justify-center'
 								>
 									{option.name}
-									<span className='mx-2 rounded-full bg-transparent border h-5 p-1 text-accent-9 inline-flex items-center justify-center overflow-hidden'>
-										{option.value}
-									</span>
+									{option.name === 'Color' ? (
+										<span
+											className='mx-2 rounded-full bg-transparent border w-5 h-5 p-1 text-accent-9 inline-flex items-center justify-center overflow-hidden'
+											style={{
+												backgroundColor: `${option.value}`,
+											}}
+										></span>
+									) : (
+										<span className='mx-2 rounded-full bg-transparent border h-5 p-1 text-accent-9 inline-flex items-center justify-center overflow-hidden'>
+											{option.value}
+										</span>
+									)}
 									{i === options.length - 1 ? (
 										''
 									) : (
