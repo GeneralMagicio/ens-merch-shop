@@ -1,4 +1,4 @@
-import { Layout } from '@components/common';
+import { Layout, SEO } from '@components/common';
 import Newsletter from '@components/common/Newsletter';
 import { Accordion } from '@components/ui/Accordion/Accordion';
 
@@ -14,6 +14,7 @@ export default function Home() {
 				</div>
 			</div>
 			<Newsletter />
+			<SEO title='FAQ' description='Frequently asked questions' />
 		</>
 	);
 }

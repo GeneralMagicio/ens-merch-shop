@@ -4,7 +4,7 @@ import { Fragment, useState } from 'react';
 import { useRouter } from 'next/router';
 import useSearch from '@framework/product/use-search';
 import { Container, Skeleton } from '@components/ui';
-import { Layout } from '@components/common';
+import { Layout, SEO } from '@components/common';
 import { ProductCard } from '@components/product';
 import rangeMap from '@lib/range-map';
 
@@ -386,6 +386,7 @@ export default function Search({ categories, brands }: SearchPropsType) {
 				</div>
 			</Container>
 			<Newsletter />
+			<SEO title='Search' />
 		</>
 	);
 }

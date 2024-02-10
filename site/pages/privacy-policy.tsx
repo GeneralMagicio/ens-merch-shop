@@ -1,4 +1,4 @@
-import { Layout } from '@components/common';
+import { Layout, SEO } from '@components/common';
 import { privacyPolicyContent } from '@config/data/privacy-policy';
 import FormatMarkdown from '@components/common/FormatMarkdown/FormatMarkdown';
 import Newsletter from '@components/common/Newsletter';
@@ -28,6 +28,7 @@ export default function PrivacyPolicy() {
 				</article>
 			</div>
 			<Newsletter />
+			<SEO title='Privacy Policy' />
 		</>
 	);
 }

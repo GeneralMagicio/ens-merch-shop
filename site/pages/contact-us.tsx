@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { ENS_SENDER_EMAIL, WEB3_FORMS_API_KEY } from '@framework/const';
-import { Layout } from '@components/common';
+import { Layout, SEO } from '@components/common';
 import Newsletter from '@components/common/Newsletter';
 import { InfoStyled } from '@components/icons';
 import { useWeb3FormsEmail } from '@lib/hooks/useWeb3FormsEmail';
@@ -144,6 +144,7 @@ export default function Home() {
 				</div>
 			</section>
 			<Newsletter />
+			<SEO title='Contact Us' description='Send us a message' />
 		</>
 	);
 }
