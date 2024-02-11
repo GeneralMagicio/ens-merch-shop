@@ -1,4 +1,4 @@
-import { Layout } from '@components/common';
+import { Layout, SEO } from '@components/common';
 import { cookiesContent } from '@config/data/cookies';
 import FormatMarkdown from '@components/common/FormatMarkdown/FormatMarkdown';
 import Newsletter from '@components/common/Newsletter';
@@ -18,6 +18,10 @@ export default function Cookies() {
 				</article>
 			</div>
 			<Newsletter />
+			<SEO
+				title='Cookies'
+				description='Cookie Policy for ENS Merch Shop'
+			/>
 		</>
 	);
 }

@@ -1,5 +1,5 @@
 import commerce from '@lib/api/commerce';
-import { Layout } from '@components/common';
+import { Layout, SEO } from '@components/common';
 import { Text } from '@components/ui';
 import type { GetStaticPropsContext } from 'next';
 
@@ -26,12 +26,16 @@ export async function getStaticProps({
 
 export default function NotFound() {
 	return (
-		<div className='max-w-2xl mx-8 sm:mx-auto py-20 flex flex-col items-center justify-center fit'>
-			<Text variant='heading'>Not Found</Text>
-			<Text className=''>
-				The requested page doesn't exist or you don't have access to it.
-			</Text>
-		</div>
+		<>
+			<div className='max-w-2xl mx-8 sm:mx-auto py-20 flex flex-col items-center justify-center fit'>
+				<Text variant='heading'>Not Found</Text>
+				<Text className=''>
+					The requested page doesn't exist or you don't have access to
+					it.
+				</Text>
+			</div>
+			<SEO title='Not Found' />
+		</>
 	);
 }
 

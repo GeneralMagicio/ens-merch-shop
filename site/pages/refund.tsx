@@ -1,4 +1,4 @@
-import { Layout } from '@components/common';
+import { Layout, SEO } from '@components/common';
 import { refundContent } from '@config/data/refund';
 import FormatMarkdown from '@components/common/FormatMarkdown/FormatMarkdown';
 import Newsletter from '@components/common/Newsletter';
@@ -20,6 +20,7 @@ export default function Refund() {
 				</article>
 			</div>
 			<Newsletter />
+			<SEO title='Refund' description='Refund and returns policy' />
 		</>
 	);
 }

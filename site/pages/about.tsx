@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import commerce from '@lib/api/commerce';
-import { Layout } from '@components/common';
+import { Layout, SEO } from '@components/common';
 import Newsletter from '@components/common/Newsletter';
 import type { GetStaticPropsContext } from 'next';
 
@@ -88,7 +88,10 @@ export default function About() {
 					high-quality merch for ENS domains owners.
 				</p>
 			</div>
-
+			<SEO
+				title='About Us'
+				description='ENS Merch Shop sells official merchandise of Ethereum Name Service (ENS) which is a distributed, open, and extensible naming system based on the Ethereum blockchain'
+			/>
 			<Newsletter />
 		</>
 	);
