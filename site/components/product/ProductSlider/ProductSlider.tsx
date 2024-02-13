@@ -8,17 +8,22 @@ import React, {
 } from 'react';
 import cn from 'clsx';
 import { a } from '@react-spring/web';
+import { Image } from '@commerce/types/common';
 import s from './ProductSlider.module.css';
 import ProductSliderControl from '../ProductSliderControl';
 
 interface ProductSliderProps {
 	children?: React.ReactNode[];
 	className?: string;
+	selectedColor?: string;
+	images: Image[];
 }
 
 const ProductSlider: React.FC<ProductSliderProps> = ({
 	children,
 	className = '',
+	selectedColor,
+	images,
 }) => {
 	const [currentSlide, setCurrentSlide] = useState(0);
 	const [isMounted, setIsMounted] = useState(false);
@@ -73,6 +78,19 @@ const ProductSlider: React.FC<ProductSliderProps> = ({
 			}
 		};
 	}, []);
+
+	useEffect(() => {
+		if (selectedColor && slider.current) {
+			let index = 0;
+			images.some((img, idx) => {
+				if (img?.color?.toLowerCase() === selectedColor.toLowerCase()) {
+					index = idx;
+					return true;
+				}
+			});
+			slider.current.moveToIdx(index);
+		}
+	}, [selectedColor]);
 
 	const onPrev = React.useCallback(() => slider.current?.prev(), [slider]);
 	const onNext = React.useCallback(() => slider.current?.next(), [slider]);
