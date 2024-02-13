@@ -33,7 +33,11 @@ const getProductQuery = /* GraphQL */ `
           node {
             id
             image {
-              id
+                id
+                url
+                altText
+                width
+                height
             }
             title
             sku
