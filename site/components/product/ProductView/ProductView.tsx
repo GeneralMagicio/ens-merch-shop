@@ -1,6 +1,6 @@
 import cn from 'clsx';
 import Image from 'next/image';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import s from './ProductView.module.css';
 import { ProductSlider, ProductCard } from '@components/product';
 import { Container, Text } from '@components/ui';
@@ -14,12 +14,17 @@ interface ProductViewProps {
 }
 
 const ProductView: FC<ProductViewProps> = ({ product, relatedProducts }) => {
+	const [selectedColor, setSelectedColor] = useState<string>();
 	return (
 		<>
 			<Container className='max-w-none w-full mt-28 px-6' clean>
 				<div className={cn(s.root, 'fit')}>
 					<div className={cn(s.main, 'fit')}>
-						<ProductSlider key={product.id}>
+						<ProductSlider
+							key={product.id}
+							selectedColor={selectedColor}
+							images={product.images}
+						>
 							{product.images.map((image, i) => (
 								<div
 									key={image.url}
@@ -39,6 +44,7 @@ const ProductView: FC<ProductViewProps> = ({ product, relatedProducts }) => {
 						</ProductSlider>
 					</div>
 					<ProductSidebar
+						setSelectedColor={setSelectedColor}
 						key={product.id}
 						product={product}
 						className={s.sidebar}

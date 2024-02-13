@@ -20,6 +20,7 @@ export interface Image {
   /**
    * The URL of the image.
    */
+  id?: string
   url: string
   /**
    * A word or phrase that describes the content of an image.
@@ -33,4 +34,5 @@ export interface Image {
    * The image's height.
    */
   height?: number
+  color?: string
 }

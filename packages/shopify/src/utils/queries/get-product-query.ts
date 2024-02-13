@@ -32,6 +32,13 @@ const getProductQuery = /* GraphQL */ `
         edges {
           node {
             id
+            image {
+                id
+                url
+                altText
+                width
+                height
+            }
             title
             sku
             availableForSale
@@ -58,6 +65,7 @@ const getProductQuery = /* GraphQL */ `
         }
         edges {
           node {
+            id
             url
             altText
             width

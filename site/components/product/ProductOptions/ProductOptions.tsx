@@ -7,12 +7,14 @@ interface ProductOptionsProps {
 	options: ProductOption[];
 	selectedOptions: SelectedOptions;
 	setSelectedOptions: React.Dispatch<React.SetStateAction<SelectedOptions>>;
+	setSelectedColor: (color: string) => void;
 }
 
 const ProductOptions: React.FC<ProductOptionsProps> = ({
 	options,
 	selectedOptions,
 	setSelectedOptions,
+	setSelectedColor,
 }) => {
 	return (
 		<div>
@@ -36,6 +38,7 @@ const ProductOptions: React.FC<ProductOptionsProps> = ({
 									color={v.hexColors ? v.hexColors[0] : ''}
 									label={v.label}
 									onClick={() => {
+										setSelectedColor(v.label);
 										setSelectedOptions(selectedOptions => {
 											return {
 												...selectedOptions,

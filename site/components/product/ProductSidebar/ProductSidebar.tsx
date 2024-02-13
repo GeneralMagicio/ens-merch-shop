@@ -24,9 +24,14 @@ const DynamicSelectEnsName = dynamic(
 interface ProductSidebarProps {
 	product: Product;
 	className?: string;
+	setSelectedColor: (color: string) => void;
 }
 
-const ProductSidebar: FC<ProductSidebarProps> = ({ product, className }) => {
+const ProductSidebar: FC<ProductSidebarProps> = ({
+	product,
+	className,
+	setSelectedColor,
+}) => {
 	const addItem = useAddItem();
 	const { openSidebar, setSidebarView } = useUI();
 	const [loading, setLoading] = useState(false);
@@ -94,6 +99,7 @@ const ProductSidebar: FC<ProductSidebarProps> = ({ product, className }) => {
 				options={product.options}
 				selectedOptions={selectedOptions}
 				setSelectedOptions={setSelectedOptions}
+				setSelectedColor={setSelectedColor}
 			/>
 			<ProductPrice product={product} />
 			{isCustomizable ? (

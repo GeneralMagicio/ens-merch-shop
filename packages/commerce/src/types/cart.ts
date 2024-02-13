@@ -151,7 +151,7 @@ export interface Cart {
    */
   lineItems: LineItem[]
   /**
-   * The sum of all the pricexs of all the items in the cart.
+   * The sum of all the prices of all the items in the cart.
    * Duties, taxes, shipping and discounts excluded.
    */
   lineItemsSubtotalPrice: number

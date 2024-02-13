@@ -1,30 +1,30 @@
 import type { Page } from '@vercel/commerce/types/page'
-import type { Product } from '@vercel/commerce/types/product'
+import type { Product, ProductVariant } from '@vercel/commerce/types/product'
 import type { Cart, LineItem } from '@vercel/commerce/types/cart'
 import type { Category } from '@vercel/commerce/types/site'
 
 import type {
-  Product as ShopifyProduct,
-  Checkout,
-  CheckoutLineItemEdge,
-  SelectedOption,
-  ImageConnection,
-  ProductVariantConnection,
-  MoneyV2,
-  ProductOption,
-  Page as ShopifyPage,
-  PageEdge,
-  Collection,
-} from '../../schema'
+    Product as ShopifyProduct,
+    Checkout,
+    CheckoutLineItemEdge,
+    SelectedOption,
+    ImageConnection,
+    ProductVariantConnection,
+    MoneyV2,
+    ProductOption,
+    Page as ShopifyPage,
+    PageEdge,
+    Collection, Image, Maybe,
+} from '../../schema';
 
-import { colorMap } from './colors'
+import { colorMap } from './colors';
 
 const money = ({ amount, currencyCode }: MoneyV2) => {
-  return {
-    value: +amount,
-    currencyCode,
-  }
-}
+    return {
+        value: +amount,
+        currencyCode,
+    };
+};
 
 const normalizeProductOption = ({
   id,
@@ -53,17 +53,35 @@ const normalizeProductOption = ({
   }
 }
 
-const normalizeProductImages = ({ edges }: ImageConnection) =>
-  edges?.map(({ node: { url, ...rest } }) => ({
-    url,
-    ...rest,
-  }))
+const normalizeProductImages = (images: ImageConnection, variants: {
+    image?: Maybe<Image>;
+    options: { displayName: string; values: { label: string }[] }[]
+}[], options: { displayName: string; values: { label: string }[] }[])=>{
+    const { edges  } = images;
+    const colors = options?.find(o=>o.displayName === "color")?.values.map(v=>v.label);
+    const imageIds = colors?.map((c)=>{
+        const colorImageId = variants?.find(v=>{
+            return v?.options?.find(o=>o.displayName === "color")?.values[0].label === c;
+        })?.image?.id;
+        return {
+            imageId: colorImageId,
+            color: c,
+        };
+    });
+    const norImages = edges == null ? void 0 : edges.map(({ node: { url , ...rest }  })=>({
+        url,
+        ...rest,
+        color: imageIds?.find((i)=>i.imageId === rest.id)?.color || null,
+    }));
+    return norImages;
+};
 
 const normalizeProductVariants = ({ edges }: ProductVariantConnection) => {
   return edges?.map(
     ({
       node: {
         id,
+        image,
         selectedOptions,
         sku,
         title,
@@ -76,6 +94,7 @@ const normalizeProductVariants = ({ edges }: ProductVariantConnection) => {
       return {
         id,
         name: title,
+        image,
         sku,
         price: +priceV2.amount,
         listPrice: +compareAtPriceV2?.amount,
@@ -109,20 +128,18 @@ export function normalizeProduct({
   metafields,
   ...rest
 }: ShopifyProduct): Product {
-  return {
+    const _variants = variants ? normalizeProductVariants(variants) : [];
+    const _options = options ? options.filter((o)=>o.name !== "Title").map((o)=>normalizeProductOption(o)) : [] // By default, Shopify adds a 'Title' name when there's only one option. We don't need it. https://community.shopify.com/c/Shopify-APIs-SDKs/Adding-new-product-variant-is-automatically-adding-quot-Default/td-p/358095
+    return {
     id,
     name,
     vendor,
     path: `/${handle}`,
     slug: handle?.replace(/^\/+|\/+$/g, ''),
     price: money(priceRange?.minVariantPrice),
-    images: normalizeProductImages(images),
-    variants: variants ? normalizeProductVariants(variants) : [],
-    options: options
-      ? options
-          .filter((o) => o.name !== 'Title') // By default Shopify adds a 'Title' name when there's only one option. We don't need it. https://community.shopify.com/c/Shopify-APIs-SDKs/Adding-new-product-variant-is-automatically-adding-quot-Default/td-p/358095
-          .map((o) => normalizeProductOption(o))
-      : [],
+    images: normalizeProductImages(images, _variants, _options),
+    variants: _variants,
+    options: _options,
     description: description || '',
     ...(descriptionHtml && { descriptionHtml }),
     ...rest,

@@ -53,7 +53,7 @@ export interface ProductVariant {
   /**
    * The SKU (stock keeping unit) associated with the product variant.
    */
-  sku?: string
+  sku?: string | null
   /**
    * The product variant’s name, or the product's name.
    */
@@ -104,7 +104,7 @@ export interface Product {
   /**
    * The SKU (stock keeping unit) associated with the product.
    */
-  sku?: string
+  sku?: string | null
   /**
    * A human-friendly unique string for the product, automatically generated from its title.
    */
