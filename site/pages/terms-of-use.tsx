@@ -1,4 +1,4 @@
-import { Layout } from '@components/common';
+import { Layout, SEO } from '@components/common';
 import { termsOfUseContent } from '@config/data/terms-of-use';
 import FormatMarkdown from '@components/common/FormatMarkdown/FormatMarkdown';
 import Newsletter from '@components/common/Newsletter';
@@ -26,6 +26,7 @@ export default function TermsAndConditions() {
 				</article>
 			</div>
 			<Newsletter />
+			<SEO title='Terms and Conditions' />
 		</>
 	);
 }
