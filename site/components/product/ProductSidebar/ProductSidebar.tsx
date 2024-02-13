@@ -34,6 +34,8 @@ const ProductSidebar: FC<ProductSidebarProps> = ({ product, className }) => {
 	const [selectedEnsName, setSelectedEnsName] = useState<string>();
 	const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>({});
 
+	console.log(product);
+
 	const isCustomizable = product.productType === 'Customizable';
 
 	useEffect(() => {

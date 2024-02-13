@@ -3293,6 +3293,7 @@ export type Image = {
   height?: Maybe<Scalars['Int']>
   /** A unique identifier for the image. */
   id?: Maybe<Scalars['ID']>
+  color?: Maybe<Scalars['String']>
   /**
    * The location of the original image as a URL.
    *
@@ -3310,7 +3311,7 @@ export type Image = {
    * The location of the transformed image as a URL.
    *
    * All transformation arguments are considered "best-effort". If they can be applied to an image, they will be.
-   * Otherwise any transformations which an image type does not support will be ignored.
+   * Otherwise, any transformations which an image type does not support will be ignored.
    *
    * @deprecated Use `url(transform:)` instead
    */
@@ -5132,8 +5133,6 @@ export type Product = HasMetafields &
     id: Scalars['ID']
     /** List of images associated with the product. */
     images: ImageConnection
-    /** A categorization that a product can be tagged with, commonly used for filtering and searching. */
-    productType: Scalars['String']
     /** The media associated with the product. */
     media: MediaConnection
     /** Returns a metafield found by namespace and key. */
@@ -5494,7 +5493,7 @@ export type ProductVariant = HasMetafields &
     /** Represents an association between a variant and a selling plan. Selling plan allocations describe which selling plans are available for each variant, and what their impact is on pricing. */
     sellingPlanAllocations: SellingPlanAllocationConnection
     /** The SKU (stock keeping unit) associated with the variant. */
-    sku?: Maybe<Scalars['String']>
+    sku?: Maybe<Scalars['String']> | null
     /** The in-store pickup availability of this variant by location. */
     storeAvailability: StoreAvailabilityConnection
     /** The product variant’s title. */
@@ -7570,6 +7569,9 @@ export type GetProductBySlugQuery = {
         node: {
           __typename?: 'ProductVariant'
           id: string
+          image: {
+            id: string
+          }
           title: string
           sku?: string | null
           availableForSale: boolean
@@ -7603,6 +7605,7 @@ export type GetProductBySlugQuery = {
         __typename?: 'ImageEdge'
         node: {
           __typename?: 'Image'
+          id: string
           originalSrc: any
           altText?: string | null
           width?: number | null
