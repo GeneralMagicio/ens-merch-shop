@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import s from './ProductSection.module.css';
 import { Container } from '@components/ui';
 import ProductSectionSidebar from '../ProductSectionSidebar';
@@ -10,6 +10,22 @@ interface ProductSectionProps {
 }
 
 const ProductSection: FC<ProductSectionProps> = ({ product }) => {
+	const [selectedColor, setSelectedColor] = useState<string>();
+	const [imageUrl, setImageUrl] = useState<string>(
+		product?.images[0].url || '',
+	);
+
+	useEffect(() => {
+		if (selectedColor) {
+			const image = product?.images.find(
+				img => img.color === selectedColor,
+			);
+			if (image) {
+				setImageUrl(image.url);
+			}
+		}
+	}, [selectedColor]);
+
 	if (!product) return null;
 
 	return (
@@ -20,7 +36,7 @@ const ProductSection: FC<ProductSectionProps> = ({ product }) => {
 			<div className='col-span-1 flex items-center justify-center'>
 				<Image
 					className={s.img}
-					src={product.images[0].url!}
+					src={imageUrl}
 					alt={product.images[0].alt || 'Product Image'}
 					width={450}
 					height={450}
@@ -33,6 +49,7 @@ const ProductSection: FC<ProductSectionProps> = ({ product }) => {
 					key={product.id}
 					product={product}
 					className={s.sidebar}
+					setSelectedColor={setSelectedColor}
 				/>
 			</div>
 		</Container>
