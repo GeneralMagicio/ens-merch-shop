@@ -68,7 +68,7 @@ export const colorMap: Record<string, string> = {
   indianred: '#CD5C5C',
   indigo: '#4B0082',
   ivory: '#FFFFF0',
-  khaki: '#F0E68C',
+  khaki: '#C0AD8C',
   lavender: '#E6E6FA',
   lavenderblush: '#FFF0F5',
   lawngreen: '#7CFC00',
