@@ -48,7 +48,7 @@ const Swatch: React.FC<Omit<ButtonProps, 'variant'> & SwatchProps> = ({
 			}
 			className={swatchClassName}
 			{...(label && color && { title: label })}
-			style={color ? { backgroundColor: color } : {}}
+			style={color ? { background: color } : {}}
 			{...props}
 		>
 			{color && active && (
