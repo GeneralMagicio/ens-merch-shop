@@ -60,6 +60,8 @@ export const colorMap: Record<string, string> = {
   gold: '#FFD700',
   goldenrod: '#DAA520',
   gray: '#808080',
+  'gray&black':  'linear-gradient(135deg, #808080 50%, black 50%)',
+  'gray/black/black':  'linear-gradient(135deg, #808080 50%, black 50%)',
   green: '#008000',
   greenyellow: '#ADFF2F',
   grey: '#808080',
