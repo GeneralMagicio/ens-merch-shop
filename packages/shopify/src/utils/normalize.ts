@@ -1,23 +1,25 @@
-import type { Page } from '@vercel/commerce/types/page'
-import type { Product, ProductVariant } from '@vercel/commerce/types/product'
-import type { Cart, LineItem } from '@vercel/commerce/types/cart'
-import type { Category } from '@vercel/commerce/types/site'
+import type { Page } from '@vercel/commerce/types/page';
+import type { Product } from '@vercel/commerce/types/product';
+import type { Cart, LineItem } from '@vercel/commerce/types/cart';
+import type { Category } from '@vercel/commerce/types/site';
 
 import type {
-    Product as ShopifyProduct,
     Checkout,
     CheckoutLineItemEdge,
-    SelectedOption,
+    Collection,
+    Image,
     ImageConnection,
-    ProductVariantConnection,
+    Maybe,
     MoneyV2,
-    ProductOption,
     Page as ShopifyPage,
     PageEdge,
-    Collection, Image, Maybe,
+    Product as ShopifyProduct,
+    ProductOption,
+    ProductVariantConnection,
+    SelectedOption,
 } from '../../schema';
 
-import { colorMap } from './colors';
+import { colorMapper } from './colors';
 
 const money = ({ amount, currencyCode }: MoneyV2) => {
     return {
@@ -40,12 +42,9 @@ const normalizeProductOption = ({
         label: value,
       }
       if (displayName.match(/colou?r/gi)) {
-        const mappedColor = colorMap[value.toLowerCase().replace(/ /g, '')]
-        if (mappedColor) {
-          output = {
-            ...output,
-            hexColors: [mappedColor],
-          }
+        output = {
+          ...output,
+          hexColors: [colorMapper(value)],
         }
       }
       return output
@@ -68,12 +67,11 @@ const normalizeProductImages = (images: ImageConnection, variants: {
             color: c,
         };
     });
-    const norImages = edges == null ? void 0 : edges.map(({ node: { url , ...rest }  })=>({
+    return edges == null ? void 0 : edges.map(({ node: { url, ...rest } }) => ({
         url,
         ...rest,
-        color: imageIds?.find((i)=>i.imageId === rest.id)?.color || null,
+        color: imageIds?.find((i) => i.imageId === rest.id)?.color || null,
     }));
-    return norImages;
 };
 
 const normalizeProductVariants = ({ edges }: ProductVariantConnection) => {
