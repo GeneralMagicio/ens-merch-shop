@@ -15,10 +15,10 @@ export const colorMap: Record<string, string> = {
   burgandy: '#800020',
   burgundy: '#800020',
   cadetblue: '#5F9EA0',
-  carbongrey: '#625D5D',
-  carbongray: '#625D5D',
+  carbongrey: '#bbb7b2',
+  carbongray: '#bbb7b2',
   charcoalgray: '#3C4142',
-  charcoalheather: '#383F45',
+  charcoalheather: '#3b3b38',
   chartreuse: '#7FFF00',
   chocolate: '#D2691E',
   coral: '#FF7F50',
@@ -50,7 +50,7 @@ export const colorMap: Record<string, string> = {
   dimgray: '#696969',
   dimgrey: '#696969',
   dodgerblue: '#1E90FF',
-  dustyrose: '#C9A9A6',
+  dustyrose: '#d08376',
   firebrick: '#B22222',
   floralwhite: '#FFFAF0',
   forestgreen: '#228B22',
@@ -109,7 +109,7 @@ export const colorMap: Record<string, string> = {
   mistyrose: '#FFE4E1',
   moccasin: '#FFE4B5',
   navajowhite: '#FFDEAD',
-  navy: '#000080',
+  navy: '#162b54',
   navyblazer: '#282d3c',
   oldlace: '#FDF5E6',
   olive: '#808000',
@@ -160,3 +160,8 @@ export const colorMap: Record<string, string> = {
   yellow: '#FFFF00',
   yellowgreen: '#9ACD32',
 }
+
+export const colorMapper = (color: string) => {
+    const _color = color.toLowerCase().replace(/ /g, '');
+    return colorMap[_color] || _color;
+};

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import usePrice from '@framework/product/use-price';
 import useUpdateItem from '@framework/cart/use-update-item';
 import useRemoveItem from '@framework/cart/use-remove-item';
-import { colorMap } from '@framework/utils/colors';
+import { colorMapper } from '@framework/utils/colors';
 import { useUI } from '@components/ui/context';
 import s from './CartItem.module.css';
 import { useCurrencyContext } from '@lib/hooks/useCurrencyContext';
@@ -120,12 +120,9 @@ const CartItem = ({ item, currencyCode }: ICartItem) => {
 										<span
 											className='mx-2 rounded-full bg-transparent border w-5 h-5 p-1 text-accent-9 inline-flex items-center justify-center overflow-hidden'
 											style={{
-												background:
-													colorMap[
-														option.value
-															.toLowerCase()
-															.replace(/ /g, '')
-													],
+												background: colorMapper(
+													option.value,
+												),
 											}}
 										/>
 									) : (
