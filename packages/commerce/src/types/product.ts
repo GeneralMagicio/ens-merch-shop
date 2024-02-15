@@ -101,6 +101,10 @@ export interface Product {
    * The description of the product, complete with HTML formatting.
    */
   descriptionHtml?: string
+  seo?: {
+    title?: string
+    description?: string
+  }
   /**
    * The SKU (stock keeping unit) associated with the product.
    */
