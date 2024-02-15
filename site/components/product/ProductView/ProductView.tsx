@@ -72,12 +72,13 @@ const ProductView: FC<ProductViewProps> = ({ product, relatedProducts }) => {
 			</Container>
 			<Newsletter />
 			<SEO
-				title={product.name}
-				description={product.description}
+				title={product?.seo?.title || product.name}
+				description={product?.seo?.description || product.description}
 				openGraph={{
 					type: 'website',
-					title: product.name,
-					description: product.description,
+					title: product?.seo?.title || product.name,
+					description:
+						product?.seo?.description || product.description,
 					images: [
 						{
 							url: product.images[0]?.url!,
