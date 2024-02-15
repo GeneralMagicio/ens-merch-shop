@@ -1,5 +1,5 @@
 import commerce from '@lib/api/commerce';
-import { Layout } from '@components/common';
+import { Layout, SEO } from '@components/common';
 import { ProductCard } from '@components/product';
 import { Hero } from '@components/ui';
 import Newsletter from '@components/common/Newsletter';
@@ -92,6 +92,10 @@ export default function Home({
 			</section>
 			<ProductSection product={featuredProducts[1]} />
 			<Newsletter />
+			<SEO
+				title='ENS Merch Shop | Powered by ENS DAO'
+				description='Discover exclusive merch and swag for Ethereum Name Service (ENS) enthusiasts! Shop high-quality items for ENS domain owners. Shop now!'
+			/>
 		</>
 	);
 }
