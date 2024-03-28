@@ -38,7 +38,8 @@ const ProductOptions: React.FC<ProductOptionsProps> = ({
 									color={v.hexColors ? v.hexColors[0] : ''}
 									label={v.label}
 									onClick={() => {
-										setSelectedColor(v.label);
+										if (opt.displayName === 'color')
+											setSelectedColor(v.label);
 										setSelectedOptions(selectedOptions => {
 											return {
 												...selectedOptions,
