@@ -62,12 +62,14 @@ const SelectEnsName = ({
 							<SelectValue placeholder='Select your ENS name' />
 						</SelectTrigger>
 						<SelectContent className='bg-blue-surface overflow-y-scroll max-h-[300px] max-w-xl mx-4'>
-							<SelectItem
-								className='hover:bg-blue-primary hover:font-medium hover:text-white hover:text-opacity-100'
-								value='rilxxlir.eth'
-							>
-								rilxxlir.eth
-							</SelectItem>
+							{(!sortENSNames || sortENSNames.length === 0) && (
+								<SelectItem
+									className='hover:bg-blue-primary hover:font-medium hover:text-white hover:text-opacity-100'
+									value='rilxxlir.eth'
+								>
+									rilxxlir.eth
+								</SelectItem>
+							)}
 							{sortENSNames?.map(({ id, name }) => (
 								<SelectItem
 									className='hover:bg-blue-primary hover:font-medium hover:text-white hover:text-opacity-100'
